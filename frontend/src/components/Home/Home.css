@@ -1,0 +1,115 @@
+
+.home-container{
+    background: #ffc61a;
+    padding: 2rem 7%;
+    width: 100%;
+    /* height: 100vh; */
+    padding-top: 4rem;
+}
+.phone-number
+{
+    text-align: right;
+   
+}
+
+.phone-number h1
+{
+    display: inline-block;
+    font-size: 3rem;
+    border-bottom: 1px solid black;
+}
+.home-content{
+    padding-top: 4rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+   
+}
+
+.inner-content{
+    /*bu kullanıma bir bak*/
+    flex: 1 1 45rem;
+}
+
+.inner-content h3{
+    font-size: 31px;
+    padding: 2rem;
+}
+
+.inner-content h2{
+    font-size: 38px;
+}
+
+.inner-content p{
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
+}
+
+.inner-content .booknow{
+    display: inline-block;
+    margin: 1rem 0;
+    padding: 1rem 3rem;
+    color: black;
+    font-size: 1.5rem;
+    border:1px solid black;
+}
+.inner-content .booknow:hover{
+    padding: 1.5rem 3rem;
+    border: 1px solid white;
+    border-radius: 15px;
+    background: white;
+}
+
+.form-heading{
+    text-align: center;
+    background:black;
+    padding: 2rem 0;
+}
+
+.form-heading h1 {
+    color: white;
+}
+
+.contact-form{
+    width: 45rem;
+    background:white;
+    text-align: center;
+    padding: 2rem 1rem;
+    margin: 0 auto;
+}
+
+.form-fields input{
+    width: 200px;
+    padding: 2rem;
+    border: none;
+    border-bottom: 1px solid black;
+}
+.form-fields select{
+    width: 200px;
+    padding: 2rem;
+    border: none;
+    border-bottom: 1px solid black;
+}
+/* .form-fields input[type="date"]{
+    width: 200px;
+    padding: 2rem;
+    border: none;
+    border-bottom: 1px solid black;
+} */
+
+.contact-form input[type="submit"] {
+    background: black;
+    width: 100%;
+    display: inline-block;
+    padding: 2rem 0;
+    color: white;
+    font-size: 1.5rem;
+    
+}
+
+.submit {
+    padding-top: 2rem;
+   
+}

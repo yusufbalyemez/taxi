@@ -1,0 +1,76 @@
+.main-container{
+  background: url(images/background.png);
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100vh; 
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 2rem 7%;
+  align-items: center;
+}
+
+.header .navbar a {
+  font-size: 1.7rem;
+  margin-left: 1rem;
+  color: white;
+  text-decoration: none;
+}
+
+.header .navbar a:hover {
+  background: #ffc61a;
+  padding: 0.5rem 3rem;
+  border-radius: 15px;
+}
+
+#menu-bars{
+  color: white;
+  font-size: 2rem;
+  display: none;
+}
+
+.navbar.active{
+  top: 10%;
+}
+
+.background-text h2{
+  color: white;
+  font-size: 50px;
+  /* bu kısım ekranın ortasına getirmek için */
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+   /* bu kısım ekranın ortasına getirmek için */
+}
+
+.background-text h2 span{
+  color:#ffc61a;
+  
+}
+
+.taxi-image{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  animation: slideIn 1s ease-in-out; /* 2 saniyede sağa kaydırma animasyonu */
+  
+
+}
+@keyframes slideIn {
+  from {
+    left: -100%; /* Başlangıçta solda -100% konumunda */
+  }
+  to {
+    left: 50%; /* Sonunda sola hiç kaydırma yapılmamış gibi, yani normal konumunda */
+  }
+}
+.taxi-image img{
+  width: 100%;
+  margin-top: 260px;
+}
