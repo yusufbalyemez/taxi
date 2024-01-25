@@ -36,7 +36,7 @@ const Home = () => {
 
                         <div className="submit">
                             <input type="submit" value="Submit" />
-                            <a href="#" id="gonder">Submit</a>
+                            {/* <a href="#" id="gonder">Submit</a> */}
                         </div>
 
                     </div>
