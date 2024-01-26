@@ -1,0 +1,44 @@
+.testimonials{
+    background: url(images/testimonial\ back.png);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+}
+
+.testimonials .heading-test{
+    color:#ffc61a;
+    font-size: 38px;
+    padding: 2rem;
+    text-align: center;
+}
+
+.main-testimonials{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 2rem 7%;
+  
+}
+
+.inner-test{
+    flex: 1 1 45rem; /*şunun mantığını iyice çöz */
+    color: white;
+    background: black;
+    padding: 2rem;
+}
+
+.inner-test p {
+    font-size: 1.5rem;
+    padding: 2rem;
+}
+
+.clients{
+    display: flex;
+    align-items: center;
+}
+
+.clients h1{
+    color: #ffc61a;
+    margin-left: 1rem;
+}

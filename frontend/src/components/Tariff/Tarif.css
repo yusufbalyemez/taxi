@@ -1,0 +1,86 @@
+.main-tariff{
+    padding: 3rem 7%;
+    /* height: 100vh; */
+}
+.main-tariff h1{
+    font-size: 38px;
+    text-align: center;
+    padding-bottom: 6rem;
+}
+
+.main-tariff h1 span {
+    color: #ffc61a;
+}
+
+.inner-tarrif{
+    display: flex;
+    flex-wrap: wrap; /*taştığı zaman alta geçsin demek */
+    justify-content: center;
+    gap:15px; /*flex yapılarda aralarındaki boşluğu ayarlıyor.*/
+}
+
+.tarrif-container{
+    padding-top: 2rem;
+    flex: 1 1 250px;
+    text-align: center;
+    /*
+    flex: 1 1 250px; değerindeki açıklama şu şekildedir:
+
+flex-grow: İlk değerdir ve 1 olarak ayarlanmıştır. Bu, öğenin aynı flex kutusundaki diğer öğelerle karşılaştırıldığında ne kadar büyüyebileceğini belirler. Bu durumda, diğer öğelerle orantılı olarak büyüyebilir.
+
+flex-shrink: İkinci değerdir, aynı şekilde 1 olarak ayarlanmıştır. Bu, öğenin aynı flex kutusundaki diğer öğelerle karşılaştırıldığında ne kadar küçülebileceğini belirler. Burada, diğer öğelerle orantılı olarak küçülebilir.
+
+flex-basis: Üçüncü değerdir ve 250px olarak ayarlanmıştır. Bu, kalan alanın dağıtılmadan önce öğenin başlangıç boyutunu belirler. Bu durumda, başlangıç boyutu 250 pikseldir.
+
+Yani, örneğinizde, öğe, flex konteyner içindeki diğer öğelerle orantılı olarak büyüyebilir ve küçülebilir ve başlangıç boyutu 250 pikseldir. Bu değerler, bir flex konteynerin boyutu değiştiğinde kullanılabilir alanın nasıl dağıtılacağını kontrol etmek için kullanılır.
+    */
+}
+
+.tarrif-container img{
+    width: 60%;
+    margin-top: -50px;
+}
+
+.tarrif-container .inner-box h2{
+    font-size: 30px;
+}
+
+.tarrif-container .inner-box p{
+    font-size: 1.5rem;
+    padding: 2rem;
+}
+
+.tarrif-container .inner-box h3{
+    color: #ffc61a;
+    font-size: 2rem;
+    padding: 2rem;
+}
+
+.tarrif-container .inner-box a{
+    font-size: 1.5rem;
+    padding: 1rem 3rem;
+}
+
+.tarrif-container:nth-child(2){
+      background: #ffc61a;
+}
+
+.heading-yellow{
+    color: black;
+}
+.yellow-section{
+    color: black !important;
+}
+
+.tarrif-container a{
+    color: white;
+    padding: 1rem 3rem;
+    background: black;
+    display: inline-block; /*satır içinde block görünüm. Tüm satırı kaplamak yerine içindeki yazı kadar genişler. */
+    /* padding-top: 2rem; */
+    margin-top: 1rem;
+}
+
+
+
+
