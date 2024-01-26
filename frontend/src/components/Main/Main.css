@@ -12,6 +12,8 @@
   width: 100%;
   padding: 2rem 7%;
   align-items: center;
+  background-color: black;
+  z-index: 999;
 }
 
 .header .navbar a {
@@ -34,7 +36,7 @@
 }
 
 .navbar.active{
-  top: 10%;
+  top: 8%;
 }
 
 .background-text h2{
@@ -73,4 +75,73 @@
 .taxi-image img{
   width: 100%;
   margin-top: 260px;
+}
+@media (max-width:768px) {
+  #menu-bars{
+      
+    display: initial;
+}
+
+.navbar{
+    position: absolute;
+    top: -100%;
+    right: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(34, 34, 34);
+    z-index: 10;
+}
+.navbar a {
+    display: block;
+    font-size: 1.5rem;
+    background: #ffc61a;
+    color: white;
+    margin: 1rem;
+    padding: 1rem;
+   
+
+}
+
+.header{
+    padding: 2rem;
+    
+}
+
+
+.background-text h2 {
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 50px;
+  /* bu kısım ekranın ortasına getirmek için */
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* bu kısım ekranın ortasına getirmek için */
+  z-index: 1;
+}
+
+@keyframes slideIn {
+  from {
+      left: -100%;
+      /* Başlangıçta solda -100% konumunda */
+  }
+
+  to {
+      left: 40%;
+      /* Sonunda sola hiç kaydırma yapılmamış gibi, yani normal konumunda */
+  }
+}
+
+.taxi-image {
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  transform: translate(-30%, -30%);
+  animation: slideIn 1s ease-in-out;
+  /* 2 saniyede sağa kaydırma animasyonu */
+
+
+}
 }

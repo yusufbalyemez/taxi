@@ -61,7 +61,7 @@ Yani, örneğinizde, öğe, flex konteyner içindeki diğer öğelerle orantıl�
     padding: 1rem 3rem;
 }
 
-.tarrif-container:nth-child(2){
+.tarrif-container.yellow{
       background: #ffc61a;
 }
 
@@ -83,4 +83,10 @@ Yani, örneğinizde, öğe, flex konteyner içindeki diğer öğelerle orantıl�
 
 
 
+@media (max-width:768px) {
+    .tarrif-container img{
+        width: 60%;
+        margin-top: 0px;
+    }
 
+}

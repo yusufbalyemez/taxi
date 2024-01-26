@@ -1,29 +1,35 @@
-import React from "react"
+import React, { useState } from "react"
 import "./Main.css"
 const Main = () => {
+    const [menubarState, setMenubarState] = useState(false)
     return (
-        
-        <div className="main-container">
-            <div className="background-text">
-                <h2>book a <span>cab now</span></h2>
-            </div>
+        <React.StrictMode>
             <header className="header">
                 <a href="" id="logo">
-                    <img src="images/CabHUB.png" alt=""  />
+                    <img src="images/CabHUB.png" alt="" />
                 </a>
-                <nav className="navbar">
-                    <a href="index.php">Home</a>
+                <nav className={`navbar ${menubarState ? "active" : ""}`}>
+                    <a href="#">Home</a>
                     <a href="#">Gallery</a>
                     <a href="#">Blog</a>
                     <a href="#">About</a>
-                    <a href="contact.php">Contact</a>
+                    <a href="#">Contact</a>
                 </nav>
-                <a href="#" id="menu-bars" className="fas fa-bars"></a>
+                <a href="#" id="menu-bars" className={`fas fa-bars ${menubarState ? "fa-times" : ""}`} onClick={(e) => {
+                    e.preventDefault()
+                    setMenubarState(!menubarState)
+                }}></a>
             </header>
-            <div className="taxi-image">
-                <img src="images/carmain.png" alt=""/>
+            <div className="main-container">
+                <div className="background-text">
+                    <h2>book a <span>cab now</span></h2>
+                </div>
+
+                <div className="taxi-image">
+                    <img src="images/carmain.png" alt="" />
+                </div>
             </div>
-        </div>
+        </React.StrictMode>
     )
 }
 
