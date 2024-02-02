@@ -2,15 +2,15 @@ import "./FastBooking.css"
 
 const FastBooking = () => {
   return (
-    <div class="fast-booking">
-        <h1 class="fast-hading">we do best</h1>
+    <div className="fast-booking">
+        <h1 className="fast-hading">we do best</h1>
         <h2>than you wish</h2>
-        <div class="inner-fast">
-            <div class="booking-content">
-                <div class="icon-fast">
-                    <span><i class="fas fa-star"></i></span>
+        <div className="inner-fast">
+            <div className="booking-content">
+                <div className="icon-fast">
+                    <span><i className="fas fa-star"></i></span>
                 </div>
-                <div class="inner-fast-text">
+                <div className="inner-fast-text">
                     <h1>fast booking</h1>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero nulla, asperiores sit excepturi
                         quisquam accusantium dignissimos illum corrupti adipisci quidem! Optio, deserunt. Perferendis
@@ -19,11 +19,11 @@ const FastBooking = () => {
 
             </div>
 
-            <div class="booking-content">
-                <div class="icon-fast">
-                    <span><i class="fas fa-map-marker-alt"></i></span>
+            <div className="booking-content">
+                <div className="icon-fast">
+                    <span><i className="fas fa-map-marker-alt"></i></span>
                 </div>
-                <div class="inner-fast-text">
+                <div className="inner-fast-text">
                     <h1>fast booking</h1>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero nulla, asperiores sit excepturi
                         quisquam accusantium dignissimos illum corrupti adipisci quidem! Optio, deserunt. Perferendis
@@ -31,11 +31,11 @@ const FastBooking = () => {
                 </div>
             </div>
 
-            <div class="booking-content">
-                <div class="icon-fast">
-                    <span><i class="fas fa-map-marker-alt"></i></span>
+            <div className="booking-content">
+                <div className="icon-fast">
+                    <span><i className="fas fa-map-marker-alt"></i></span>
                 </div>
-                <div class="inner-fast-text">
+                <div className="inner-fast-text">
                     <h1>fast booking</h1>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero nulla, asperiores sit excepturi
                         quisquam accusantium dignissimos illum corrupti adipisci quidem! Optio, deserunt. Perferendis
@@ -44,11 +44,11 @@ const FastBooking = () => {
 
             </div>
 
-            <div class="booking-content">
-                <div class="icon-fast">
-                    <span><i class="fas fa-map-marker-alt"></i></span>
+            <div className="booking-content">
+                <div className="icon-fast">
+                    <span><i className="fas fa-map-marker-alt"></i></span>
                 </div>
-                <div class="inner-fast-text">
+                <div className="inner-fast-text">
                     <h1>fast booking</h1>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero nulla, asperiores sit excepturi
                         quisquam accusantium dignissimos illum corrupti adipisci quidem! Optio, deserunt. Perferendis
