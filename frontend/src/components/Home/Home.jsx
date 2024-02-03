@@ -9,7 +9,25 @@ const Home = () => {
     const [date, setDate] = useState('2023-01-01');
     const [start, setStart] = useState('');
     const [end, setEnd] = useState('');
+    const [isSubmitSuccessful, setIsSubmitSuccessful] = useState(false); // Gönderim başarılı mı kontrolü için yeni state
 
+    const wpNo = "905422072498";
+    const wpMsgText = `
+    Hello. I want to make a reservation ya.
+    (Name:  ...
+    When:  ...
+    Start: ...
+    End:   ...)
+    `;
+
+    const handleConfirmSubmit = (event) => {
+        event.preventDefault();
+        const isOk = window.confirm("Kayıt işleminizi onaylıyor musunuz?");
+        if (isOk) {
+          handleSubmit(event);
+        }
+      };
+       
     // Form gönderildiğinde çalışacak fonksiyon
     const handleSubmit = async (event) => {
         event.preventDefault(); // Formun varsayılan gönderme davranışını engelle
@@ -39,6 +57,8 @@ const Home = () => {
             }
 
             const responseData = await response.json();
+            setIsSubmitSuccessful(true); // Gönderim başarılı olduğunda bu değeri true yap
+
             console.log('Booking successful:', responseData);
             // Burada başarılı olduğunu bildiren bir mesaj gösterebilirsiniz.
 
@@ -49,8 +69,11 @@ const Home = () => {
             setDate(''); // Tarih için istediğiniz varsayılan değeri ayarlayın
             setStart('');
             setEnd('');
+
+            
         } catch (error) {
             console.error('Error:', error);
+            setIsSubmitSuccessful(false); // Gönderim başarısız olduğunda bu değeri false yap
             // Burada hata olduğunu bildiren bir mesaj gösterebilirsiniz.
         }
     };
@@ -62,10 +85,12 @@ const Home = () => {
                     <h2>trusted cab service in country</h2>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis assumenda, non tempora maxime molestias commodi dolor ipsa sint iusto quod deserunt consectetur, ut nihil sequi, molestiae id cupiditate recusandae distinctio.</p>
                     <a href="#" className="booknow">book now</a>
+                    <a href={`https://wa.me/${wpNo}?text=${wpMsgText}`} className="booknow" target="_blank">Whatsapp</a>
+
                 </div>
 
                 <div className="inner-content">
-                    <form onSubmit={handleSubmit}> {/* Form gönderme işleyicisini ekle */}
+                    <form onSubmit={handleConfirmSubmit}> {/* Form gönderme işleyicisini ekle */}
                         <div className="contact-form">
                             <div className="form-heading">
                                 <h1>book a cab</h1>
@@ -90,6 +115,8 @@ const Home = () => {
                                 <input type="submit" value="Submit" />
                                 {/* <a href="#" id="gonder">Submit</a> */}
                             </div>
+                           {/* Başarı mesajı */}
+                           {isSubmitSuccessful && <p className="success-message">Booking successful.</p>}
                         </div>
                     </form>
                 </div>
