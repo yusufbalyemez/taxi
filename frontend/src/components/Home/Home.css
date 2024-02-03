@@ -73,11 +73,21 @@
 }
 
 .contact-form{
+    display: flex;
+    flex-direction: column;
     width: 37rem;
     background:white;
     text-align: center;
     padding: 2rem 1rem;
     margin: 0 auto;
+
+}
+
+.form-fields{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .form-fields input{
@@ -92,6 +102,31 @@
     border: none;
     border-bottom: 1px solid black;
 }
+
+/* Önceden tanımlanan stil kurallarınız */
+
+/* Ant Design Select için özel stil */
+.select-custom {
+    width: 200px !important ; /* Formun genişliğini alması için */
+    padding: 1rem 2rem !important ; /* Input elemanlarınızın paddingi ile aynı olmalı */
+    border-radius: 0 !important ; /* Yuvarlak köşeleri kaldır */
+    border: none !important ; /* Kenarlık yok */
+    border-bottom: 1px solid black !important ; /* Alt kenarlık */
+    height: 100% !important ;
+  }
+  
+  /* Select açılır menüsü için genişlik ayarı */
+  .select-custom .ant-select-dropdown {
+    width: calc(100% - 4rem); /* Ana Select genişliği ile aynı genişlik */
+  }
+  
+  /* Select açılır menüsü elemanları için stil ayarı */
+  .select-custom .ant-select-dropdown .ant-select-item {
+    padding: 1rem 5rem; /* Açılır menüdeki elemanların paddingi */
+  }
+  
+  /* Diğer stil kurallarınız */
+  
 .form-fields input[type="date"]{
     width: 200px;
     padding: 2rem;

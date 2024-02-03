@@ -5,7 +5,7 @@
     padding: 2rem 7%;
     align-items: center;
     background-color: black;
-    z-index: 999;
+    z-index: 999; 
   }
   
   .header .navbar a {
@@ -32,7 +32,6 @@
     display: block;
     top: 8%;
   }
-
 
   @media (max-width:768px) {
     #menu-bars{

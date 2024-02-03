@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Select } from 'antd';
 import "./Home.css";
 
 const Home = () => {
@@ -24,10 +25,10 @@ const Home = () => {
         event.preventDefault();
         const isOk = window.confirm("Kayıt işleminizi onaylıyor musunuz?");
         if (isOk) {
-          handleSubmit(event);
+            handleSubmit(event);
         }
-      };
-       
+    };
+
     // Form gönderildiğinde çalışacak fonksiyon
     const handleSubmit = async (event) => {
         event.preventDefault(); // Formun varsayılan gönderme davranışını engelle
@@ -70,7 +71,7 @@ const Home = () => {
             setStart('');
             setEnd('');
 
-            
+
         } catch (error) {
             console.error('Error:', error);
             setIsSubmitSuccessful(false); // Gönderim başarısız olduğunda bu değeri false yap
@@ -96,9 +97,24 @@ const Home = () => {
                                 <h1>book a cab</h1>
                             </div>
                             <div className="form-fields">
-                                <input type="text" placeholder="name" name="name" value={name} onChange={(e) => setName(e.target.value)} />
-                                <input type="text" placeholder="phone" name="phone" value={phone} onChange={(e) => setPhone(e.target.value)} />
-                                <select name="hours" value={hours} onChange={(e) => setHours(e.target.options[e.target.selectedIndex].text)}>
+                                <input type="text" placeholder="name" name="name" value={name} onChange={(e) => setName(e.target.value)} required />
+                                <input type="text" placeholder="phone" name="phone" value={phone} onChange={(e) => setPhone(e.target.value)} required />
+
+                                {/* <Select
+                                    defaultValue="0"
+                                    onChange={(e) => setHours(e.target.options[e.target.selectedIndex].text)}
+                                    className="select-custom "
+                                    // dropdownStyle={{ width: '100%' }} // Açılır menü için stil
+                                >
+                                    <Option value="0">When</Option>
+                                    <Option value="1">8:00</Option>
+                                    <Option value="2">8:30</Option>
+                                    <Option value="3">9:00</Option>
+      // ... diğer seçenekleriniz
+                                </Select> */}
+
+
+                                <select name="hours" value={hours} onChange={(e) => setHours(e.target.options[e.target.selectedIndex].text)} >
                                     <option value="0">When</option>
                                     <option value="1">8:00</option>
                                     <option value="2">8:30</option>
@@ -107,16 +123,46 @@ const Home = () => {
                                     <option value="5">10:00</option>
                                     <option value="6">10:30</option>
                                 </select>
-                                <input type="date" placeholder="date" name="date" value={date} onChange={(e) => setDate(e.target.value)} />
-                                <input type="text" placeholder="start" name="start" value={start} onChange={(e) => setStart(e.target.value)} />
-                                <input type="text" placeholder="ended" name="end" value={end} onChange={(e) => setEnd(e.target.value)} />
+
+
+                                {/* <Select 
+                                        className='custom-select'
+                                        defaultValue="lucy"
+                                        style={{
+                                            width: 120,
+                                        }}
+                                        onChange={(e) => setHours(e.target.options[e.target.selectedIndex].text)}
+                                        options={[
+                                            {
+                                                value: 'jack',
+                                                label: 'Jack',
+                                            },
+                                            {
+                                                value: 'lucy',
+                                                label: 'Lucy',
+                                            },
+                                            {
+                                                value: 'Yiminghe',
+                                                label: 'yiminghe',
+                                            },
+                                            {
+                                                value: 'disabled',
+                                                label: 'Disabled',
+                                                disabled: true,
+                                            },
+                                        ]}
+                                    ></Select><br></br> */}
+
+                                <input type="date" placeholder="date" name="date" value={date} onChange={(e) => setDate(e.target.value)} required />
+                                <input type="text" placeholder="start" name="start" value={start} onChange={(e) => setStart(e.target.value)} required />
+                                <input type="text" placeholder="ended" name="end" value={end} onChange={(e) => setEnd(e.target.value)} required />
                             </div>
                             <div className="submit">
                                 <input type="submit" value="Submit" />
                                 {/* <a href="#" id="gonder">Submit</a> */}
                             </div>
-                           {/* Başarı mesajı */}
-                           {isSubmitSuccessful && <p className="success-message">Booking successful.</p>}
+                            {/* Başarı mesajı */}
+                            {isSubmitSuccessful && <p className="success-message">Booking successful.</p>}
                         </div>
                     </form>
                 </div>
