@@ -4,7 +4,9 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const dotenv = require("dotenv");//env için gerekli
 const mongoose = require('mongoose');
-const cabBookingRoutes = require('./routes/cabBookings');
+const cabBookingRoutes = require('./routes/CabBookingsRoute.js');
+const UserRoutes = require('./routes/UserRoute.js');
+
 
 //env için gerekli
 dotenv.config(); 
@@ -21,8 +23,13 @@ if(db){
   console.log("MongoDB connection failed...")
 }
 
-// Routes
-app.use('/api', cabBookingRoutes);
+
+// Route tanımları
+app.use('/api/bookings', cabBookingRoutes); // Rezervasyonlar için
+app.use('/api/register', UserRoutes); // Kuıllanıcılar için
+
+
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

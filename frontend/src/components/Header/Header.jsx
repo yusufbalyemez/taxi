@@ -13,9 +13,11 @@ const Header = () => {
             <nav className={`navbar ${menubarState ? "active" : ""}`}>
                 <Link to="/">Home</Link>
                 <a href="#">Gallery</a>
-                <a href="#">Blog</a>
-                <a href="#">About</a>
+                {/* <a href="#">Blog</a> */}
+                {/* <a href="#">About</a> */}
                 <Link to="/contact">Contact</Link>
+                <Link to="/register">Register</Link>
+                <a href="/admin">Login</a>
             </nav>
 
             <a href="#" id="menu-bars" className={`fas fa-bars ${menubarState ? "fa-times" : ""}`} onClick={(e) => {
