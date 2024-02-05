@@ -26,7 +26,7 @@ if(db){
 
 // Route tanımları
 app.use('/api/bookings', cabBookingRoutes); // Rezervasyonlar için
-app.use('/api/register', UserRoutes); // Kuıllanıcılar için
+app.use('/api/auth', UserRoutes); // Kuıllanıcılar için
 
 
 

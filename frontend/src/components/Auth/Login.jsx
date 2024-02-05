@@ -38,7 +38,8 @@ const Login = () => {
                     // navigate("/admin") //navigatele yükleyince react-router-dom özelliğini almıyor path name gelmiyor o yüzden aşağıdaki gibi yapmak lazım.
                     window.location.href = "/admin"
                 } else {
-                    navigate("/") // yönlendirme kodu 
+                    // navigate("/") // yönlendirme kodu 
+                    window.location.href = "/"
                 }
             } else {
                 message.error("Giriş başarısız.")

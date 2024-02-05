@@ -1,5 +1,68 @@
 // controllers/CabUserController.js
 const CabUser = require('../models/User.js');
+const bcrypt = require('bcrypt');
+
+//Kullanıcı Oluşturma (Create - Register)
+exports.AddUser = async (req,res)=>{
+  try {
+      //Frontendden gelen her bir bilgiyi bu değişkenlere al
+      const {name, email, password,phone} = req.body;
+      console.log(req.body)
+      const existingUser = await CabUser.findOne({email}); //email User tablosunda hali hazırda kayıtlı var bak
+
+      //Eğer aynı email varsa
+      if(existingUser){
+          return res.status(400).json({error:"Email Address is already registered"})
+      }
+
+      const hashedPassword = await  bcrypt.hash(password,10)
+
+      const newUser = await new CabUser({
+          name,
+          email,
+          password: hashedPassword,
+          phone
+      });
+      await newUser.save(); //bunu unutma veri tabanına bu kayıt ediyor.
+      res.status(201).json(newUser) // yeni kullanıcıyı kaydettiği bilgisini gönder
+  } catch (error) {
+      res.status(500).json({error: "Server error."})
+      console.log(error)
+  }
+}
+
+//Kullanıcı Girişi (Login)
+
+exports.Login = async (req,res)=>{
+  try {
+      const {email,password} = req.body; //buradaki bilgiler html kısmından gelecek
+
+      const user = await CabUser.findOne({email}) //arama ve bulma işlemi
+
+      //Eğer kullanıcı yoksa şöyle bir kod döndür
+      if(!user){
+          return res.status(401).json({error: "Invalid email or password."})
+      }
+
+      //Veritabanında hashlenmiş kodu çevirme 
+      const isPasswordValid = await bcrypt.compare(password,user.password);
+
+      if(!isPasswordValid){
+          return res.status(401).json({error: "Invalid password"});
+      }
+
+      res.status(200).json({
+          id: user._id,
+          email: user.email,
+          username: user.username,
+          role: user.role
+          // avatar: user.avatar
+      })
+  } catch (error) {
+      console.log(error);
+      res.status(500).json({error: "Server error."})
+  }
+}
 
 exports.createUser = async (req, res) => {
   try {

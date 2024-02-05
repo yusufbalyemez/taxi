@@ -1,52 +1,33 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import "./Home.css";
 
 const Home = () => {
-
-    const now = new Date();
-    const currentHour = now.getHours();
-    const currentMinute = now.getMinutes();
-
-    // Bugünün tarihini YYYY-MM-DD formatında döndüren fonksiyon
-    const getTodayDate = () => {
-        const today = new Date();
-        const year = today.getFullYear();
-        const month = (`0${today.getMonth() + 1}`).slice(-2);
-        const day = (`0${today.getDate()}`).slice(-2);
-        return `${year}-${month}-${day}`;
-    };
-
-    const [hours, setHours] = useState('');
-    const [date, setDate] = useState(getTodayDate());
-
-    // Seçilen tarihe ve şu anki zamana bağlı olarak saat seçeneklerini filtreleyen fonksiyon
-    const filterTimeOptions = () => {
+    
+    // Saat seçeneklerini oluşturacak fonksiyon
+    const createTimeOptions = () => {
         const options = [];
-        const isToday = date === getTodayDate();
-
         for (let hour = 8; hour <= 23; hour++) {
-            // Eğer bugün seçiliyse ve saat şu anki saatten büyükse veya
-            // şu anki saat ve dakika 30'dan azsa ve saat şu anki saatse
-            if (!isToday || hour > currentHour || (hour === currentHour && currentMinute < 30)) {
-                options.push(`${hour}:00`, `${hour}:30`);
-            }
+            options.push(`${hour}:00`, `${hour}:30`);
         }
-
         return options;
     };
 
-    // Kullanıcı tarih seçimini değiştirdiğinde saat seçeneklerini güncellemek için
-    useEffect(() => {
-        setHours(''); // Tarih değiştiğinde saat seçimini sıfırla
-    }, [date]);
+    // Saat seçeneklerini bir dizi olarak oluştur
+    const timeOptions = createTimeOptions();
 
-    const timeOptions = filterTimeOptions();
-
+    // Use a function to get today's date in YYYY-MM-DD format for the initial state
+    const getTodayDate = () => {
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = (`0${today.getMonth() + 1}`).slice(-2); // Add leading zero, if necessary
+        const day = (`0${today.getDate()}`).slice(-2); // Add leading zero, if necessary
+        return `${year}-${month}-${day}`;
+    };
 
     // Form verileri için state hookları
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
-    const [inputHours, setInputHours] = useState('0');
+    const [hours, setHours] = useState('0');
     const [inputDate, setInputDate] = useState(getTodayDate());
     const [start, setStart] = useState('');
     const [end, setEnd] = useState('');
@@ -77,7 +58,7 @@ const Home = () => {
         const bookingData = {
             name,
             phone,
-            hours: inputHours,
+            hours,
             date: inputDate,
             start,
             end
@@ -106,7 +87,7 @@ const Home = () => {
             // Form input alanlarını temizle
             setName('');
             setPhone('');
-            setInputHours('0'); // Varsayılan değeri '0' olarak ayarla
+            setHours('0'); // Varsayılan değeri '0' olarak ayarla
             setInputDate(''); // Tarih için istediğiniz varsayılan değeri ayarlayın
             setStart('');
             setEnd('');
@@ -140,14 +121,14 @@ const Home = () => {
                                 <input type="text" placeholder="name" name="name" value={name} onChange={(e) => setName(e.target.value)} required />
                                 <input type="text" placeholder="phone" name="phone" value={phone} onChange={(e) => setPhone(e.target.value)} required />
 
-                                <select name="hours" value={hours} onChange={(e) => setHours(e.target.value)}>
-                                    <option value="" disabled selected >When</option>
+                                <select name="hours" value={hours} onChange={(e) => setHours(e.target.options[e.target.selectedIndex].text)} >
+                                    <option value="0">When</option>
                                     {timeOptions.map((time, index) => (
-                                        <option key={index} value={time}>{time}</option>
+                                        <option key={index} value={index + 1}>{time}</option>
                                     ))}
                                 </select>
 
-                                <input type="date" name="date" value={date} min={getTodayDate()} onChange={(e) => setDate(e.target.value)} required />
+                                <input type="date" placeholder="date" name="date" value={inputDate} min={getTodayDate()} onChange={(e) => setInputDate(e.target.value)} required />
                                 <input type="text" placeholder="start" name="start" value={start} onChange={(e) => setStart(e.target.value)} required />
                                 <input type="text" placeholder="ended" name="end" value={end} onChange={(e) => setEnd(e.target.value)} required />
                             </div>

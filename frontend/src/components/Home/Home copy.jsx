@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import { Select } from 'antd';
 import "./Home.css";
 
 const Home = () => {
+      // Şu anki saat ve dakikayı al
+      const now = new Date();
+      const currentHour = now.getHours();
+      const currentMinute = now.getMinutes();
 
-    const now = new Date();
-    const currentHour = now.getHours();
-    const currentMinute = now.getMinutes();
-
-    // Bugünün tarihini YYYY-MM-DD formatında döndüren fonksiyon
-    const getTodayDate = () => {
+     // Bugünün tarihini YYYY-MM-DD formatında döndüren fonksiyon
+     const getTodayDate = () => {
         const today = new Date();
         const year = today.getFullYear();
         const month = (`0${today.getMonth() + 1}`).slice(-2);
@@ -16,13 +17,15 @@ const Home = () => {
         return `${year}-${month}-${day}`;
     };
 
-    const [hours, setHours] = useState('');
-    const [date, setDate] = useState(getTodayDate());
 
+    const [_hours, _setHours] = useState('');
+    const [_date, _setDate] = useState(getTodayDate());
+
+   
     // Seçilen tarihe ve şu anki zamana bağlı olarak saat seçeneklerini filtreleyen fonksiyon
     const filterTimeOptions = () => {
         const options = [];
-        const isToday = date === getTodayDate();
+        const isToday = _date === getTodayDate();
 
         for (let hour = 8; hour <= 23; hour++) {
             // Eğer bugün seçiliyse ve saat şu anki saatten büyükse veya
@@ -34,20 +37,19 @@ const Home = () => {
 
         return options;
     };
-
+ 
     // Kullanıcı tarih seçimini değiştirdiğinde saat seçeneklerini güncellemek için
     useEffect(() => {
         setHours(''); // Tarih değiştiğinde saat seçimini sıfırla
-    }, [date]);
+    }, [_date]);
 
     const timeOptions = filterTimeOptions();
-
 
     // Form verileri için state hookları
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
-    const [inputHours, setInputHours] = useState('0');
-    const [inputDate, setInputDate] = useState(getTodayDate());
+    const [hours, setHours] = useState('0');
+    const [date, setDate] = useState(getTodayDate());
     const [start, setStart] = useState('');
     const [end, setEnd] = useState('');
     const [isSubmitSuccessful, setIsSubmitSuccessful] = useState(false); // Gönderim başarılı mı kontrolü için yeni state
@@ -77,8 +79,8 @@ const Home = () => {
         const bookingData = {
             name,
             phone,
-            hours: inputHours,
-            date: inputDate,
+            hours,
+            date,
             start,
             end
         };
@@ -106,8 +108,8 @@ const Home = () => {
             // Form input alanlarını temizle
             setName('');
             setPhone('');
-            setInputHours('0'); // Varsayılan değeri '0' olarak ayarla
-            setInputDate(''); // Tarih için istediğiniz varsayılan değeri ayarlayın
+            setHours('0'); // Varsayılan değeri '0' olarak ayarla
+            setDate(''); // Tarih için istediğiniz varsayılan değeri ayarlayın
             setStart('');
             setEnd('');
 
@@ -141,7 +143,7 @@ const Home = () => {
                                 <input type="text" placeholder="phone" name="phone" value={phone} onChange={(e) => setPhone(e.target.value)} required />
 
                                 <select name="hours" value={hours} onChange={(e) => setHours(e.target.value)}>
-                                    <option value="" disabled selected >When</option>
+                                    <option value="">When</option>
                                     {timeOptions.map((time, index) => (
                                         <option key={index} value={time}>{time}</option>
                                     ))}
