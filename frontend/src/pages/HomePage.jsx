@@ -7,13 +7,13 @@ import Testimonials from '../components/Testimonials/Testimonials'
 
 const HomePage = () => {
   return (
-    <React.StrictMode>
-        <Main/>
-        <Home/>
-        <Tariff/>
-        <FastBooking/>
-        <Testimonials/>
-    </React.StrictMode>
+    <>
+      <Main />
+      <Home />
+      <Tariff />
+      <FastBooking />
+      <Testimonials />
+    </>
   )
 }
 

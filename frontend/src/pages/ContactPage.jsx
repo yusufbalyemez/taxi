@@ -7,11 +7,11 @@ import GoogleMap from '../components/GoogleMap/GoogleMap'
 
 const ContactPage = () => {
   return (
-    <React.StrictMode>
-        <Home/>
-        <Tariff/>
-        <GoogleMap/>        
-    </React.StrictMode>
+    <>
+      <Home />
+      <Tariff />
+      <GoogleMap />
+    </>
   )
 }
 

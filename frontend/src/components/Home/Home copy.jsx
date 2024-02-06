@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Select } from 'antd';
+import { message } from 'antd';
 import "./Home.css";
 
 const Home = () => {
-      // Şu anki saat ve dakikayı al
-      const now = new Date();
-      const currentHour = now.getHours();
-      const currentMinute = now.getMinutes();
+    const [availableHours, setAvailableHours] = useState([]);
 
-     // Bugünün tarihini YYYY-MM-DD formatında döndüren fonksiyon
-     const getTodayDate = () => {
+    // Bugünün tarihini YYYY-MM-DD formatında döndüren fonksiyon
+    const getTodayDate = () => {
         const today = new Date();
         const year = today.getFullYear();
         const month = (`0${today.getMonth() + 1}`).slice(-2);
@@ -18,41 +15,21 @@ const Home = () => {
     };
 
 
-    const [_hours, _setHours] = useState('');
-    const [_date, _setDate] = useState(getTodayDate());
 
-   
-    // Seçilen tarihe ve şu anki zamana bağlı olarak saat seçeneklerini filtreleyen fonksiyon
-    const filterTimeOptions = () => {
-        const options = [];
-        const isToday = _date === getTodayDate();
-
-        for (let hour = 8; hour <= 23; hour++) {
-            // Eğer bugün seçiliyse ve saat şu anki saatten büyükse veya
-            // şu anki saat ve dakika 30'dan azsa ve saat şu anki saatse
-            if (!isToday || hour > currentHour || (hour === currentHour && currentMinute < 30)) {
-                options.push(`${hour}:00`, `${hour}:30`);
-            }
-        }
-
-        return options;
-    };
- 
-    // Kullanıcı tarih seçimini değiştirdiğinde saat seçeneklerini güncellemek için
-    useEffect(() => {
-        setHours(''); // Tarih değiştiğinde saat seçimini sıfırla
-    }, [_date]);
-
-    const timeOptions = filterTimeOptions();
-
-    // Form verileri için state hookları
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
-    const [hours, setHours] = useState('0');
-    const [date, setDate] = useState(getTodayDate());
+    const [inputHours, setInputHours] = useState('');
+    const [inputDate, setInputDate] = useState(getTodayDate());
     const [start, setStart] = useState('');
     const [end, setEnd] = useState('');
-    const [isSubmitSuccessful, setIsSubmitSuccessful] = useState(false); // Gönderim başarılı mı kontrolü için yeni state
+    const [isSubmitSuccessful, setIsSubmitSuccessful] = useState(false);
+
+    // isSubmitSuccessful değeri değiştiğinde başarı mesajını göstermek için useEffect kullanımı
+    useEffect(() => {
+        if (isSubmitSuccessful) {
+            message.success("Rezervasyon işlemi yapıldı.");
+        }
+    }, [isSubmitSuccessful])
 
     const wpNo = "905422072498";
     const wpMsgText = `
@@ -62,6 +39,54 @@ const Home = () => {
     Start: ...
     End:   ...)
     `;
+
+    // Saatleri otomatik olarak oluşturan fonksiyon
+    const generateHours = () => {
+        const times = [];
+        for (let i = 8; i < 24; i++) {
+            times.push(`${i.toString().padStart(2, '0')}:00`);
+            times.push(`${i.toString().padStart(2, '0')}:30`);
+        }
+        times.push("00:00", "00:30", "01:00", "01:30", "02:00");
+        return times;
+    };
+
+    const hours = generateHours();
+
+
+    useEffect(() => {
+        const fetchBookings = async () => {
+            try {
+                const response = await fetch('http://localhost:5000/api/bookings');
+                if (!response.ok) throw new Error('Network response was not ok');
+                const bookings = await response.json();
+
+                const bookedHoursForDate = bookings
+                    .filter(booking => booking.date === inputDate)
+                    .map(booking => booking.hours);
+
+                const hours = generateHours().map(time => ({
+                    time,
+                    disabled: bookedHoursForDate.includes(time),
+                }));
+
+                setAvailableHours(hours);
+            } catch (error) {
+                console.error('Fetch error:', error);
+            }
+        };
+
+        fetchBookings();
+    }, [inputDate]);
+
+
+    // // Kullanıcı tarih seçimini değiştirdiğinde saat seçeneklerini güncellemek için
+    // useEffect(() => {
+    //     // setInputHours(''); // Tarih değiştiğinde saat seçimini sıfırla
+    //     setInputDate(inputDate);
+    //     setInputHours(inputHours);
+    //     console.log(inputDate + " - " + inputHours)
+    // }, [inputDate, inputHours]);
 
     const handleConfirmSubmit = (event) => {
         event.preventDefault();
@@ -76,24 +101,27 @@ const Home = () => {
         event.preventDefault(); // Formun varsayılan gönderme davranışını engelle
 
         // Form verilerini bir nesne olarak topla
+
         const bookingData = {
             name,
             phone,
-            hours,
-            date,
+            hours: inputHours,
+            date: inputDate,
             start,
             end
         };
 
         // Fetch API ile POST isteği yap
         try {
-            const response = await fetch('http://localhost:5000/api/bookings', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(bookingData),
-            });
+            const response = await fetch('http://localhost:5000/api/bookings',
+                {
+                    method: 'POST',
+                    headers:
+                    {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(bookingData),
+                });
 
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -108,8 +136,8 @@ const Home = () => {
             // Form input alanlarını temizle
             setName('');
             setPhone('');
-            setHours('0'); // Varsayılan değeri '0' olarak ayarla
-            setDate(''); // Tarih için istediğiniz varsayılan değeri ayarlayın
+            setInputHours('0'); // Varsayılan değeri '0' olarak ayarla
+            setInputDate(''); // Tarih için istediğiniz varsayılan değeri ayarlayın
             setStart('');
             setEnd('');
 
@@ -141,23 +169,21 @@ const Home = () => {
                             <div className="form-fields">
                                 <input type="text" placeholder="name" name="name" value={name} onChange={(e) => setName(e.target.value)} required />
                                 <input type="text" placeholder="phone" name="phone" value={phone} onChange={(e) => setPhone(e.target.value)} required />
+                                <input type="date" name="date" value={inputDate} min={getTodayDate()} onChange={(e) => setInputDate(e.target.value)} required />
 
-                                <select name="hours" value={hours} onChange={(e) => setHours(e.target.value)}>
-                                    <option value="">When</option>
-                                    {timeOptions.map((time, index) => (
-                                        <option key={index} value={time}>{time}</option>
+                                <select name="hours" value={inputHours} onChange={(e) => setInputHours(e.target.value)}>
+                                    <option value="" disabled>When</option>
+                                    {availableHours.map(({ time, disabled }, index) => (
+                                        <option key={index} value={time} disabled={disabled}>{time}</option>
                                     ))}
                                 </select>
 
-                                <input type="date" name="date" value={date} min={getTodayDate()} onChange={(e) => setDate(e.target.value)} required />
                                 <input type="text" placeholder="start" name="start" value={start} onChange={(e) => setStart(e.target.value)} required />
                                 <input type="text" placeholder="ended" name="end" value={end} onChange={(e) => setEnd(e.target.value)} required />
                             </div>
                             <div className="submit">
                                 <input type="submit" value="Submit" />
                             </div>
-                            {/* Başarı mesajı */}
-                            {isSubmitSuccessful && <p className="success-message">Booking successful.</p>}
                         </div>
                     </form>
                 </div>

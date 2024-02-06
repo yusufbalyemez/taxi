@@ -6,9 +6,9 @@
   padding:0;
   box-sizing: border-box;  /* hesaplama yapılırken içeriğin iç ve kenarlıkları da hesaba katılarak hesaplatıyormuş. responsive için yapılması gerekliymiş */
   /*transition: .2s linear; /* renk geçişleri için kullanılıyormuş. linear de sabit hızmış (Bu çok güzel özellikmiş)*/
-  /* text-transform: capitalize;  */ /*inputtaki yazıların baş harflerini büyütür.*/
+  text-transform: capitalize;   /*inputtaki yazıların baş harflerini büyütür.*/
   text-decoration: none;
-
+  font-family: "Jost", sans-serif;
 }
 
 
@@ -36,14 +36,6 @@ html{
   -moz-osx-font-smoothing: grayscale; */
 }
 
-
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Jost", sans-serif;
-}
 
 body {
   overflow-x: hidden;
@@ -75,6 +67,7 @@ p {
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
+
 }
 
 .logo {
