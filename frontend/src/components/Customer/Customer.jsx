@@ -49,9 +49,9 @@ const Customer = () => {
   // status değerlerini karşılık gelen metinlere çeviren bir fonksiyon
   const getStatusText = (statusNumber) => {
     const statusMap = {
-      '0': 'Denied',
-      '1': 'Waiting For Approval',
-      '2': 'Approved'
+      'denied': 'Denied',
+      'waiting': 'Waiting For Approval',
+      'approved': 'Approved'
     };
     return statusMap[statusNumber] || 'Unknown Status';
   };
@@ -59,9 +59,9 @@ const Customer = () => {
   // status'a göre CSS sınıfını döndüren fonksiyon
   const getStatusClass = (statusNumber) => {
     const statusClassMap = {
-      '0': 'status-denied',
-      '1': 'status-waiting',
-      '2': 'status-approved'
+      'denied': 'status-denied',
+      'waiting': 'status-waiting',
+      'approved': 'status-approved'
     };
     return statusClassMap[statusNumber] || '';
   };

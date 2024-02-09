@@ -11,8 +11,8 @@ const cabBookingSchema = new mongoose.Schema({
   status: { 
     type: String, 
     required: true, 
-    enum: ['1', '2', '0'],
-    default: '1' // Varsayılan değer olarak "Onay Bekliyor" atandı.
+    enum: ['waiting', 'denied', 'approved'],
+    default: 'waiting' // Varsayılan değer olarak "Onay Bekliyor" atandı.
   }
 
 }, {

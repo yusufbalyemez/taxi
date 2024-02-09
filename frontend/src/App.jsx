@@ -6,6 +6,7 @@ import AuthPage from './pages/AuthPage'
 import Customer from './components/Customer/Customer'
 import Deneme from './pages/Deneme'
 import './App.css'
+import Yunus from './components/Customer/Yunus'
 
 
 
@@ -19,6 +20,7 @@ function App() {
       <Route path='/auth' element={<AuthPage/>}/>
       <Route path="/bookings/:userId" element={<Customer/>} />
       <Route path="/example" element={<Deneme/>}/>
+      <Route path="/yunus"  element={<Yunus/>}/>
     </Routes>
   )
 }

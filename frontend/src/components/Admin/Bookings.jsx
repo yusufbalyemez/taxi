@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Descriptions, Popconfirm, Button, Card } from 'antd';
-import { DeleteOutlined, CheckCircleOutlined,CloseCircleOutlined } from '@ant-design/icons';
+import { DeleteOutlined, CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons';
 
 const Bookings = () => {
   const [bookings, setBookings] = useState([]);
@@ -80,22 +80,26 @@ const Bookings = () => {
                 <Button type="danger" icon={<DeleteOutlined />} />
               </Popconfirm>
             </Descriptions.Item>
-            <Button
-                type="primary"
-                icon={<CheckCircleOutlined />}
-                onClick={() => updateBookingStatus(booking._id, '2')}
-                style={{ marginLeft: 8 }}
-              >
-                Kabul Et
-              </Button>
-              <Button
-                type="default"
-                icon={<CloseCircleOutlined />}
-                onClick={() => updateBookingStatus(booking._id, '0')}
-                style={{ marginLeft: 8 }}
-              >
-                Reddet
-              </Button>
+            <Descriptions.Item label="Action">
+              <Popconfirm title="Emin misiniz?">
+                <Button
+                  type="primary"
+                  icon={<CheckCircleOutlined />}
+                  onClick={() => updateBookingStatus(booking._id, '2')}
+                  style={{ marginLeft: 8 }}
+                >
+                  Kabul Et
+                </Button>
+                <Button
+                  type="default"
+                  icon={<CloseCircleOutlined />}
+                  onClick={() => updateBookingStatus(booking._id, '0')}
+                  style={{ marginLeft: 8 }}
+                >
+                  Reddet
+                </Button>
+              </Popconfirm>
+            </Descriptions.Item>
           </Descriptions>
         </Card>
       ))}
