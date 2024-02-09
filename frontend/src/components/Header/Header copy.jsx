@@ -1,9 +1,35 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import "./Header.css"
+import { useNavigate } from "react-router-dom";
+import { message } from 'antd';
+import "./Header.css";
+
 
 const Header = () => {
-    const [menubarState, setMenubarState] = useState(false)
+    const [menubarState, setMenubarState] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    const navigate = useNavigate();
+
+    // Check for user in localStorage when component mounts
+    useEffect(() => {
+        const user = localStorage.getItem('user');
+        setIsLoggedIn(!!user);
+    }, []);
+
+    const handleLogout = () => {
+        handleNavItemClick();
+        localStorage.removeItem('user');
+        setIsLoggedIn(false);
+        // Redirect or do additional cleanup here if needed
+        navigate("/")
+        message.success("Çıkış yapıldı.")
+    };
+
+    const handleNavItemClick = () => {
+        setMenubarState(false); // Set menubarState to false to close the menu
+    };
+    
 
     return (
         <header className="header">
@@ -11,21 +37,29 @@ const Header = () => {
                 <img src="images/CabHUB.png" alt="" />
             </a>
             <nav className={`navbar ${menubarState ? "active" : ""}`}>
-                <Link to="/">Home</Link>
-                <a href="#">Gallery</a>
-                {/* <a href="#">Blog</a> */}
-                {/* <a href="#">About</a> */}
-                <Link to="/contact">Contact</Link>
-                <Link to="/auth">Register</Link>
-                <a href="/admin">Login</a>
+                <Link to="/" onClick={handleNavItemClick}>Home</Link>
+                <a href="#" onClick={handleNavItemClick}>Gallery</a>
+                {/* Conditionally render links based on login status */}
+                {!isLoggedIn ? (
+                    <>
+                        <Link to="/contact" onClick={handleNavItemClick}>Contact</Link>
+                        <Link to="/auth" onClick={handleNavItemClick}>Login</Link>
+                    </>
+                ) : (
+                    <>
+                        
+                        <Link to="/admin" onClick={handleNavItemClick}>My Bookings</Link>
+                        <a onClick={handleLogout}>Logout</a>
+                    </>
+                )}
             </nav>
 
             <a href="#" id="menu-bars" className={`fas fa-bars ${menubarState ? "fa-times" : ""}`} onClick={(e) => {
-                e.preventDefault()
-                setMenubarState(!menubarState)
+                e.preventDefault();
+                setMenubarState(!menubarState);
             }}></a>
         </header>
-    )
-}
+    );
+};
 
-export default Header
+export default Header;

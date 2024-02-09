@@ -17,6 +17,17 @@ const Header = () => {
         setIsLoggedIn(!!user);
     }, []);
 
+    const handleNavToBookings = () => {
+        handleNavItemClick(); // Menüyü kapat
+        const userId = localStorage.getItem('user_id'); // user_id'yi localStorage'dan al
+        if(userId) {
+            navigate(`/bookings/${userId}`); // Kullanıcıyı /bookings/user_id sayfasına yönlendir
+        } else {
+            message.error("Kullanıcı bilgisi bulunamadı."); // Hata mesajı göster
+        }
+    };
+    
+
     const handleLogout = () => {
         handleNavItemClick();
         localStorage.removeItem('user');
@@ -43,12 +54,13 @@ const Header = () => {
                 {!isLoggedIn ? (
                     <>
                         <Link to="/contact" onClick={handleNavItemClick}>Contact</Link>
+                        <a href="#" onClick={handleNavToBookings}>My Bookings</a>
                         <Link to="/auth" onClick={handleNavItemClick}>Login</Link>
                     </>
                 ) : (
                     <>
                         
-                        <Link to="/admin" onClick={handleNavItemClick}>User</Link>
+                        
                         <a onClick={handleLogout}>Logout</a>
                     </>
                 )}

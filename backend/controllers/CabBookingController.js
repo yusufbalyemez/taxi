@@ -14,12 +14,14 @@ exports.createBooking = async (req, res) => {
 // Tüm rezervasyonları getir
 exports.getAllBookings = async (req, res) => {
   try {
-    const bookings = await CabBooking.find();
+    const bookings = await CabBooking.find().sort({ createdAt: -1 }); // oluşturulma tarihine göre tersten sıralar
     res.status(200).json(bookings);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
+
+
 
 // ID'ye göre tek bir rezervasyonu getir
 exports.getBookingById = async (req, res) => {
@@ -30,6 +32,17 @@ exports.getBookingById = async (req, res) => {
     } else {
       res.status(404).json({ message: 'Booking not found' });
     }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// USER ID'ye göre tek bir rezervasyonu getir
+exports.getBookingByUserId = async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const bookings = await CabBooking.find({ user_id: userId });
+    res.json(bookings);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

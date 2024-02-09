@@ -24,12 +24,7 @@ const Home = () => {
     const [end, setEnd] = useState('');
     const [isSubmitSuccessful, setIsSubmitSuccessful] = useState(false);
 
-    // isSubmitSuccessful değeri değiştiğinde başarı mesajını göstermek için useEffect kullanımı
-    useEffect(() => {
-        if (isSubmitSuccessful) {
-            message.success("Rezervasyon işlemi yapıldı.");
-        }
-    }, [isSubmitSuccessful])
+
 
     const wpNo = "905422072498";
     const wpMsgText = `
@@ -42,18 +37,53 @@ const Home = () => {
 
     // Saatleri otomatik olarak oluşturan fonksiyon
     const generateHours = () => {
+        const now = new Date();
+        const today = getTodayDate();
+        const selectedDate = inputDate;
+        const currentHour = now.getHours();
+        const currentMinute = now.getMinutes();
         const times = [];
-        for (let i = 8; i < 24; i++) {
-            times.push(`${i.toString().padStart(2, '0')}:00`);
-            times.push(`${i.toString().padStart(2, '0')}:30`);
+    
+        // Seçilen tarih bugünse ve mevcut dakika 30'dan küçükse, mevcut saatin yarım saatlik dilimini de ekleyin.
+        // Aksi takdirde, seçilen tarih bugünden farklıysa veya mevcut dakika 30 veya daha fazlaysa, saat 8:00'den başlatın.
+        if (selectedDate === today) {
+            if (currentMinute < 30) {
+                times.push(`${currentHour.toString().padStart(2, '0')}:30`); // Mevcut saatin yarım saatlik dilimini ekler
+            }
+            // Bugün için, mevcut saat ve dakikaya bağlı olarak başlat
+            for (let i = currentMinute < 30 ? currentHour : currentHour + 1; i < 24; i++) {
+                times.push(`${i.toString().padStart(2, '0')}:00`);
+                if (i !== 23) { // 24:00'den önce son saat
+                    times.push(`${i.toString().padStart(2, '0')}:30`);
+                }
+            }
+        } else {
+            // Seçilen tarih bugünden farklıysa, saatleri 8:00'den başlat
+            for (let i = 8; i < 24; i++) {
+                times.push(`${i.toString().padStart(2, '0')}:00`);
+                if (i !== 23) { // 24:00'den önce son saat
+                    times.push(`${i.toString().padStart(2, '0')}:30`);
+                }
+            }
         }
-        times.push("00:00", "00:30", "01:00", "01:30", "02:00");
+        
+        times.push("23:30")
+        // Gece yarısından sonraki saatler için eklemeler
+        // times.push("00:00", "00:30", "01:00", "01:30", "02:00");
+    
         return times;
     };
+    
+
 
     const hours = generateHours();
 
-
+    // isSubmitSuccessful değeri değiştiğinde başarı mesajını göstermek için useEffect kullanımı
+    useEffect(() => {
+        if (isSubmitSuccessful) {
+            message.success("Rezervasyon işlemi yapıldı.");
+        }
+    }, [isSubmitSuccessful])
     useEffect(() => {
         const fetchBookings = async () => {
             try {
@@ -79,14 +109,6 @@ const Home = () => {
         fetchBookings();
     }, [inputDate]);
 
-
-    // // Kullanıcı tarih seçimini değiştirdiğinde saat seçeneklerini güncellemek için
-    // useEffect(() => {
-    //     // setInputHours(''); // Tarih değiştiğinde saat seçimini sıfırla
-    //     setInputDate(inputDate);
-    //     setInputHours(inputHours);
-    //     console.log(inputDate + " - " + inputHours)
-    // }, [inputDate, inputHours]);
 
     const handleConfirmSubmit = (event) => {
         event.preventDefault();

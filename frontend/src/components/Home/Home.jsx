@@ -43,7 +43,7 @@ const Home = () => {
         const currentHour = now.getHours();
         const currentMinute = now.getMinutes();
         const times = [];
-    
+
         // Seçilen tarih bugünse ve mevcut dakika 30'dan küçükse, mevcut saatin yarım saatlik dilimini de ekleyin.
         // Aksi takdirde, seçilen tarih bugünden farklıysa veya mevcut dakika 30 veya daha fazlaysa, saat 8:00'den başlatın.
         if (selectedDate === today) {
@@ -66,17 +66,64 @@ const Home = () => {
                 }
             }
         }
-        
+
         times.push("23:30")
         // Gece yarısından sonraki saatler için eklemeler
         // times.push("00:00", "00:30", "01:00", "01:30", "02:00");
-    
+
         return times;
     };
-    
+
 
 
     const hours = generateHours();
+
+    //USER ID OLUŞTURMA
+    useEffect(() => {
+        // user_id kontrolü ve oluşturma
+        const generateUserId = () => {
+            const array = new Uint8Array(64);
+            window.crypto.getRandomValues(array);
+            return Array.from(array, byte => byte.toString(16).padStart(2, '0')).join('');
+        };
+
+        const getUserId = () => {
+            // localStorage'dan user_id'yi kontrol et
+            let userId = localStorage.getItem('user_id');
+            // Eğer user_id yoksa veya süresi dolmuşsa, yeni bir user_id oluştur ve kaydet
+            if (!userId) {
+                userId = generateUserId();
+                localStorage.setItem('user_id', userId);
+                // Ayrıca, user_id'nin oluşturulma zamanını da kaydedin
+                localStorage.setItem('user_id_created_at', new Date().toISOString());
+            }
+
+            return userId;
+        };
+
+        const userId = getUserId();
+        console.log("User ID:", userId); // Geliştirme aşamasında kontrol için
+    }, []);
+
+    //Adım 2: user_id Süresini Kontrol Etme ve Yenileme
+    useEffect(() => {
+        const checkUserIdExpiration = () => {
+            const createdAt = localStorage.getItem('user_id_created_at');
+            if (createdAt) {
+                const createdAtDate = new Date(createdAt);
+                const now = new Date();
+                const diff = now - createdAtDate;
+                // 24 saat = 86400000 ms
+                if (diff > 86400000) {
+                    // user_id'nin süresi dolmuşsa, yeni bir user_id oluştur
+                    localStorage.removeItem('user_id'); // Önceki user_id'yi sil
+                    getUserId(); // Yeni user_id oluştur ve kaydet
+                }
+            }
+        };
+
+        checkUserIdExpiration();
+    }, []);
 
     // isSubmitSuccessful değeri değiştiğinde başarı mesajını göstermek için useEffect kullanımı
     useEffect(() => {
@@ -110,14 +157,6 @@ const Home = () => {
     }, [inputDate]);
 
 
-    // // Kullanıcı tarih seçimini değiştirdiğinde saat seçeneklerini güncellemek için
-    // useEffect(() => {
-    //     // setInputHours(''); // Tarih değiştiğinde saat seçimini sıfırla
-    //     setInputDate(inputDate);
-    //     setInputHours(inputHours);
-    //     console.log(inputDate + " - " + inputHours)
-    // }, [inputDate, inputHours]);
-
     const handleConfirmSubmit = (event) => {
         event.preventDefault();
         const isOk = window.confirm("Kayıt işleminizi onaylıyor musunuz?");
@@ -130,6 +169,8 @@ const Home = () => {
     const handleSubmit = async (event) => {
         event.preventDefault(); // Formun varsayılan gönderme davranışını engelle
 
+        const userId = localStorage.getItem('user_id'); // user_id'yi localStorage'dan al
+
         // Form verilerini bir nesne olarak topla
 
         const bookingData = {
@@ -138,7 +179,8 @@ const Home = () => {
             hours: inputHours,
             date: inputDate,
             start,
-            end
+            end,
+            user_id: userId, // user_id'yi kayıt verilerine ekle
         };
 
         // Fetch API ile POST isteği yap

@@ -2,14 +2,20 @@
     margin: 60px 0;
   }
   
-  .account-wrapper {
+  /* eski düzen */
+  /* .account-wrapper {
     display: flex;
     justify-content: space-between;
     gap: 30px;
-  }
+  } */
   
+  .account-wrapper {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+  }
   .account-column {
-    flex: 1;
+     min-width: 400px;
   }
   
   .account-column h2 {
@@ -96,5 +102,9 @@
     .account-wrapper {
       flex-direction: column;
     }
+    .account-column {
+      min-width:max-content;
+      
+   }
   }
   

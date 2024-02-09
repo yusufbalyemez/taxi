@@ -6,6 +6,8 @@ const dotenv = require("dotenv");//env için gerekli
 const mongoose = require('mongoose');
 const cabBookingRoutes = require('./routes/CabBookingsRoute.js');
 const UserRoutes = require('./routes/UserRoute.js');
+// const deletePastBookings = require('./controllers/cronJobs.js'); // cronJobs.js dosyasını import et
+
 
 
 //env için gerekli
@@ -23,12 +25,11 @@ if(db){
   console.log("MongoDB connection failed...")
 }
 
+// deletePastBookings();
 
 // Route tanımları
 app.use('/api/bookings', cabBookingRoutes); // Rezervasyonlar için
 app.use('/api/auth', UserRoutes); // Kuıllanıcılar için
-
-
 
 
 const PORT = process.env.PORT || 5000;

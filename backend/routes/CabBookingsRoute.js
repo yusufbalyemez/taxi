@@ -12,6 +12,9 @@ router.get('/', cabBookingController.getAllBookings);
 // Tüm kayıtları siler - id gibi algılanmaması için id'li işlemlerden önce yazılması gerekiyor!!!
 router.delete('/deleteAll', cabBookingController.deleteAllBookings);
 
+// User Id Çerez No'suna göre rezervasyon getir.
+router.get('/:userId',cabBookingController.getBookingByUserId)
+
 // ID'ye göre tek bir rezervasyonu getir
 router.get('/:id', cabBookingController.getBookingById);
 

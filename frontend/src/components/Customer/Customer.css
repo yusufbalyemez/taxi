@@ -1,0 +1,13 @@
+/* styles.css */
+.status-waiting {
+    color: blue; /* Onay Bekliyor için mavi */
+  }
+  
+  .status-approved {
+    color: green; /* Onaylandı için yeşil */
+  }
+  
+  .status-denied {
+    color: red; /* Reddedildi için kırmızı */
+  }
+  

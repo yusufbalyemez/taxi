@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { message } from 'antd'; //message butonu ant kütüphanesinden çekildi
 import { useNavigate } from "react-router-dom";
+import { message } from 'antd'; //message butonu ant kütüphanesinden çekildi
 
 const Login = () => {
     const [formData, setFormData] = useState({

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Descriptions, Popconfirm, Button, Card } from 'antd';
-import { DeleteOutlined, CheckCircleOutlined,CloseCircleOutlined } from '@ant-design/icons';
+import { DeleteOutlined } from '@ant-design/icons';
+import "./Customer.css"
 
-const Bookings = () => {
+const Customer = () => {
   const [bookings, setBookings] = useState([]);
 
   useEffect(() => {
@@ -10,8 +11,16 @@ const Bookings = () => {
   }, []);
 
   const fetchBookings = async () => {
+    // localStorage'dan user_id'yi al
+    const userId = localStorage.getItem('user_id');
+    if (!userId) {
+      console.log('User ID not found');
+      return;
+    }
+
     try {
-      const response = await fetch('http://localhost:5000/api/bookings');
+      // Kullanıcının user_id'sine göre bookings isteği
+      const response = await fetch(`http://localhost:5000/api/bookings/${userId}`);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -37,31 +46,30 @@ const Bookings = () => {
     }
   };
 
+  // status değerlerini karşılık gelen metinlere çeviren bir fonksiyon
+  const getStatusText = (statusNumber) => {
+    const statusMap = {
+      '0': 'Denied',
+      '1': 'Waiting For Approval',
+      '2': 'Approved'
+    };
+    return statusMap[statusNumber] || 'Unknown Status';
+  };
 
-  const updateBookingStatus = async (id, status) => {
-    try {
-      const response = await fetch(`http://localhost:5000/api/bookings/${id}/status`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ status }),
-      });
-      if (!response.ok) {
-        throw new Error('Error updating booking status');
-      }
-      message.success(`Booking ${status === '2' ? 'onaylandı' : 'reddedildi'}.`);
-      fetchBookings();
-    } catch (error) {
-      console.error('Error updating booking status: ', error);
-      message.error(`Booking durumu güncellenirken bir hata oluştu.`);
-    }
+  // status'a göre CSS sınıfını döndüren fonksiyon
+  const getStatusClass = (statusNumber) => {
+    const statusClassMap = {
+      '0': 'status-denied',
+      '1': 'status-waiting',
+      '2': 'status-approved'
+    };
+    return statusClassMap[statusNumber] || '';
   };
 
   return (
     <div>
       <h2>Booking List</h2>
-      {bookings.map((booking) => (
+      {bookings.length > 0 ? bookings.map((booking) => (
         <Card key={booking._id} style={{ marginBottom: 16 }}>
           <Descriptions title="Booking Info" bordered column={1}>
             <Descriptions.Item label="Id">{booking._id}</Descriptions.Item>
@@ -72,35 +80,24 @@ const Bookings = () => {
             <Descriptions.Item label="Start">{booking.start}</Descriptions.Item>
             <Descriptions.Item label="End">{booking.end}</Descriptions.Item>
             <Descriptions.Item label="User Id">{booking.user_id}</Descriptions.Item>
+            <Descriptions.Item label="Status">
+              <span className={getStatusClass(booking.status)}>
+                {getStatusText(booking.status)}
+              </span>
+            </Descriptions.Item>
             <Descriptions.Item label="Action">
               <Popconfirm
-                title="Silmek istediğinizden emin misiniz?"
+                title="Are you sure to delete this booking?"
                 onConfirm={() => handleDelete(booking._id)}
               >
                 <Button type="danger" icon={<DeleteOutlined />} />
               </Popconfirm>
             </Descriptions.Item>
-            <Button
-                type="primary"
-                icon={<CheckCircleOutlined />}
-                onClick={() => updateBookingStatus(booking._id, '2')}
-                style={{ marginLeft: 8 }}
-              >
-                Kabul Et
-              </Button>
-              <Button
-                type="default"
-                icon={<CloseCircleOutlined />}
-                onClick={() => updateBookingStatus(booking._id, '0')}
-                style={{ marginLeft: 8 }}
-              >
-                Reddet
-              </Button>
           </Descriptions>
         </Card>
-      ))}
+      )) : <p>No bookings found for this user ID.</p>}
     </div>
   );
 };
 
-export default Bookings;
+export default Customer;
