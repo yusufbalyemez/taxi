@@ -4,6 +4,9 @@ import { DeleteOutlined } from '@ant-design/icons';
 import "./Customer.css"
 
 const Customer = () => {
+
+  const apiUrl = import.meta.env.VITE_API_BASE_URL;
+
   const [bookings, setBookings] = useState([]);
 
   useEffect(() => {
@@ -20,7 +23,7 @@ const Customer = () => {
 
     try {
       // Kullanıcının user_id'sine göre bookings isteği
-      const response = await fetch(`http://localhost:5000/api/bookings/${userId}`);
+      const response = await fetch(`${apiUrl}/api/bookings/${userId}`);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -33,7 +36,7 @@ const Customer = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/bookings/${id}`, {
+      const response = await fetch(`${apiUrl}/api/bookings/${id}`, {
         method: 'DELETE',
       });
       if (!response.ok) {

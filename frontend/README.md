@@ -15,3 +15,6 @@ npm install antd --save
 
 # Photo-Gallery
 npm install react-image-gallery
+
+# dotenv
+npm i dotenv

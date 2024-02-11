@@ -4,6 +4,9 @@ import { DeleteOutlined, CheckCircleOutlined, CloseCircleOutlined } from '@ant-d
 import { message } from 'antd'; //message butonu ant kütüphanesinden çekildi
 
 const Bookings = () => {
+
+  const apiUrl = import.meta.env.VITE_API_BASE_URL;
+
   const [bookings, setBookings] = useState([]);
   const [showStatusBtn, setShowStatusBtn] = useState(true);
 
@@ -13,7 +16,7 @@ const Bookings = () => {
 
   const fetchBookings = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/bookings');
+      const response = await fetch(`${apiUrl}/api/bookings`);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -26,7 +29,7 @@ const Bookings = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/bookings/${id}`, {
+      const response = await fetch(`${apiUrl}/api/bookings/${id}`, {
         method: 'DELETE',
       });
       if (!response.ok) {
@@ -42,7 +45,7 @@ const Bookings = () => {
 
   const updateBookingStatus = async (id, status) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/bookings/${id}`, {
+      const response = await fetch(`${apiUrl}/api/bookings/${id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
