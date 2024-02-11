@@ -1,8 +1,8 @@
 import React from 'react';
-import ImageGallery from 'react-image-gallery';
-import "react-image-gallery/styles/css/image-gallery.css";
 import Testimonials from '../Testimonials/Testimonials';
 import FastBooking from '../FastBooking/FastBooking';
+import ImageGallery from 'react-image-gallery';
+import "react-image-gallery/styles/css/image-gallery.css";
 
 const createImageObjects = () => {
   const images = [];
@@ -20,12 +20,11 @@ const images = createImageObjects();
 
 const PhotoGallery = () => {
   return (
-    <div>
+    <>
       <ImageGallery items={images} />
-      <FastBooking/>
-      <Testimonials/>
-    </div>
-
+      <FastBooking />
+      <Testimonials />
+    </>
   )
 }
 

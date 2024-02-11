@@ -98,7 +98,7 @@ const Customer = () => {
             </Descriptions.Item>
           </Descriptions>
         </Card>
-      )) : <p>No bookings found for this user ID.</p>}
+      )) : ""}
     </div>
   );
 };

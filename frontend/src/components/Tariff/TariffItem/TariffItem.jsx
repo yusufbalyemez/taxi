@@ -1,12 +1,11 @@
-const TariffItem = ({classContainer,classH3,classBtnYellow}) => {
+const TariffItem = ({classContainer,classH3,classBtnYellow,imgSrc,titleTxt,contentTxt,price}) => {
     return (
         <div className={`tarrif-container ${classContainer}`}>
             <div className="inner-box">
-                <img src="images/image1.png" alt="" />
-                <h2 className="heading-yellow">economy class</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et excepturi odio minus totam, iste quas
-                    optio</p>
-                <h3 className={classH3}>price: $3 /-</h3>
+                <img src={imgSrc} alt="" />
+                <h2 className="heading-yellow">{titleTxt}</h2>
+                <p>{contentTxt}</p>
+                <h3 className={classH3}>{`price: ${price}`} /-</h3>
                 <a href="#" className={classBtnYellow}>order now</a>
             </div>
         </div>

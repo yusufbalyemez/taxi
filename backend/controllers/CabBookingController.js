@@ -41,7 +41,7 @@ exports.getBookingById = async (req, res) => {
 exports.getBookingByUserId = async (req, res) => {
   try {
     const userId = req.params.userId;
-    const bookings = await CabBooking.find({ user_id: userId });
+    const bookings = await CabBooking.find({ user_id: userId }).sort({ createdAt: -1 });//en yeni kayıt olarak getir.
     res.json(bookings);
   } catch (error) {
     res.status(500).json({ message: error.message });

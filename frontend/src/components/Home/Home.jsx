@@ -4,6 +4,7 @@ import "./Home.css";
 
 const Home = () => {
     const [availableHours, setAvailableHours] = useState([]);
+    const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
     // Bugünün tarihini YYYY-MM-DD formatında döndüren fonksiyon
     const getTodayDate = () => {
@@ -134,7 +135,7 @@ const Home = () => {
     useEffect(() => {
         const fetchBookings = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/bookings');
+                const response = await fetch(`${apiUrl}/api/bookings`);
                 if (!response.ok) throw new Error('Network response was not ok');
                 const bookings = await response.json();
 
@@ -185,7 +186,7 @@ const Home = () => {
 
         // Fetch API ile POST isteği yap
         try {
-            const response = await fetch('http://localhost:5000/api/bookings',
+            const response = await fetch(`${apiUrl}/api/bookings`,
                 {
                     method: 'POST',
                     headers:
@@ -224,9 +225,11 @@ const Home = () => {
         <div className="home-container">
             <div className="home-content">
 
-            <div className="inner-content">
+                <div className="inner-content">
+
                     <form onSubmit={handleConfirmSubmit}> {/* Form gönderme işleyicisini ekle */}
                         <div className="contact-form">
+
                             <div className="form-heading">
                                 <h1>book a cab</h1>
                             </div>
@@ -250,18 +253,22 @@ const Home = () => {
                             </div>
                         </div>
                     </form>
+                    <div className='contact-container'>
+                        <a href="#" className="booknow">call now</a>
+                        <a href={`https://wa.me/${wpNo}?text=${wpMsgText}`} className="whatsapp" target="_blank">Whatsapp <i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+
                 </div>
-                
+
                 <div className="inner-content">
                     <h3>best in city</h3>
                     <h2>trusted cab service in country</h2>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis assumenda, non tempora maxime molestias commodi dolor ipsa sint iusto quod deserunt consectetur, ut nihil sequi, molestiae id cupiditate recusandae distinctio.</p>
-                    <a href="#" className="booknow">book now</a>
-                    <a href={`https://wa.me/${wpNo}?text=${wpMsgText}`} className="booknow" target="_blank">Whatsapp</a>
+
 
                 </div>
 
-                
+
             </div>
         </div>
     )

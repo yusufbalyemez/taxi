@@ -87,7 +87,7 @@ const Home = () => {
     useEffect(() => {
         const fetchBookings = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/bookings');
+                const response = await fetch(`${apiUrl}/api/bookings`);
                 if (!response.ok) throw new Error('Network response was not ok');
                 const bookings = await response.json();
 
@@ -135,7 +135,7 @@ const Home = () => {
 
         // Fetch API ile POST isteği yap
         try {
-            const response = await fetch('http://localhost:5000/api/bookings',
+            const response = await fetch(`${apiUrl}/api/bookings`,
                 {
                     method: 'POST',
                     headers:
