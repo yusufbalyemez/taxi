@@ -32,7 +32,7 @@ const Login = () => {
             });
             if (response.ok) {
                 const data = await response.json();
-                localStorage.setItem("user", JSON.stringify(data)); //localStorageye kayıt ediyor.
+                // localStorage.setItem("admin", JSON.stringify(data)); //localStorageye kayıt ediyor.
                 message.success("Giriş başarılı.")
                 if (data.role === "admin") {
                     // navigate("/admin") //navigatele yükleyince react-router-dom özelliğini almıyor path name gelmiyor o yüzden aşağıdaki gibi yapmak lazım.

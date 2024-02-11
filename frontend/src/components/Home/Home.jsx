@@ -223,16 +223,8 @@ const Home = () => {
     return (
         <div className="home-container">
             <div className="home-content">
-                <div className="inner-content">
-                    <h3>best in city</h3>
-                    <h2>trusted cab service in country</h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis assumenda, non tempora maxime molestias commodi dolor ipsa sint iusto quod deserunt consectetur, ut nihil sequi, molestiae id cupiditate recusandae distinctio.</p>
-                    <a href="#" className="booknow">book now</a>
-                    <a href={`https://wa.me/${wpNo}?text=${wpMsgText}`} className="booknow" target="_blank">Whatsapp</a>
 
-                </div>
-
-                <div className="inner-content">
+            <div className="inner-content">
                     <form onSubmit={handleConfirmSubmit}> {/* Form gönderme işleyicisini ekle */}
                         <div className="contact-form">
                             <div className="form-heading">
@@ -259,6 +251,17 @@ const Home = () => {
                         </div>
                     </form>
                 </div>
+                
+                <div className="inner-content">
+                    <h3>best in city</h3>
+                    <h2>trusted cab service in country</h2>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis assumenda, non tempora maxime molestias commodi dolor ipsa sint iusto quod deserunt consectetur, ut nihil sequi, molestiae id cupiditate recusandae distinctio.</p>
+                    <a href="#" className="booknow">book now</a>
+                    <a href={`https://wa.me/${wpNo}?text=${wpMsgText}`} className="booknow" target="_blank">Whatsapp</a>
+
+                </div>
+
+                
             </div>
         </div>
     )

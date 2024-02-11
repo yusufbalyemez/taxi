@@ -5,8 +5,10 @@ import ContactPage from './pages/ContactPage'
 import AuthPage from './pages/AuthPage'
 import Customer from './components/Customer/Customer'
 import Deneme from './pages/Deneme'
+import GalleryPage from './pages/GalleryPage'
 import './App.css'
-import Yunus from './components/Customer/Yunus'
+
+
 
 
 
@@ -20,7 +22,7 @@ function App() {
       <Route path='/auth' element={<AuthPage/>}/>
       <Route path="/bookings/:userId" element={<Customer/>} />
       <Route path="/example" element={<Deneme/>}/>
-      <Route path="/yunus"  element={<Yunus/>}/>
+      <Route path="/gallery"  element={<GalleryPage/>}/>
     </Routes>
   )
 }

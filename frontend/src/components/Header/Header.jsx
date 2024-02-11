@@ -20,13 +20,13 @@ const Header = () => {
     const handleNavToBookings = () => {
         handleNavItemClick(); // Menüyü kapat
         const userId = localStorage.getItem('user_id'); // user_id'yi localStorage'dan al
-        if(userId) {
+        if (userId) {
             navigate(`/bookings/${userId}`); // Kullanıcıyı /bookings/user_id sayfasına yönlendir
         } else {
             message.error("Kullanıcı bilgisi bulunamadı."); // Hata mesajı göster
         }
     };
-    
+
 
     const handleLogout = () => {
         handleNavItemClick();
@@ -40,7 +40,7 @@ const Header = () => {
     const handleNavItemClick = () => {
         setMenubarState(false); // Set menubarState to false to close the menu
     };
-    
+
 
     return (
         <header className="header">
@@ -49,9 +49,11 @@ const Header = () => {
             </a>
             <nav className={`navbar ${menubarState ? "active" : ""}`}>
                 <Link to="/" onClick={handleNavItemClick}>Home</Link>
-                <a href="#" onClick={handleNavItemClick}>Gallery</a>
+                <Link to="/gallery" onClick={handleNavItemClick}>Gallery</Link>
+                <Link to="/contact" onClick={handleNavItemClick}>Contact</Link>
+                <a href="#" onClick={handleNavToBookings}>My Bookings</a>
                 {/* Conditionally render links based on login status */}
-                {!isLoggedIn ? (
+                {/* {!isLoggedIn ? (
                     <>
                         <Link to="/contact" onClick={handleNavItemClick}>Contact</Link>
                         <a href="#" onClick={handleNavToBookings}>My Bookings</a>
@@ -59,11 +61,9 @@ const Header = () => {
                     </>
                 ) : (
                     <>
-                        
-                        
                         <a onClick={handleLogout}>Logout</a>
                     </>
-                )}
+                )} */}
             </nav>
 
             <a href="#" id="menu-bars" className={`fas fa-bars ${menubarState ? "fa-times" : ""}`} onClick={(e) => {

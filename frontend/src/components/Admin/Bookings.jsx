@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Descriptions, Popconfirm, Button, Card } from 'antd';
 import { DeleteOutlined, CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons';
+import { message } from 'antd'; //message butonu ant kütüphanesinden çekildi
 
 const Bookings = () => {
   const [bookings, setBookings] = useState([]);
+  const [showStatusBtn, setShowStatusBtn] = useState(true);
 
   useEffect(() => {
     fetchBookings();
@@ -40,7 +42,7 @@ const Bookings = () => {
 
   const updateBookingStatus = async (id, status) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/bookings/${id}/status`, {
+      const response = await fetch(`http://localhost:5000/api/bookings/${id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -50,12 +52,33 @@ const Bookings = () => {
       if (!response.ok) {
         throw new Error('Error updating booking status');
       }
-      message.success(`Booking ${status === '2' ? 'onaylandı' : 'reddedildi'}.`);
+      setShowStatusBtn(false); //Butonlar görünmesin.
+      message.success(`Booking ${status === 'approved' ? 'onaylandı' : 'reddedildi'}.`);
       fetchBookings();
     } catch (error) {
       console.error('Error updating booking status: ', error);
       message.error(`Booking durumu güncellenirken bir hata oluştu.`);
     }
+  };
+
+  // status değerlerini karşılık gelen metinlere çeviren bir fonksiyon
+  const getStatusText = (statusNumber) => {
+    const statusMap = {
+      'denied': 'Denied',
+      'waiting': 'Waiting For Approval',
+      'approved': 'Approved'
+    };
+    return statusMap[statusNumber] || 'Unknown Status';
+  };
+
+  // status'a göre CSS sınıfını döndüren fonksiyon
+  const getStatusClass = (statusNumber) => {
+    const statusClassMap = {
+      'denied': 'status-denied',
+      'waiting': 'status-waiting',
+      'approved': 'status-approved'
+    };
+    return statusClassMap[statusNumber] || '';
   };
 
   return (
@@ -80,26 +103,54 @@ const Bookings = () => {
                 <Button type="danger" icon={<DeleteOutlined />} />
               </Popconfirm>
             </Descriptions.Item>
+            <Descriptions.Item label="Status">
+              <span className={getStatusClass(booking.status)}>
+                {getStatusText(booking.status)}
+              </span>
+            </Descriptions.Item>
             <Descriptions.Item label="Action">
-              <Popconfirm title="Emin misiniz?">
+
+
+              {booking.status === "waiting" ? (
+                <>
+                  <Button
+                    type="primary"
+                    icon={<CheckCircleOutlined />}
+                    onClick={() => updateBookingStatus(booking._id, 'approved')}
+                    style={{ marginRight: 8 }}
+                  >
+                    Kabul Et
+                  </Button>
+                  <Button
+                    type="default"
+                    icon={<CloseCircleOutlined />}
+                    onClick={() => updateBookingStatus(booking._id, 'denied')}
+                  >
+                    Reddet
+                  </Button>
+                </>
+              ) : booking.status === "denied" ? (
                 <Button
                   type="primary"
                   icon={<CheckCircleOutlined />}
-                  onClick={() => updateBookingStatus(booking._id, '2')}
-                  style={{ marginLeft: 8 }}
+                  onClick={() => updateBookingStatus(booking._id, 'approved')}
                 >
                   Kabul Et
                 </Button>
+              ) : (
                 <Button
                   type="default"
                   icon={<CloseCircleOutlined />}
-                  onClick={() => updateBookingStatus(booking._id, '0')}
-                  style={{ marginLeft: 8 }}
+                  onClick={() => updateBookingStatus(booking._id, 'denied')}
                 >
                   Reddet
                 </Button>
-              </Popconfirm>
+              )}
+
+
+
             </Descriptions.Item>
+
           </Descriptions>
         </Card>
       ))}
