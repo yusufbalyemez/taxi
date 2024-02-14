@@ -1,33 +1,28 @@
+import { useLanguage } from '../Languages/LanguageContext'; // useLanguage hook'unu içe aktarın
 import FastBookingItem from "./FastBookingItem"
 import "./FastBooking.css"
 
 
 const FastBooking = (probs) => {
+    const { language } = useLanguage(); // Dil bağlamından dil bilgisini al
+    const text = language.homepage.fastbookings; // Navbar metinlerine erişim
     return (
         <div className="fast-booking">
-            <h1 className="fast-hading">we do best</h1>
-            <h2>than you wish</h2>
+            <h1 className="fast-hading">{text.h1}</h1>
+            <h2>{text.h2}</h2>
             <div className="inner-fast">
                 <FastBookingItem
-                    h1Text={`Fast Booking`}
-                    pText={
-                        `Skip the wait and book your ride in seconds with our streamlined online system. Our service is designed to be as fast as your life. Just tap, book, and go!`
-                    } />
+                    h1Text={text.h1Text}
+                    pText={text.h1pText} />
                 <FastBookingItem
-                    h1Text={`Ride in Comfort`}
-                    pText={
-                        `From the moment you step into our vehicles, luxury and comfort greet you. We maintain our fleet to the highest standards because we believe the journey should be just as pleasant as the destination.`
-                    } />
+                    h1Text={text.h1Text2}
+                    pText={text.h1pText2} />
                 <FastBookingItem
-                    h1Text={`Unmatched Reliability`}
-                    pText={
-                        `Our commitment to punctuality means you'll never have to worry about being late. Our drivers are trained to navigate the quickest routes, ensuring you arrive on time, every time.`
-                    } />
+                     h1Text={text.h1Text3}
+                     pText={text.h1pText3} />
                 <FastBookingItem
-                    h1Text={`Effortless Communication`}
-                    pText={
-                        `Reach out with ease during our dedicated service hours. We believe in making every interaction with us straightforward and stress-free. Whether you prefer a call, an email, or an in-app message, our team is ready to assist you with any inquiries or booking adjustments. With us, excellent service is just a conversation away.`
-                    } />
+                     h1Text={text.h1Text4}
+                     pText={text.h1pText4} />
 
             </div>
         </div>

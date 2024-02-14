@@ -1,15 +1,57 @@
 {
     "homepage": {
-        "navbar":{
-            "home": "Home",
-            "gallery": "Gallery",
-            "contact": "Contact",
-            "mybookings": "My Bookings"
+        "header": {
+            "navbar": {
+                "home": "Home",
+                "gallery": "Gallery",
+                "contact": "Contact",
+                "mybookings": "My Bookings"
+            },
+            "errorMsg": "A user information error occurred.",
+            "exitMessage": "Exit has been made."
         },
-        "title": "Welcome to Our Service",
-        "description": "This is a platform where you can enjoy our services.",
-        "contact": "Contact Us",
-        "about": "About Us"
+        "home": {
+            "wpMsgText": "Hello. I want to make a reservation ya.     (Name:  ...     When:  ...     Start: ...     End:   ...)",
+            "reservationOkText": "The reservation has been made.",
+            "reservationQuestion": "Do you confirm your reservation?",
+            "form": {
+                "title": "book a cab",
+                "nameInput": "Name",
+                "phoneInput": "Phone",
+                "hoursSelect": "When",
+                "startInput": "Start",
+                "endedInput": "Ended",
+                "submitBtn": "Submit"
+            },
+            "callnow": "call now",
+            "h3": "best in city",
+            "h2": "trusted cab service in country",
+            "p": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis assumenda, non tempora maxime molestias commodi dolor ipsa sint iusto quod deserunt consectetur, ut nihil sequi, molestiae id cupiditate recusandae distinctio."
+        },
+        "tarrif":{
+            "h1":"our",
+            "h1_span":"tarrif",
+            "orderBtn": "order now"
+        },
+        "fastbookings": {
+            "h1":"we do best",
+            "h2": "than you wish",
+            "h1Text":"Fast Booking",
+            "h1pText": "Skip the wait and book your ride in seconds with our streamlined online system. Our service is designed to be as fast as your life. Just tap, book, and go!",
+            "h1Text2":"Ride in Comfort",
+            "h1pText2": "From the moment you step into our vehicles, luxury and comfort greet you. We maintain our fleet to the highest standards because we believe the journey should be just as pleasant as the destination.",
+            "h1Text3":"Unmatched Reliability",
+            "h1pText3": "Our commitment to punctuality means you'll never have to worry about being late. Our drivers are trained to navigate the quickest routes, ensuring you arrive on time, every time.",
+            "h1Text4":"Effortless Communication",
+            "h1pText4": "Reach out with ease during our dedicated service hours. We believe in making every interaction with us straightforward and stress-free. Whether you prefer a call, an email, or an in-app message, our team is ready to assist you with any inquiries or booking adjustments. With us, excellent service is just a conversation away."
+
+        },
+        "testimonials":{
+            "h1Title":"happy clients",
+            "pTxt1":"''I had an important business meeting and couldn't afford any delays. I booked a ride with [Your Company Name], and I was thoroughly impressed. The driver was not only on time but also courteous and professional. The car was immaculate, and the journey was smooth. I arrived ahead of schedule, feeling relaxed and prepared. It's clear that [Your Company Name] values time as much as I do. They've earned my trust and my repeat business.''",
+            "pTxt2":"''As a frequent traveler, I've used my fair share of taxi services, but none compare to the exceptional experience I've had with [Your Company Name]. The booking process was a breeze, and the driver was knowledgeable of the best routes, which made for a pleasantly efficient trip. What stood out to me was the attention to detail—the driver remembered my preferred temperature settings and even had a bottle of water ready for me. It's the little things that make a big difference, and for that, [Your Company Name] is my go-to.''"
+           
+        }
     },
     "adminpage": {
         "title": "Admin Dashboard",

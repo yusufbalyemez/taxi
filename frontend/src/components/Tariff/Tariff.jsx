@@ -1,9 +1,12 @@
 import "./Tarif.css"
+import { useLanguage } from '../Languages/LanguageContext'; // useLanguage hook'unu içe aktarın
 import TariffItem from "./TariffItem/TariffItem"
 const Tariff = () => {
+    const { language } = useLanguage(); // Dil bağlamından dil bilgisini al
+    const text = language.homepage.tarrif; // Navbar metinlerine erişim
     return (
         <div className="main-tariff">
-            <h1>our <span>tarrif</span></h1>
+            <h1>{text.h1} <span>{text.h1_span}</span></h1>
             <div className="inner-tarrif">
                 <TariffItem
                     classContainer={""}

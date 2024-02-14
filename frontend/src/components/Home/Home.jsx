@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { useLanguage } from '../Languages/LanguageContext'; // useLanguage hook'unu içe aktarın
 import { message } from 'antd';
 import "./Home.css";
 
 const Home = () => {
     const [availableHours, setAvailableHours] = useState([]);
     const apiUrl = import.meta.env.VITE_API_BASE_URL;
+
+    const { language } = useLanguage(); // Dil bağlamından dil bilgisini al
+    const text = language.homepage.home; // Navbar metinlerine erişim
 
     // Bugünün tarihini YYYY-MM-DD formatında döndüren fonksiyon
     const getTodayDate = () => {
@@ -28,13 +32,7 @@ const Home = () => {
 
 
     const wpNo = "905422072498";
-    const wpMsgText = `
-    Hello. I want to make a reservation ya.
-    (Name:  ...
-    When:  ...
-    Start: ...
-    End:   ...)
-    `;
+    const wpMsgText = text.wpMsgText;
 
     // Saatleri otomatik olarak oluşturan fonksiyon
     const generateHours = () => {
@@ -129,7 +127,7 @@ const Home = () => {
     // isSubmitSuccessful değeri değiştiğinde başarı mesajını göstermek için useEffect kullanımı
     useEffect(() => {
         if (isSubmitSuccessful) {
-            message.success("Rezervasyon işlemi yapıldı.");
+            message.success(text.reservationOkText);
         }
     }, [isSubmitSuccessful])
     useEffect(() => {
@@ -160,7 +158,7 @@ const Home = () => {
 
     const handleConfirmSubmit = (event) => {
         event.preventDefault();
-        const isOk = window.confirm("Kayıt işleminizi onaylıyor musunuz?");
+        const isOk = window.confirm(text.reservationQuestion);
         if (isOk) {
             handleSubmit(event);
         }
@@ -203,7 +201,7 @@ const Home = () => {
             const responseData = await response.json();
             setIsSubmitSuccessful(true); // Gönderim başarılı olduğunda bu değeri true yap
 
-            console.log('Booking successful:', responseData);
+            // console.log('Booking successful:', responseData);
             // Burada başarılı olduğunu bildiren bir mesaj gösterebilirsiniz.
 
             // Form input alanlarını temizle
@@ -231,39 +229,39 @@ const Home = () => {
                         <div className="contact-form">
 
                             <div className="form-heading">
-                                <h1>book a cab</h1>
+                                <h1>{text.form.title}</h1>
                             </div>
                             <div className="form-fields">
-                                <input type="text" placeholder="name" name="name" value={name} onChange={(e) => setName(e.target.value)} required />
-                                <input type="text" placeholder="phone" name="phone" value={phone} onChange={(e) => setPhone(e.target.value)} required />
+                                <input type="text" placeholder={text.form.nameInput} name="name" value={name} onChange={(e) => setName(e.target.value)} required />
+                                <input type="text" placeholder={text.form.phoneInput} name="phone" value={phone} onChange={(e) => setPhone(e.target.value)} required />
                                 <input type="date" name="date" value={inputDate} min={getTodayDate()} onChange={(e) => setInputDate(e.target.value)} required />
 
                                 <select name="hours" value={inputHours} onChange={(e) => setInputHours(e.target.value)}>
-                                    <option value="" disabled>When</option>
+                                    <option value="" disabled>{text.form.hoursSelect}</option>
                                     {availableHours.map(({ time, disabled }, index) => (
                                         <option key={index} value={time} disabled={disabled}>{time}</option>
                                     ))}
                                 </select>
 
-                                <input type="text" placeholder="start" name="start" value={start} onChange={(e) => setStart(e.target.value)} required />
-                                <input type="text" placeholder="ended" name="end" value={end} onChange={(e) => setEnd(e.target.value)} required />
+                                <input type="text" placeholder={text.form.startInput} name="start" value={start} onChange={(e) => setStart(e.target.value)} required />
+                                <input type="text" placeholder={text.form.endedInput} name="end" value={end} onChange={(e) => setEnd(e.target.value)} required />
                             </div>
                             <div className="submit">
-                                <input type="submit" value="Submit" />
+                                <input type="submit" value={text.form.submitBtn} />
                             </div>
                         </div>
                     </form>
                     <div className='contact-container'>
-                        <a href="#" className="booknow">call now</a>
+                        <a href="#" className="booknow">{text.callnow}</a>
                         <a href={`https://wa.me/${wpNo}?text=${wpMsgText}`} className="whatsapp" target="_blank">Whatsapp <i className="fa-brands fa-whatsapp"></i></a>
                     </div>
 
                 </div>
 
                 <div className="inner-content">
-                    <h3>best in city</h3>
-                    <h2>trusted cab service in country</h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis assumenda, non tempora maxime molestias commodi dolor ipsa sint iusto quod deserunt consectetur, ut nihil sequi, molestiae id cupiditate recusandae distinctio.</p>
+                    <h3>{text.h3}</h3>
+                    <h2>{text.h2}</h2>
+                    <p>{text.p}</p>
 
 
                 </div>

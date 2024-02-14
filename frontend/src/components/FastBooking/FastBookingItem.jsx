@@ -1,6 +1,7 @@
 import React from 'react'
 
 const FastBookingItem = ({h1Text,pText}) => {
+    
     return (
         <div className="booking-content">
             <div className="icon-fast">
