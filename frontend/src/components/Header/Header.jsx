@@ -2,12 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import { message } from 'antd';
+import { useLanguage } from '../Languages/LanguageContext'; // useLanguage hook'unu içe aktarın
 import "./Header.css";
 
 
 const Header = () => {
     const [menubarState, setMenubarState] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const { language } = useLanguage(); // Dil bağlamından dil bilgisini al
+    const navbarTexts = language.homepage.navbar; // Navbar metinlerine erişim
+
+    const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
     const navigate = useNavigate();
 
@@ -48,10 +53,10 @@ const Header = () => {
                 <img src="images/CabHUB.png" alt="" />
             </a>
             <nav className={`navbar ${menubarState ? "active" : ""}`}>
-                <Link to="/" onClick={handleNavItemClick}>Home</Link>
-                <Link to="/gallery" onClick={handleNavItemClick}>Gallery</Link>
-                <Link to="/contact" onClick={handleNavItemClick}>Contact</Link>
-                <a href="#" onClick={handleNavToBookings}>My Bookings</a>
+                <Link to="/" onClick={handleNavItemClick}>{navbarTexts.home}</Link>
+                <Link to="/gallery" onClick={handleNavItemClick}>{navbarTexts.gallery}</Link>
+                <Link to="/contact" onClick={handleNavItemClick}>{navbarTexts.contact}</Link>
+                <a href="#" onClick={handleNavToBookings}>{navbarTexts.mybookings}</a>
                 {/* Conditionally render links based on login status */}
                 {/* {!isLoggedIn ? (
                     <>

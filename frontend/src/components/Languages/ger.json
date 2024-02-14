@@ -1,0 +1,41 @@
+{
+    "homepage": {
+        "navbar": {
+            "home": "Startseite",
+            "gallery": "Galerie",
+            "contact": "Kontakt",
+            "mybookings": "Meine Buchungen"
+        },
+        "title": "Willkommen bei unserem Service",
+        "description": "Dies ist eine Plattform, auf der Sie unsere Dienste genießen können.",
+        "contact": "Kontaktieren Sie uns",
+        "about": "Über uns"
+    },
+    "adminpage": {
+        "title": "Admin-Dashboard",
+        "users": "Benutzer verwalten",
+        "settings": "Einstellungen",
+        "logout": "Abmelden"
+    },
+    "contactpage": {
+        "title": "Kontaktieren Sie uns",
+        "description": "Fühlen Sie sich frei, uns über die folgenden Mittel zu erreichen.",
+        "form": {
+            "name": "Ihr Name",
+            "email": "Ihre E-Mail",
+            "message": "Ihre Nachricht",
+            "submit": "Nachricht senden"
+        }
+    },
+    "navbar": {
+        "home": "Startseite",
+        "about": "Über",
+        "services": "Dienstleistungen",
+        "contact": "Kontakt"
+    },
+    "footer": {
+        "copyRight": "©2023 Ihr Unternehmen. Alle Rechte vorbehalten.",
+        "privacyPolicy": "Datenschutzbestimmungen",
+        "termsOfService": "Nutzungsbedingungen"
+    }
+}

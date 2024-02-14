@@ -75,14 +75,14 @@ const Customer = () => {
       {bookings.length > 0 ? bookings.map((booking) => (
         <Card key={booking._id} style={{ marginBottom: 16 }}>
           <Descriptions title="Booking Info" bordered column={1}>
-            <Descriptions.Item label="Id">{booking._id}</Descriptions.Item>
+            {/* <Descriptions.Item label="Id">{booking._id}</Descriptions.Item> */}
             <Descriptions.Item label="Name">{booking.name}</Descriptions.Item>
             <Descriptions.Item label="Phone">{booking.phone}</Descriptions.Item>
             <Descriptions.Item label="Hours">{booking.hours}</Descriptions.Item>
             <Descriptions.Item label="Date">{booking.date}</Descriptions.Item>
             <Descriptions.Item label="Start">{booking.start}</Descriptions.Item>
             <Descriptions.Item label="End">{booking.end}</Descriptions.Item>
-            <Descriptions.Item label="User Id">{booking.user_id}</Descriptions.Item>
+            {/* <Descriptions.Item label="User Id">{booking.user_id}</Descriptions.Item> */}
             <Descriptions.Item label="Status">
               <span className={getStatusClass(booking.status)}>
                 {getStatusText(booking.status)}

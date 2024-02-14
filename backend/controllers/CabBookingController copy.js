@@ -1,49 +1,13 @@
 // controllers/CabBookingController.js
 const CabBooking = require('../models/CabBooking');
-const sendEmail = require('./NodeMailer');
-
 
 exports.createBooking = async (req, res) => {
   try {
     const newBooking = new CabBooking(req.body);
     const savedBooking = await newBooking.save();
-    
-    // Rezervasyon bilgilerini daha anlaşılır bir şekilde formatla
-    const bookingDetailsText = `A new booking has been made with the following details:\n\n` +
-                               `Name: ${savedBooking.name}\n` +
-                               `Phone: ${savedBooking.phone}\n` +
-                               `Date: ${savedBooking.date}\n` +
-                               `Hours: ${savedBooking.hours}\n` +
-                               `Start: ${savedBooking.start}\n` +
-                               `End: ${savedBooking.end}\n\n` +
-                               `Please check the dashboard for more details.`;
-    
-    const bookingDetailsHtml = `<b>A new booking has been made with the following details:</b><br><br>` +
-                               `<b>Name:</b> ${savedBooking.name}<br>` +
-                               `<b>Phone:</b> ${savedBooking.phone}<br>` +
-                               `<b>Date:</b> ${savedBooking.date}<br>` +
-                               `<b>Hours:</b> ${savedBooking.hours}<br>` +
-                               `<b>Start:</b> ${savedBooking.start}<br>` +
-                               `<b>End:</b> ${savedBooking.end}<br><br>` +
-                               `Please check the dashboard for more details.`;
-
-    // E-posta gönderme fonksiyonunu çağır
-    await sendEmail(
-      "yusuf.balyemez93@gmail.com",
-      "New Booking Received",
-      bookingDetailsText, // Düzyazı gövde olarak rezervasyon detaylarını kullan
-      bookingDetailsHtml  // HTML gövde olarak rezervasyon detaylarını kullan
-    );
-
-    // Başarılı bir şekilde JSON yanıtını gönder
-    return res.status(201).json(savedBooking);
+    res.status(201).json(savedBooking);
   } catch (error) {
-    console.error('Error:', error);
-    // Hatalı yanıtı göndermeden önce başka bir yanıt gönderilmiş mi kontrol et
-    if (!res.headersSent) {
-      // Eğer başka bir yanıt gönderilmemişse, hatalı yanıtı gönder
-      return res.status(400).json({ message: error.message });
-    }
+    res.status(400).json({ message: error.message });
   }
 };
 

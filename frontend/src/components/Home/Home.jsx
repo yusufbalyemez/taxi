@@ -255,7 +255,7 @@ const Home = () => {
                     </form>
                     <div className='contact-container'>
                         <a href="#" className="booknow">call now</a>
-                        <a href={`https://wa.me/${wpNo}?text=${wpMsgText}`} className="whatsapp" target="_blank">Whatsapp <i class="fa-brands fa-whatsapp"></i></a>
+                        <a href={`https://wa.me/${wpNo}?text=${wpMsgText}`} className="whatsapp" target="_blank">Whatsapp <i className="fa-brands fa-whatsapp"></i></a>
                     </div>
 
                 </div>
