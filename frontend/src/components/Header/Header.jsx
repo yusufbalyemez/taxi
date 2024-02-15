@@ -58,6 +58,7 @@ const Header = () => {
                 <Link to="/gallery" onClick={handleNavItemClick}>{navbarTexts.navbar.gallery}</Link>
                 <Link to="/contact" onClick={handleNavItemClick}>{navbarTexts.navbar.contact}</Link>
                 <a href="#" onClick={handleNavToBookings}>{navbarTexts.navbar.mybookings}</a>
+                <Link to="/policy" onClick={handleNavItemClick}>{navbarTexts.navbar.policy}</Link>
             </nav>
             <a href="#" id="menu-bars" className={`fas fa-bars ${menubarState ? "fa-times" : ""}`} onClick={(e) => {
                 e.preventDefault();

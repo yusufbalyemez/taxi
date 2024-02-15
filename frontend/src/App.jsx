@@ -5,7 +5,9 @@ import ContactPage from './pages/ContactPage'
 import AuthPage from './pages/AuthPage'
 import MyBookingsPage from './pages/MyBookingsPage'
 import GalleryPage from './pages/GalleryPage'
+import PolicyPage from './pages/PolicyPage'
 import './App.css'
+
 
 
 
@@ -18,6 +20,7 @@ function App() {
       <Route path="/contact" element={<ContactPage/>}/>
       <Route path="/gallery"  element={<GalleryPage/>}/>
       <Route path='/auth' element={<AuthPage/>}/>
+      <Route path='/policy' element={<PolicyPage/>}/>
       <Route path="/bookings/:userId" element={<MyBookingsPage/>} />
     </Routes>
   )

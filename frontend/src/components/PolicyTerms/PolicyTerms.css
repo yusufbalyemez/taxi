@@ -1,0 +1,16 @@
+.policy-container{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+    font-size: 1.2rem;
+
+}
+
+.policy-container p {
+    margin: 1rem 1rem;
+}
+
+.policy-container h1,h2{
+    margin: 1rem 1rem;
+}

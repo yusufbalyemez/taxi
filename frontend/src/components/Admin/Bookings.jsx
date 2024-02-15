@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLanguage } from '../Languages/LanguageContext'; // useLanguage hook'unu içe aktarın
 import { Descriptions, Popconfirm, Button, Card } from 'antd';
 import { DeleteOutlined, CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons';
 import { message } from 'antd'; //message butonu ant kütüphanesinden çekildi
@@ -6,9 +7,12 @@ import { message } from 'antd'; //message butonu ant kütüphanesinden çekildi
 const Bookings = () => {
 
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
+  const { language } = useLanguage(); // Dil bağlamından dil bilgisini al
+    const text = language.mybookings; // Navbar metinlerine erişim
 
   const [bookings, setBookings] = useState([]);
   const [showStatusBtn, setShowStatusBtn] = useState(true);
+  
 
   useEffect(() => {
     fetchBookings();
@@ -89,7 +93,7 @@ const Bookings = () => {
       <h2>Booking List</h2>
       {bookings.map((booking) => (
         <Card key={booking._id} style={{ marginBottom: 16 }}>
-          <Descriptions title="Booking Info" bordered column={1}>
+          <Descriptions title={text.bookingList} bordered column={1}>
             <Descriptions.Item label="Id">{booking._id}</Descriptions.Item>
             <Descriptions.Item label="Name">{booking.name}</Descriptions.Item>
             <Descriptions.Item label="Phone">{booking.phone}</Descriptions.Item>

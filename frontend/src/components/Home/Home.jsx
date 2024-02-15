@@ -262,7 +262,7 @@ const Home = () => {
                                      checked={termsAccepted} 
                                      onChange={handleTermsChange} 
                                      />
-                                    <label htmlFor="terms">I agree to the terms and conditions</label>
+                                     <a href="/policy">{text.form.policyTxt}</a>
                                 </div>
                             </div>
                             <div className="submit">

@@ -5,7 +5,8 @@
         "home": "Startseite",
         "gallery": "Galerie",
         "contact": "Kontakt",
-        "mybookings": "Meine Buchungen"
+        "mybookings": "Meine Buchungen",
+        "policy": "Richtlinien & Bedingungen"
       },
       "errorMsg": "Ein Fehler bei den Benutzerinformationen ist aufgetreten.",
       "exitMessage": "Ausloggen wurde durchgeführt."
@@ -21,7 +22,8 @@
         "hoursSelect": "Wann",
         "startInput": "Start",
         "endedInput": "Ende",
-        "submitBtn": "Absenden"
+        "submitBtn": "Absenden",
+        "policyTxt": "Ich stimme den AGB zu"
       },
       "callnow": "jetzt anrufen",
       "h3": "das Beste in der Stadt",
@@ -57,26 +59,17 @@
     "settings": "Einstellungen",
     "logout": "Abmelden"
   },
-  "contactpage": {
-    "title": "Kontaktieren Sie uns",
-    "description": "Fühlen Sie sich frei, uns über die folgenden Mittel zu erreichen.",
-    "form": {
-      "name": "Ihr Name",
-      "email": "Ihre E-Mail",
-      "message": "Ihre Nachricht",
-      "submit": "Nachricht senden"
-    }
-  },
-  "navbar": {
-    "home": "Startseite",
-    "about": "Über uns",
-    "services": "Dienstleistungen",
-    "contact": "Kontakt"
-  },
-  "footer": {
-    "copyRight": "©2023 Ihre Firma. Alle Rechte vorbehalten.",
-    "privacyPolicy": "Datenschutz",
-    "termsOfService": "Nutzungsbedingungen"
+  "mybookings": {
+    "bookingList": "Buchungsliste",
+    "bookingInfo": "Buchungsinformationen",
+    "name": "Name",
+    "phone": "Telefon",
+    "hours": "Stunden",
+    "date": "Datum",
+    "start": "Start",
+    "end": "Ende",
+    "status": "Status",
+    "action": "Aktion"
   },
   "cookieConsent": {
     "infoTxt": "Diese Website verwendet Cookies. Durch die weitere Nutzung akzeptieren Sie die Verwendung von Cookies.",
