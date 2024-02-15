@@ -1,82 +1,85 @@
 {
-    "homepage": {
-      "header": {
-        "navbar": {
-          "home": "Startseite",
-          "gallery": "Galerie",
-          "contact": "Kontakt",
-          "mybookings": "Meine Buchungen"
-        },
-        "errorMsg": "Ein Fehler bei den Benutzerinformationen ist aufgetreten.",
-        "exitMessage": "Ausloggen wurde durchgeführt."
+  "homepage": {
+    "header": {
+      "navbar": {
+        "home": "Startseite",
+        "gallery": "Galerie",
+        "contact": "Kontakt",
+        "mybookings": "Meine Buchungen"
       },
-      "home": {
-        "wpMsgText": "Hallo. Ich möchte eine Reservierung machen. (Name: ... Wann: ... Start: ... Ende: ...)",
-        "reservationOkText": "Die Reservierung wurde vorgenommen.",
-        "reservationQuestion": "Bestätigen Sie Ihre Reservierung?",
-        "form": {
-          "title": "Ein Taxi buchen",
-          "nameInput": "Name",
-          "phoneInput": "Telefon",
-          "hoursSelect": "Wann",
-          "startInput": "Start",
-          "endedInput": "Ende",
-          "submitBtn": "Absenden"
-        },
-        "callnow": "jetzt anrufen",
-        "h3": "das Beste in der Stadt",
-        "h2": "vertrauenswürdiger Taxiservice im Land",
-        "p": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis assumenda, non tempora maxime molestias commodi dolor ipsa sint iusto quod deserunt consectetur, ut nihil sequi, molestiae id cupiditate recusandae distinctio."
-      },
-      "tarrif": {
-        "h1": "unser",
-        "h1_span": "Tarif",
-        "orderBtn": "jetzt bestellen"
-      },
-      "fastbookings": {
-        "h1": "wir machen das Beste",
-        "h2": "als Sie wünschen",
-        "h1Text": "Schnelle Buchung",
-        "h1pText": "Überspringen Sie die Wartezeit und buchen Sie Ihre Fahrt in Sekunden mit unserem optimierten Online-System. Unser Service ist so schnell wie Ihr Leben. Einfach tippen, buchen und losfahren!",
-        "h1Text2": "Fahren in Komfort",
-        "h1pText2": "Vom Moment an, in dem Sie in unsere Fahrzeuge einsteigen, werden Sie von Luxus und Komfort begrüßt. Wir halten unsere Flotte nach den höchsten Standards, weil wir glauben, dass die Reise genauso angenehm sein sollte wie das Ziel.",
-        "h1Text3": "Unübertroffene Zuverlässigkeit",
-        "h1pText3": "Unser Engagement für Pünktlichkeit bedeutet, dass Sie sich nie Sorgen machen müssen, zu spät zu kommen. Unsere Fahrer sind darauf trainiert, die schnellsten Routen zu navigieren, um sicherzustellen, dass Sie rechtzeitig ankommen, jedes Mal.",
-        "h1Text4": "Mühelose Kommunikation",
-        "h1pText4": "Kontaktieren Sie uns während unserer Servicezeiten mit Leichtigkeit. Wir glauben daran, jede Interaktion mit uns unkompliziert und stressfrei zu gestalten. Ob Sie einen Anruf, eine E-Mail oder eine In-App-Nachricht bevorzugen, unser Team ist bereit, Ihnen bei allen Anfragen oder Buchungsanpassungen zu helfen. Mit uns ist exzellenter Service nur ein Gespräch entfernt."
-      },
-      "testimonials": {
-        "h1Title":"zufriedene Kunden",
-        "pTxt1": "''Ich hatte ein wichtiges Geschäftstreffen und konnte mir keine Verzögerungen leisten. Ich buchte eine Fahrt bei [Ihr Firmenname] und war durchweg beeindruckt. Der Fahrer war nicht nur pünktlich, sondern auch höflich und professionell. Das Auto war makellos, und die Fahrt verlief reibungslos. Ich kam vor der Zeit an, fühlte mich entspannt und vorbereitet. Es ist klar, dass [Ihr Firmenname] die Zeit genauso schätzt wie ich. Sie haben mein Vertrauen und mein wiederholtes Geschäft verdient.''",
-        "pTxt2": "''Als häufiger Reisender habe ich meinen Anteil an Taxiservices genutzt, aber keiner kommt an die außergewöhnliche Erfahrung heran, die ich mit [Ihr Firmenname] gemacht habe. Der Buchungsprozess war ein Kinderspiel, und der Fahrer kannte die besten Routen, was für eine angenehm effiziente Reise sorgte. Was mir auffiel, war die Liebe zum Detail - der Fahrer erinnerte sich an meine bevorzugten Temperatureinstellungen und hatte sogar eine Flasche Wasser für mich bereit. Es sind die kleinen Dinge, die einen großen Unterschied machen, und dafür ist [Ihr Firmenname] meine erste Wahl.''"
-      }
+      "errorMsg": "Ein Fehler bei den Benutzerinformationen ist aufgetreten.",
+      "exitMessage": "Ausloggen wurde durchgeführt."
     },
-    "adminpage": {
-      "title": "Admin-Dashboard",
-      "users": "Benutzer verwalten",
-      "settings": "Einstellungen",
-      "logout": "Abmelden"
-    },
-    "contactpage": {
-      "title": "Kontaktieren Sie uns",
-      "description": "Fühlen Sie sich frei, uns über die folgenden Mittel zu erreichen.",
+    "home": {
+      "wpMsgText": "Hallo. Ich möchte eine Reservierung machen. (Name: ... Wann: ... Start: ... Ende: ...)",
+      "reservationOkText": "Die Reservierung wurde vorgenommen.",
+      "reservationQuestion": "Bestätigen Sie Ihre Reservierung?",
       "form": {
-        "name": "Ihr Name",
-        "email": "Ihre E-Mail",
-        "message": "Ihre Nachricht",
-        "submit": "Nachricht senden"
-      }
+        "title": "Ein Taxi buchen",
+        "nameInput": "Name",
+        "phoneInput": "Telefon",
+        "hoursSelect": "Wann",
+        "startInput": "Start",
+        "endedInput": "Ende",
+        "submitBtn": "Absenden"
+      },
+      "callnow": "jetzt anrufen",
+      "h3": "das Beste in der Stadt",
+      "h2": "vertrauenswürdiger Taxiservice im Land",
+      "p": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis assumenda, non tempora maxime molestias commodi dolor ipsa sint iusto quod deserunt consectetur, ut nihil sequi, molestiae id cupiditate recusandae distinctio."
     },
-    "navbar": {
-      "home": "Startseite",
-      "about": "Über uns",
-      "services": "Dienstleistungen",
-      "contact": "Kontakt"
+    "tarrif": {
+      "h1": "unser",
+      "h1_span": "Tarif",
+      "orderBtn": "jetzt bestellen"
     },
-    "footer": {
-      "copyRight": "©2023 Ihre Firma. Alle Rechte vorbehalten.",
-      "privacyPolicy": "Datenschutz",
-      "termsOfService": "Nutzungsbedingungen"
+    "fastbookings": {
+      "h1": "wir machen das Beste",
+      "h2": "als Sie wünschen",
+      "h1Text": "Schnelle Buchung",
+      "h1pText": "Überspringen Sie die Wartezeit und buchen Sie Ihre Fahrt in Sekunden mit unserem optimierten Online-System. Unser Service ist so schnell wie Ihr Leben. Einfach tippen, buchen und losfahren!",
+      "h1Text2": "Fahren in Komfort",
+      "h1pText2": "Vom Moment an, in dem Sie in unsere Fahrzeuge einsteigen, werden Sie von Luxus und Komfort begrüßt. Wir halten unsere Flotte nach den höchsten Standards, weil wir glauben, dass die Reise genauso angenehm sein sollte wie das Ziel.",
+      "h1Text3": "Unübertroffene Zuverlässigkeit",
+      "h1pText3": "Unser Engagement für Pünktlichkeit bedeutet, dass Sie sich nie Sorgen machen müssen, zu spät zu kommen. Unsere Fahrer sind darauf trainiert, die schnellsten Routen zu navigieren, um sicherzustellen, dass Sie rechtzeitig ankommen, jedes Mal.",
+      "h1Text4": "Mühelose Kommunikation",
+      "h1pText4": "Kontaktieren Sie uns während unserer Servicezeiten mit Leichtigkeit. Wir glauben daran, jede Interaktion mit uns unkompliziert und stressfrei zu gestalten. Ob Sie einen Anruf, eine E-Mail oder eine In-App-Nachricht bevorzugen, unser Team ist bereit, Ihnen bei allen Anfragen oder Buchungsanpassungen zu helfen. Mit uns ist exzellenter Service nur ein Gespräch entfernt."
+    },
+    "testimonials": {
+      "h1Title": "zufriedene Kunden",
+      "pTxt1": "''Ich hatte ein wichtiges Geschäftstreffen und konnte mir keine Verzögerungen leisten. Ich buchte eine Fahrt bei [Ihr Firmenname] und war durchweg beeindruckt. Der Fahrer war nicht nur pünktlich, sondern auch höflich und professionell. Das Auto war makellos, und die Fahrt verlief reibungslos. Ich kam vor der Zeit an, fühlte mich entspannt und vorbereitet. Es ist klar, dass [Ihr Firmenname] die Zeit genauso schätzt wie ich. Sie haben mein Vertrauen und mein wiederholtes Geschäft verdient.''",
+      "pTxt2": "''Als häufiger Reisender habe ich meinen Anteil an Taxiservices genutzt, aber keiner kommt an die außergewöhnliche Erfahrung heran, die ich mit [Ihr Firmenname] gemacht habe. Der Buchungsprozess war ein Kinderspiel, und der Fahrer kannte die besten Routen, was für eine angenehm effiziente Reise sorgte. Was mir auffiel, war die Liebe zum Detail - der Fahrer erinnerte sich an meine bevorzugten Temperatureinstellungen und hatte sogar eine Flasche Wasser für mich bereit. Es sind die kleinen Dinge, die einen großen Unterschied machen, und dafür ist [Ihr Firmenname] meine erste Wahl.''"
     }
+  },
+  "adminpage": {
+    "title": "Admin-Dashboard",
+    "users": "Benutzer verwalten",
+    "settings": "Einstellungen",
+    "logout": "Abmelden"
+  },
+  "contactpage": {
+    "title": "Kontaktieren Sie uns",
+    "description": "Fühlen Sie sich frei, uns über die folgenden Mittel zu erreichen.",
+    "form": {
+      "name": "Ihr Name",
+      "email": "Ihre E-Mail",
+      "message": "Ihre Nachricht",
+      "submit": "Nachricht senden"
+    }
+  },
+  "navbar": {
+    "home": "Startseite",
+    "about": "Über uns",
+    "services": "Dienstleistungen",
+    "contact": "Kontakt"
+  },
+  "footer": {
+    "copyRight": "©2023 Ihre Firma. Alle Rechte vorbehalten.",
+    "privacyPolicy": "Datenschutz",
+    "termsOfService": "Nutzungsbedingungen"
+  },
+  "cookieConsent": {
+    "infoTxt": "Diese Website verwendet Cookies. Durch die weitere Nutzung akzeptieren Sie die Verwendung von Cookies.",
+    "btnTxt": "Akzeptieren"
   }
-  
+}

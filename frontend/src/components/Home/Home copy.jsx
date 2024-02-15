@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { useLanguage } from '../Languages/LanguageContext'; // useLanguage hook'unu içe aktarın
 import { message } from 'antd';
 import "./Home.css";
 
 const Home = () => {
     const [availableHours, setAvailableHours] = useState([]);
+    const apiUrl = import.meta.env.VITE_API_BASE_URL;
+
+    const { language } = useLanguage(); // Dil bağlamından dil bilgisini al
+    const text = language.homepage.home; // Navbar metinlerine erişim
 
     // Bugünün tarihini YYYY-MM-DD formatında döndüren fonksiyon
     const getTodayDate = () => {
@@ -27,13 +32,7 @@ const Home = () => {
 
 
     const wpNo = "905422072498";
-    const wpMsgText = `
-    Hello. I want to make a reservation ya.
-    (Name:  ...
-    When:  ...
-    Start: ...
-    End:   ...)
-    `;
+    const wpMsgText = text.wpMsgText;
 
     // Saatleri otomatik olarak oluşturan fonksiyon
     const generateHours = () => {
@@ -43,7 +42,7 @@ const Home = () => {
         const currentHour = now.getHours();
         const currentMinute = now.getMinutes();
         const times = [];
-    
+
         // Seçilen tarih bugünse ve mevcut dakika 30'dan küçükse, mevcut saatin yarım saatlik dilimini de ekleyin.
         // Aksi takdirde, seçilen tarih bugünden farklıysa veya mevcut dakika 30 veya daha fazlaysa, saat 8:00'den başlatın.
         if (selectedDate === today) {
@@ -66,22 +65,69 @@ const Home = () => {
                 }
             }
         }
-        
+
         times.push("23:30")
         // Gece yarısından sonraki saatler için eklemeler
         // times.push("00:00", "00:30", "01:00", "01:30", "02:00");
-    
+
         return times;
     };
-    
+
 
 
     const hours = generateHours();
 
+    //USER ID OLUŞTURMA
+    useEffect(() => {
+        // user_id kontrolü ve oluşturma
+        const generateUserId = () => {
+            const array = new Uint8Array(64);
+            window.crypto.getRandomValues(array);
+            return Array.from(array, byte => byte.toString(16).padStart(2, '0')).join('');
+        };
+
+        const getUserId = () => {
+            // localStorage'dan user_id'yi kontrol et
+            let userId = localStorage.getItem('user_id');
+            // Eğer user_id yoksa veya süresi dolmuşsa, yeni bir user_id oluştur ve kaydet
+            if (!userId) {
+                userId = generateUserId();
+                localStorage.setItem('user_id', userId);
+                // Ayrıca, user_id'nin oluşturulma zamanını da kaydedin
+                localStorage.setItem('user_id_created_at', new Date().toISOString());
+            }
+
+            return userId;
+        };
+
+        const userId = getUserId();
+        console.log("User ID:", userId); // Geliştirme aşamasında kontrol için
+    }, []);
+
+    //Adım 2: user_id Süresini Kontrol Etme ve Yenileme
+    useEffect(() => {
+        const checkUserIdExpiration = () => {
+            const createdAt = localStorage.getItem('user_id_created_at');
+            if (createdAt) {
+                const createdAtDate = new Date(createdAt);
+                const now = new Date();
+                const diff = now - createdAtDate;
+                // 24 saat = 86400000 ms
+                if (diff > 86400000) {
+                    // user_id'nin süresi dolmuşsa, yeni bir user_id oluştur
+                    localStorage.removeItem('user_id'); // Önceki user_id'yi sil
+                    getUserId(); // Yeni user_id oluştur ve kaydet
+                }
+            }
+        };
+
+        checkUserIdExpiration();
+    }, []);
+
     // isSubmitSuccessful değeri değiştiğinde başarı mesajını göstermek için useEffect kullanımı
     useEffect(() => {
         if (isSubmitSuccessful) {
-            message.success("Rezervasyon işlemi yapıldı.");
+            message.success(text.reservationOkText);
         }
     }, [isSubmitSuccessful])
     useEffect(() => {
@@ -112,7 +158,7 @@ const Home = () => {
 
     const handleConfirmSubmit = (event) => {
         event.preventDefault();
-        const isOk = window.confirm("Kayıt işleminizi onaylıyor musunuz?");
+        const isOk = window.confirm(text.reservationQuestion);
         if (isOk) {
             handleSubmit(event);
         }
@@ -122,6 +168,8 @@ const Home = () => {
     const handleSubmit = async (event) => {
         event.preventDefault(); // Formun varsayılan gönderme davranışını engelle
 
+        const userId = localStorage.getItem('user_id'); // user_id'yi localStorage'dan al
+
         // Form verilerini bir nesne olarak topla
 
         const bookingData = {
@@ -130,7 +178,8 @@ const Home = () => {
             hours: inputHours,
             date: inputDate,
             start,
-            end
+            end,
+            user_id: userId, // user_id'yi kayıt verilerine ekle
         };
 
         // Fetch API ile POST isteği yap
@@ -152,7 +201,7 @@ const Home = () => {
             const responseData = await response.json();
             setIsSubmitSuccessful(true); // Gönderim başarılı olduğunda bu değeri true yap
 
-            console.log('Booking successful:', responseData);
+            // console.log('Booking successful:', responseData);
             // Burada başarılı olduğunu bildiren bir mesaj gösterebilirsiniz.
 
             // Form input alanlarını temizle
@@ -173,42 +222,55 @@ const Home = () => {
     return (
         <div className="home-container">
             <div className="home-content">
-                <div className="inner-content">
-                    <h3>best in city</h3>
-                    <h2>trusted cab service in country</h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis assumenda, non tempora maxime molestias commodi dolor ipsa sint iusto quod deserunt consectetur, ut nihil sequi, molestiae id cupiditate recusandae distinctio.</p>
-                    <a href="#" className="booknow">book now</a>
-                    <a href={`https://wa.me/${wpNo}?text=${wpMsgText}`} className="booknow" target="_blank">Whatsapp</a>
-
-                </div>
 
                 <div className="inner-content">
+
                     <form onSubmit={handleConfirmSubmit}> {/* Form gönderme işleyicisini ekle */}
                         <div className="contact-form">
+
                             <div className="form-heading">
-                                <h1>book a cab</h1>
+                                <h1>{text.form.title}</h1>
                             </div>
                             <div className="form-fields">
-                                <input type="text" placeholder="name" name="name" value={name} onChange={(e) => setName(e.target.value)} required />
-                                <input type="text" placeholder="phone" name="phone" value={phone} onChange={(e) => setPhone(e.target.value)} required />
+                                <input type="text" placeholder={text.form.nameInput} name="name" value={name} onChange={(e) => setName(e.target.value)} required />
+                                <input type="text" placeholder={text.form.phoneInput} name="phone" value={phone} onChange={(e) => setPhone(e.target.value)} required />
                                 <input type="date" name="date" value={inputDate} min={getTodayDate()} onChange={(e) => setInputDate(e.target.value)} required />
 
                                 <select name="hours" value={inputHours} onChange={(e) => setInputHours(e.target.value)}>
-                                    <option value="" disabled>When</option>
+                                    <option value="" disabled>{text.form.hoursSelect}</option>
                                     {availableHours.map(({ time, disabled }, index) => (
                                         <option key={index} value={time} disabled={disabled}>{time}</option>
                                     ))}
                                 </select>
 
-                                <input type="text" placeholder="start" name="start" value={start} onChange={(e) => setStart(e.target.value)} required />
-                                <input type="text" placeholder="ended" name="end" value={end} onChange={(e) => setEnd(e.target.value)} required />
+                                <input type="text" placeholder={text.form.startInput} name="start" value={start} onChange={(e) => setStart(e.target.value)} required />
+                                <input type="text" placeholder={text.form.endedInput} name="end" value={end} onChange={(e) => setEnd(e.target.value)} required />
+                                <div className='checkbox-terms'>
+                                    <input type="checkbox" id="terms" name="terms" required />
+                                    <label htmlFor="terms">I agree to the terms and conditions</label>
+                                </div>
                             </div>
                             <div className="submit">
-                                <input type="submit" value="Submit" />
+                                <input type="submit" value={text.form.submitBtn} />
                             </div>
                         </div>
                     </form>
+                    <div className='contact-container'>
+                        <a href="#" className="booknow">{text.callnow}</a>
+                        <a href={`https://wa.me/${wpNo}?text=${wpMsgText}`} className="whatsapp" target="_blank">Whatsapp <i className="fa-brands fa-whatsapp"></i></a>
+                    </div>
+
                 </div>
+
+                <div className="inner-content">
+                    <h3>{text.h3}</h3>
+                    <h2>{text.h2}</h2>
+                    <p>{text.p}</p>
+
+
+                </div>
+
+
             </div>
         </div>
     )

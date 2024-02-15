@@ -4,8 +4,15 @@ import { message } from 'antd';
 import "./Home.css";
 
 const Home = () => {
-    const [availableHours, setAvailableHours] = useState([]);
     const apiUrl = import.meta.env.VITE_API_BASE_URL;
+    const [availableHours, setAvailableHours] = useState([]);
+    const [termsAccepted, setTermsAccepted] = useState(false); // Checkbox durumunu tutacak yeni state
+
+     // Checkbox'ın durumunu güncelleyen fonksiyon
+     const handleTermsChange = (event) => {
+        setTermsAccepted(event.target.checked);
+    };
+
 
     const { language } = useLanguage(); // Dil bağlamından dil bilgisini al
     const text = language.homepage.home; // Navbar metinlerine erişim
@@ -19,8 +26,6 @@ const Home = () => {
         return `${year}-${month}-${day}`;
     };
 
-
-
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const [inputHours, setInputHours] = useState('');
@@ -28,8 +33,6 @@ const Home = () => {
     const [start, setStart] = useState('');
     const [end, setEnd] = useState('');
     const [isSubmitSuccessful, setIsSubmitSuccessful] = useState(false);
-
-
 
     const wpNo = "905422072498";
     const wpMsgText = text.wpMsgText;
@@ -72,7 +75,6 @@ const Home = () => {
 
         return times;
     };
-
 
 
     const hours = generateHours();
@@ -168,6 +170,12 @@ const Home = () => {
     const handleSubmit = async (event) => {
         event.preventDefault(); // Formun varsayılan gönderme davranışını engelle
 
+        // Eğer termsAccepted false ise, uyarı mesajı göster ve fonksiyonu sonlandır
+        if (!termsAccepted) {
+            message.warning('Lütfen şartları ve koşulları kabul edin.');
+            return;
+        }
+
         const userId = localStorage.getItem('user_id'); // user_id'yi localStorage'dan al
 
         // Form verilerini bir nesne olarak topla
@@ -207,10 +215,11 @@ const Home = () => {
             // Form input alanlarını temizle
             setName('');
             setPhone('');
-            setInputHours('0'); // Varsayılan değeri '0' olarak ayarla
-            setInputDate(''); // Tarih için istediğiniz varsayılan değeri ayarlayın
+            setInputHours(''); // Varsayılan değeri '0' olarak ayarla
+            setInputDate(getTodayDate()); // Tarih için istediğiniz varsayılan değeri ayarlayın
             setStart('');
             setEnd('');
+            setTermsAccepted(false);
 
 
         } catch (error) {
@@ -245,6 +254,16 @@ const Home = () => {
 
                                 <input type="text" placeholder={text.form.startInput} name="start" value={start} onChange={(e) => setStart(e.target.value)} required />
                                 <input type="text" placeholder={text.form.endedInput} name="end" value={end} onChange={(e) => setEnd(e.target.value)} required />
+                                <div className='checkbox-terms'>
+                                    <input
+                                     type="checkbox" 
+                                     id="terms" 
+                                     name="terms" 
+                                     checked={termsAccepted} 
+                                     onChange={handleTermsChange} 
+                                     />
+                                    <label htmlFor="terms">I agree to the terms and conditions</label>
+                                </div>
                             </div>
                             <div className="submit">
                                 <input type="submit" value={text.form.submitBtn} />

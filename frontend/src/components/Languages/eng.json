@@ -79,5 +79,9 @@
         "copyRight": "©2023 Your Company. All rights reserved.",
         "privacyPolicy": "Privacy Policy",
         "termsOfService": "Terms of Service"
+    },
+    "cookieConsent":{
+        "infoTxt":"This site uses cookies. By continuing to use you accept the use of cookies.",
+        "btnTxt":"Accept"
     }
 }

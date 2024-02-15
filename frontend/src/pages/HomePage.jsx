@@ -5,6 +5,7 @@ import Tariff from '../components/Tariff/Tariff'
 import FastBooking from '../components/FastBooking/FastBooking'
 import Testimonials from '../components/Testimonials/Testimonials'
 
+
 const HomePage = () => {
   return (
     <>
@@ -13,6 +14,7 @@ const HomePage = () => {
       <Tariff />
       <FastBooking />
       <Testimonials />
+
     </>
   )
 }

@@ -5,6 +5,8 @@ import { BrowserRouter } from 'react-router-dom'
 import { ContainerLayout } from './layouts/ContainerLayout.jsx'
 import { LanguageProvider } from './components/Languages/LanguageContext.jsx' //dil dosyası
 import './index.css'
+import CookieConsentBanner from './components/CookieConsent/CookieConsentBanner.jsx'
+
 
 
 
@@ -15,6 +17,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <ContainerLayout>
         <App />
       </ContainerLayout>
+      <CookieConsentBanner/>
     </LanguageProvider>
   </BrowserRouter>
 
