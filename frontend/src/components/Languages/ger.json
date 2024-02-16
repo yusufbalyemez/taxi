@@ -54,10 +54,25 @@
     }
   },
   "adminpage": {
-    "title": "Admin-Dashboard",
-    "users": "Benutzer verwalten",
-    "settings": "Einstellungen",
-    "logout": "Abmelden"
+    "Bookings": "Buchungen",
+    "title": "Buchungsliste",
+    "name": "Name",
+    "phone": "Telefon",
+    "hours": "Stunden",
+    "date": "Datum",
+    "start": "Start",
+    "end": "Ende",
+    "status": "Status",
+    "process": "Prozess",
+    "approvalStatus": "Genehmigungsstatus",
+    "submitBtn": "Akzeptieren",
+    "cancelBtn": "Abbrechen",
+    "deletequestion": "Sind Sie sicher, dass Sie löschen möchten?",
+    "bookingstatus": {
+      "fix": "Buchung",
+      "ok": "genehmigt",
+      "cancel": "storniert"
+    }
   },
   "mybookings": {
     "bookingList": "Buchungsliste",

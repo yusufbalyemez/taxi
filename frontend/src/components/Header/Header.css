@@ -27,6 +27,17 @@
   font-size: 2rem;
   display: none;
 }
+.language-switcher{
+  display: flex;
+  position: absolute;
+  right: 0;
+  flex-direction: row-reverse;
+  background: black;
+}
+.language a{
+  color: white;
+  font-size: 2rem;
+}
 
 @media (max-width:768px) {
   #menu-bars {

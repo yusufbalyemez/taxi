@@ -8,11 +8,11 @@ const Bookings = () => {
 
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
   const { language } = useLanguage(); // Dil bağlamından dil bilgisini al
-    const text = language.mybookings; // Navbar metinlerine erişim
+  const text = language.adminpage; // Navbar metinlerine erişim
 
   const [bookings, setBookings] = useState([]);
   const [showStatusBtn, setShowStatusBtn] = useState(true);
-  
+
 
   useEffect(() => {
     fetchBookings();
@@ -60,7 +60,7 @@ const Bookings = () => {
         throw new Error('Error updating booking status');
       }
       setShowStatusBtn(false); //Butonlar görünmesin.
-      message.success(`Booking ${status === 'approved' ? 'onaylandı' : 'reddedildi'}.`);
+      message.success(`${text.bookingstatus.fix} ${status === 'approved' ? `${text.bookingstatus.ok}` : `${text.bookingstatus.cancel}`}.`);
       fetchBookings();
     } catch (error) {
       console.error('Error updating booking status: ', error);
@@ -90,32 +90,32 @@ const Bookings = () => {
 
   return (
     <div>
-      <h2>Booking List</h2>
+      <h2>{text.title}</h2>
       {bookings.map((booking) => (
         <Card key={booking._id} style={{ marginBottom: 16 }}>
           <Descriptions title={text.bookingList} bordered column={1}>
-            <Descriptions.Item label="Id">{booking._id}</Descriptions.Item>
-            <Descriptions.Item label="Name">{booking.name}</Descriptions.Item>
-            <Descriptions.Item label="Phone">{booking.phone}</Descriptions.Item>
-            <Descriptions.Item label="Hours">{booking.hours}</Descriptions.Item>
-            <Descriptions.Item label="Date">{booking.date}</Descriptions.Item>
-            <Descriptions.Item label="Start">{booking.start}</Descriptions.Item>
-            <Descriptions.Item label="End">{booking.end}</Descriptions.Item>
-            <Descriptions.Item label="User Id">{booking.user_id}</Descriptions.Item>
-            <Descriptions.Item label="Action">
+            {/* <Descriptions.Item label="Id">{booking._id}</Descriptions.Item> */}
+            <Descriptions.Item label={text.name}>{booking.name}</Descriptions.Item>
+            <Descriptions.Item label={text.phone}>{booking.phone}</Descriptions.Item>
+            <Descriptions.Item label={text.hours}>{booking.hours}</Descriptions.Item>
+            <Descriptions.Item label={text.date}>{booking.date}</Descriptions.Item>
+            <Descriptions.Item label={text.start}>{booking.start}</Descriptions.Item>
+            <Descriptions.Item label={text.end}>{booking.end}</Descriptions.Item>
+            {/* <Descriptions.Item label="User Id">{booking.user_id}</Descriptions.Item> */}
+            <Descriptions.Item label={text.status}>
+              <span className={getStatusClass(booking.status)}>
+                {getStatusText(booking.status)}
+              </span>
+            </Descriptions.Item>
+            <Descriptions.Item label={text.process}>
               <Popconfirm
-                title="Silmek istediğinizden emin misiniz?"
+                title={text.deletequestion}
                 onConfirm={() => handleDelete(booking._id)}
               >
                 <Button type="danger" icon={<DeleteOutlined />} />
               </Popconfirm>
             </Descriptions.Item>
-            <Descriptions.Item label="Status">
-              <span className={getStatusClass(booking.status)}>
-                {getStatusText(booking.status)}
-              </span>
-            </Descriptions.Item>
-            <Descriptions.Item label="Action">
+            <Descriptions.Item label={text.approvalStatus}>
 
 
               {booking.status === "waiting" ? (
@@ -126,14 +126,14 @@ const Bookings = () => {
                     onClick={() => updateBookingStatus(booking._id, 'approved')}
                     style={{ marginRight: 8 }}
                   >
-                    Kabul Et
+                    {text.submitBtn}
                   </Button>
                   <Button
                     type="default"
                     icon={<CloseCircleOutlined />}
                     onClick={() => updateBookingStatus(booking._id, 'denied')}
                   >
-                    Reddet
+                    {text.cancelBtn}
                   </Button>
                 </>
               ) : booking.status === "denied" ? (
@@ -142,7 +142,7 @@ const Bookings = () => {
                   icon={<CheckCircleOutlined />}
                   onClick={() => updateBookingStatus(booking._id, 'approved')}
                 >
-                  Kabul Et
+                  {text.submitBtn}
                 </Button>
               ) : (
                 <Button
@@ -150,14 +150,14 @@ const Bookings = () => {
                   icon={<CloseCircleOutlined />}
                   onClick={() => updateBookingStatus(booking._id, 'denied')}
                 >
-                  Reddet
+                  {text.cancelBtn}
                 </Button>
               )}
 
 
 
             </Descriptions.Item>
-
+            
           </Descriptions>
         </Card>
       ))}

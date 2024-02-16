@@ -8,7 +8,7 @@ export const useLanguage = () => useContext(LanguageContext);
 
 export const LanguageProvider = ({ children }) => {
   // İlk dil olarak İngilizceyi ayarla
-  const [language, setLanguage] = useState(ger);
+  const [language, setLanguage] = useState(eng);
 
   const switchLanguage = (langCode) => {
     // langCode parametresine göre dil değiştirme

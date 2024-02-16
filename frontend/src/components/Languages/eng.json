@@ -54,10 +54,25 @@
         }
     },
     "adminpage": {
-        "title": "Admin Dashboard",
-        "users": "Manage Users",
-        "settings": "Settings",
-        "logout": "Logout"
+        "Bookings":"Bookings",
+        "title":"Booking List",
+        "name": "name",
+        "phone": "phone",
+        "hours": "hours",
+        "date": "date",
+        "start": "start",
+        "end": "end",
+        "status":"status",
+        "process": "process",
+        "approvalStatus":"Approval Status",
+        "submitBtn": "Accept",
+        "cancelBtn": "Cancel",
+        "deletequestion": "Are You Sure You Want to Delete?",
+        "bookingstatus": {
+            "fix": "Booking",
+            "ok": "approved",
+            "cancel": "cancelled"
+        }
     },
     "mybookings": {
         "bookingList": "Booking List",
@@ -68,8 +83,8 @@
         "date": "date",
         "start": "start",
         "end": "end",
-        "status": "status",
-        "action": "action"
+        "status": "status"
+       
     },
     "cookieConsent": {
         "infoTxt": "This site uses cookies. By continuing to use you accept the use of cookies.",
