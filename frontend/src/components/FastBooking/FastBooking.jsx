@@ -1,6 +1,6 @@
 import { useLanguage } from '../Languages/LanguageContext'; // useLanguage hook'unu içe aktarın
-import "./FastBooking.css"
 import FastBookingItem from "./FastBookingItem"
+import "./FastBooking.css"
 
 
 

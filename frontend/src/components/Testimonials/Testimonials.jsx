@@ -1,6 +1,6 @@
 import { useLanguage } from '../Languages/LanguageContext'; // useLanguage hook'unu içe aktarın
-import "./Testimonials.css"
 import TestimonialItem from "./TestimonialItem"
+import "./Testimonials.css"
 
 const Testimonials = (probs) => {
     const { language } = useLanguage(); // Dil bağlamından dil bilgisini al
