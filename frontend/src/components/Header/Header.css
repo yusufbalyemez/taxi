@@ -33,6 +33,7 @@
   right: 0;
   flex-direction: row-reverse;
   background: black;
+  z-index: 999;
 }
 .language a{
   color: white;
