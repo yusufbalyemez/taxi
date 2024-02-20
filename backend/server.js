@@ -28,8 +28,8 @@ if(db){
 // deletePastBookings();
 
 // Route tanımları
-app.use('/api/bookings', cabBookingRoutes); // Rezervasyonlar için
-app.use('/api/auth', UserRoutes); // Kuıllanıcılar için
+app.use('/bookings', cabBookingRoutes); // Rezervasyonlar için
+app.use('/auth', UserRoutes); // Kullanıcılar için
 
 
 const PORT = process.env.PORT || 5000;
