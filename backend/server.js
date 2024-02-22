@@ -11,11 +11,16 @@ dotenv.config();
 const app = express();
 
 // Specify your server's IP address or a range of trusted origins
-const allowedOrigins = ['http://138.68.95.100', 'http://localhost', 'https://yuksel-taxi-almanca.com'];
+const allowedOrigins = [
+  'http://138.68.95.100',
+  'http://localhost',
+  'http://grossraumv-klassetaxi.de',
+  'http://www.grossraumv-klassetaxi.de', // Eğer www ile de erişim sağlamak istiyorsanız
+];
 
 const corsOptions = {
   origin: function (origin, callback) {
-    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+    if (allowedOrigins.includes(origin) || !origin) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
@@ -40,3 +45,4 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
