@@ -1,5 +1,6 @@
 .testimonials{
     background: url(images/testimonial_back.png);
+    background-color:gray;
     background-size: cover;
     background-position: center;
     width: 100%;
