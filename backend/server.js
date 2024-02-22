@@ -12,10 +12,10 @@ const app = express();
 
 // Specify your server's IP address or a range of trusted origins
 const allowedOrigins = [
-  'http://138.68.95.100',
-  'http://localhost',
-  'http://grossraumv-klassetaxi.de',
-  'http://www.grossraumv-klassetaxi.de', // Eğer www ile de erişim sağlamak istiyorsanız
+  'https://138.68.95.100',
+  'https://localhost',
+  'https://grossraumv-klassetaxi.de',
+  'https://www.grossraumv-klassetaxi.de', // Eğer www ile de erişim sağlamak istiyorsanız
 ];
 
 const corsOptions = {
@@ -41,7 +41,7 @@ mongoose.connect(process.env.DB_URI)
 app.use('/api/bookings', cabBookingRoutes); // For bookings
 app.use('/api/auth', UserRoutes); // For users
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
