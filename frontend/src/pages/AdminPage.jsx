@@ -1,86 +1,49 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link, useNavigate } from 'react-router-dom';
-import { Breadcrumb, Layout, Menu, theme, Button } from 'antd';
-import { LogoutOutlined } from '@ant-design/icons'; // Çıkış ikonu
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Bookings from '../components/Admin/Bookings';
 import TodayBookings from '../components/Admin/TodayBookings';
+import Settings from '../components/Admin/Settings';
+import { Layout, Menu, Button } from 'antd';
+import { LogoutOutlined } from '@ant-design/icons';
+
 
 const { Header, Content, Footer } = Layout;
 
-const items = [
-  { key: '1', label: (<Link to="/admin">Home</Link>) },
-  { key: '2', label: (<Link to="/bookings">Bookings</Link>) },
-  { key: '3', label: (<Link to="/users">Users</Link>) },
-];
-
 const AdminPage = () => {
-  const navigate = useNavigate(); // Yönlendirme için hook
-  const {
-    token: { colorBgContainer, borderRadiusLG },
-  } = theme.useToken();
-
   const handleLogout = () => {
     // Çıkış işlemleri burada yapılabilir
-    // navigate('/'); // Anasayfaya yönlendir
+    // Örneğin localStorage'dan token silinebilir ve kullanıcı anasayfaya yönlendirilebilir
+    localStorage.removeItem('token');
     window.location.href = "/";
   };
 
   return (
     <Layout>
       <Header style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <div className="demo-logo" />
-        <Menu
-          theme="dark"
-          mode="horizontal"
-          defaultSelectedKeys={['1']}
-          items={items}
-          style={{ flex: 1, minWidth: 0 }}
-        />
-        <Button
-          type="primary"
-          icon={<LogoutOutlined />}
-          onClick={handleLogout}
-          style={{ marginLeft: 'auto' }} // Sağa yaslama
-        >
+        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
+          <Menu.Item key="1"><Link to="/admin">Bookings</Link></Menu.Item>
+          <Menu.Item key="2"><Link to="/admin/bookings">Old Bookings</Link></Menu.Item>
+          <Menu.Item key="3"><Link to="/admin/settings">Settings</Link></Menu.Item>
+        </Menu>
+        <Button type="primary" icon={<LogoutOutlined />} onClick={handleLogout}>
           Çıkış
         </Button>
       </Header>
-      <Content style={{ padding: '0 10px' }}>
-          <Breadcrumb
-            style={{
-              margin: '16px 0',
-            }}
-          >
-            <Breadcrumb.Item>Home</Breadcrumb.Item>
-            <Breadcrumb.Item>List</Breadcrumb.Item>
-            <Breadcrumb.Item>App</Breadcrumb.Item>
-          </Breadcrumb>
-          <div
-            style={{
-              background: colorBgContainer,
-              minHeight: 280,
-              padding: 12,
-              borderRadius: borderRadiusLG,
-            }}
-          >
-            <Routes>
-              <Route path="/bookings" element={<Bookings/>} />
-              {/* Diğer route'larınız buraya */}
-            </Routes>
-            <TodayBookings/>
-          </div>
-       
-        </Content>
-        <Footer
-          style={{
-            textAlign: 'center',
-          }}
-        >
-          Ant Design ©{new Date().getFullYear()} Created by Ant UED
-          
-        </Footer>
-      </Layout>
- 
+      <Content style={{ padding: '0 50px' }}>
+        <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
+          {/* Route'lar burada tanımlanıyor */}
+          <Routes>
+            <Route path="/admin/bookings" element={<Bookings />} />
+            <Route path="/admin" element={<TodayBookings />} />
+            <Route path='/admin/settings' element={<Settings/>}/>
+            {/* Diğer admin alt sayfalarınızın route'ları buraya eklenebilir */}
+          </Routes>
+        </div>
+      </Content>
+      <Footer style={{ textAlign: 'center' }}>
+        Ant Design ©{new Date().getFullYear()} Created by Ant UED
+      </Footer>
+    </Layout>
   );
 };
 

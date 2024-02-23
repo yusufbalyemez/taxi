@@ -90,7 +90,7 @@ const TodayBookings = () => {
 
   return (
     <div>
-      <h2>{text.title}</h2>
+      <h2>{text.title2}</h2>
       {bookings.map((booking) => (
         <Card key={booking._id} style={{ marginBottom: 16 }}>
           <Descriptions title={text.bookingList} bordered column={1}>

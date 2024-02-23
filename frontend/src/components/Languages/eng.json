@@ -55,7 +55,8 @@
     },
     "adminpage": {
         "Bookings":"Bookings",
-        "title":"Booking List",
+        "title":"All Booking List",
+        "title2":"Today's Bookings List",
         "name": "name",
         "phone": "phone",
         "hours": "hours",

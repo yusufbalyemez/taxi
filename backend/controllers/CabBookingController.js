@@ -58,6 +58,25 @@ exports.getTodayBookings = async (req, res) => {
   }
 };
 
+// Tüm rezervasyonları getir (Bugün hariç)
+exports.getAllBookingsExceptToday = async (req, res) => {
+  try {
+    // Bugünün tarihini al
+    const today = new Date();
+    // Bugünün tarihini yıl-ay-gün formatında al (örneğin: "2024-02-19")
+    const todayDate = today.toISOString().split('T')[0];
+
+    const bookings = await CabBooking.find({
+      // MongoDB'deki tarih alanınızın adı ne ise (örneğin 'date') onu kullanın
+      date: { $lt: todayDate } // Bugünden önceki tarihleri getir
+    }).sort({ date: -1 }); // Tarihe göre tersten sırala
+
+    res.status(200).json(bookings);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 
 // Tüm rezervasyonları getir
 exports.getAllBookings = async (req, res) => {
@@ -120,6 +139,27 @@ exports.deleteAllBookings = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+// Bugünün tarihinden eski tüm rezervasyonları sil
+exports.deleteOldBookings = async (req, res) => {
+  try {
+    // Bugünün tarihini al ve string formatında (YYYY-MM-DD) kullan
+    const today = new Date();
+    const todayStr = today.toISOString().split('T')[0];
+
+    // Bugünün tarihinden eski olan tüm rezervasyonları sil
+    const result = await CabBooking.deleteMany({ date: { $lt: todayStr } });
+
+    if (result.deletedCount > 0) {
+      res.status(200).json({ message: `${result.deletedCount} old booking(s) deleted successfully.` });
+    } else {
+      res.status(404).json({ message: 'No old bookings found to delete.' });
+    }
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 
 // ID'ye göre rezervasyonu güncelle
 exports.updateBooking = async (req, res) => {

@@ -13,8 +13,6 @@ const app = express();
 // Specify your server's IP address or a range of trusted origins
 const allowedOrigins = [
   'https://138.68.95.100',
-  'http://localhost',
-  'http://localhost:5000',
   'http://localhost:5173',
   'https://localhost',
   'https://grossraumv-klassetaxi.de',
@@ -41,7 +39,7 @@ mongoose.connect(process.env.DB_URI)
   .then(() => console.log("MongoDB connection successfully."))
   .catch((err) => console.log("MongoDB connection failed...", err));
 
-app.use('/api/bookings', cabBookingRoutes); // For bookings
+app.use('/api/', cabBookingRoutes); // For bookings
 app.use('/api/auth', UserRoutes); // For users
 
 const PORT = process.env.PORT || 5001;
