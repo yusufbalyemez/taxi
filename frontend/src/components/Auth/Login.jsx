@@ -37,6 +37,7 @@ const Login = () => {
                 if (data.role === "admin") {
                     // navigate("/admin") //navigatele yükleyince react-router-dom özelliğini almıyor path name gelmiyor o yüzden aşağıdaki gibi yapmak lazım.
                     window.location.href = "/admin"
+                  
                 } else {
                     // navigate("/") // yönlendirme kodu 
                     window.location.href = "/"

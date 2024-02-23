@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Link, useNavigate } from 'react
 import { Breadcrumb, Layout, Menu, theme, Button } from 'antd';
 import { LogoutOutlined } from '@ant-design/icons'; // Çıkış ikonu
 import Bookings from '../components/Admin/Bookings';
+import TodayBookings from '../components/Admin/TodayBookings';
 
 const { Header, Content, Footer } = Layout;
 
@@ -66,7 +67,9 @@ const AdminPage = () => {
               <Route path="/bookings" element={<Bookings/>} />
               {/* Diğer route'larınız buraya */}
             </Routes>
+            <TodayBookings/>
           </div>
+       
         </Content>
         <Footer
           style={{
@@ -74,6 +77,7 @@ const AdminPage = () => {
           }}
         >
           Ant Design ©{new Date().getFullYear()} Created by Ant UED
+          
         </Footer>
       </Layout>
  

@@ -6,3 +6,6 @@ npm i dotenv
 npm i cors
 npm i mongoose
 npm i bcrypt
+
+# hepsi birden kurulum
+npm install express nodemon dotenv cors mongoose bcrypt

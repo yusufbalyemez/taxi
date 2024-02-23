@@ -13,6 +13,9 @@ const app = express();
 // Specify your server's IP address or a range of trusted origins
 const allowedOrigins = [
   'https://138.68.95.100',
+  'http://localhost',
+  'http://localhost:5000',
+  'http://localhost:5173',
   'https://localhost',
   'https://grossraumv-klassetaxi.de',
   'https://www.grossraumv-klassetaxi.de', // Eğer www ile de erişim sağlamak istiyorsanız
