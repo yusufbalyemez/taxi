@@ -124,14 +124,16 @@ const Bookings = () => {
                     type="primary"
                     icon={<CheckCircleOutlined />}
                     onClick={() => updateBookingStatus(booking._id, 'approved')}
-                    style={{ marginRight: 8 }}
+                    style={{ marginRight: 8, height: 50, marginBottom:20 }}
                   >
                     {text.submitBtn}
                   </Button>
                   <Button
-                    type="default"
+                    type="primary" // Ant Design'ın varsayılan mavi rengini kullanmak yerine
+                    danger // Butonu kırmızı yapmak için danger prop'unu ekleyin
                     icon={<CloseCircleOutlined />}
                     onClick={() => updateBookingStatus(booking._id, 'denied')}
+                    style= {{height:50}}
                   >
                     {text.cancelBtn}
                   </Button>
@@ -141,6 +143,7 @@ const Bookings = () => {
                   type="primary"
                   icon={<CheckCircleOutlined />}
                   onClick={() => updateBookingStatus(booking._id, 'approved')}
+                  style= {{height:50}}
                 >
                   {text.submitBtn}
                 </Button>
@@ -149,6 +152,7 @@ const Bookings = () => {
                   type="default"
                   icon={<CloseCircleOutlined />}
                   onClick={() => updateBookingStatus(booking._id, 'denied')}
+                  style= {{height:50}}
                 >
                   {text.cancelBtn}
                 </Button>

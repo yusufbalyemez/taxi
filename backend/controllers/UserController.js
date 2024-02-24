@@ -53,9 +53,9 @@ exports.Login = async (req,res)=>{
 
       res.status(200).json({
           id: user._id,
-          email: user.email,
-          username: user.username,
-          role: user.role
+          //email: user.email,
+          //username: user.username,
+          //role: user.role
           // avatar: user.avatar
       })
   } catch (error) {

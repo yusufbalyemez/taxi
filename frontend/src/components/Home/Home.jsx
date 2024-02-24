@@ -79,32 +79,27 @@ const Home = () => {
 
     const hours = generateHours();
 
-    //USER ID OLUŞTURMA
-    useEffect(() => {
-        // user_id kontrolü ve oluşturma
-        const generateUserId = () => {
-            const array = new Uint8Array(64);
-            window.crypto.getRandomValues(array);
-            return Array.from(array, byte => byte.toString(16).padStart(2, '0')).join('');
-        };
+    // USER ID OLUŞTURMA ve ALMA
+useEffect(() => {
+    const generateUserId = () => {
+        const array = new Uint8Array(64);
+        window.crypto.getRandomValues(array);
+        return Array.from(array, byte => byte.toString(16).padStart(2, '0')).join('');
+    };
 
-        const getUserId = () => {
-            // localStorage'dan user_id'yi kontrol et
-            let userId = localStorage.getItem('user_id');
-            // Eğer user_id yoksa veya süresi dolmuşsa, yeni bir user_id oluştur ve kaydet
-            if (!userId) {
-                userId = generateUserId();
-                localStorage.setItem('user_id', userId);
-                // Ayrıca, user_id'nin oluşturulma zamanını da kaydedin
-                localStorage.setItem('user_id_created_at', new Date().toISOString());
-            }
+    const getUserId = () => {
+        let userId = localStorage.getItem('user_id');
+        if (!userId) {
+            userId = generateUserId();
+            localStorage.setItem('user_id', userId);
+            localStorage.setItem('user_id_created_at', new Date().toISOString());
+        }
+        return userId;
+    };
 
-            return userId;
-        };
-
-        const userId = getUserId();
-        console.log("User ID:", userId); // Geliştirme aşamasında kontrol için
-    }, []);
+    const userId = getUserId();
+    console.log("User ID:", userId); // Geliştirme aşamasında kontrol için
+}, []);
 
     //Adım 2: user_id Süresini Kontrol Etme ve Yenileme
     useEffect(() => {
