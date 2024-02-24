@@ -19,8 +19,9 @@ const AdminPage = () => {
 
   return (
     <Layout>
-      <Header style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
+      <Header style={{ display: 'flex', alignItems: 'center', padding: '0 50px', justifyContent: 'space-between' }}>
+  {/* ... */}
+        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']} style={{ flex: 1 }}>
           <Menu.Item key="1"><Link to="/admin">Bookings</Link></Menu.Item>
           <Menu.Item key="2"><Link to="/admin/bookings">Old Bookings</Link></Menu.Item>
           <Menu.Item key="3"><Link to="/admin/settings">Settings</Link></Menu.Item>
