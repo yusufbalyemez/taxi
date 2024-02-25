@@ -1,6 +1,8 @@
 // controllers/CabUserController.js
 const CabUser = require('../models/User.js');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+require('dotenv').config(); // .env dosyasından ortam değişkenlerini yüklemek için
 
 //Kullanıcı Oluşturma (Create - Register)
 exports.AddUser = async (req,res)=>{
@@ -35,35 +37,43 @@ exports.AddUser = async (req,res)=>{
 
 exports.Login = async (req,res)=>{
   try {
-      const {email,password} = req.body; //buradaki bilgiler html kısmından gelecek
+      const {email,password} = req.body;
 
-      const user = await CabUser.findOne({email}) //arama ve bulma işlemi
+      const user = await CabUser.findOne({email})
 
-      //Eğer kullanıcı yoksa şöyle bir kod döndür
       if(!user){
           return res.status(401).json({error: "Invalid email or password."})
       }
 
-      //Veritabanında hashlenmiş kodu çevirme 
       const isPasswordValid = await bcrypt.compare(password,user.password);
 
       if(!isPasswordValid){
           return res.status(401).json({error: "Invalid password"});
       }
 
+      // JWT Token oluştur
+      const token = jwt.sign(
+        { id: user._id, email: user.email, role: user.role },
+        process.env.JWT_SECRET, // .env dosyasında tanımlanan gizli anahtar
+        { expiresIn: '1h' } // Token süresi
+      );
+
+      // Token ile birlikte kullanıcı bilgisini döndür
       res.status(200).json({
-          id: user._id,
-          //email: user.email,
-          //username: user.username,
-          //role: user.role
-          // avatar: user.avatar
+          token, // Token'i yanıtta döndür
+          user: {
+              id: user._id,
+              email: user.email,
+              username: user.username,
+              role: user.role
+              // avatar: user.avatar (isteğe bağlı)
+          }
       })
   } catch (error) {
       console.log(error);
       res.status(500).json({error: "Server error."})
   }
 }
-
 exports.createUser = async (req, res) => {
   try {
     const newUser = new CabUser(req.body);

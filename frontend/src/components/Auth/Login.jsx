@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
-import { message } from 'antd'; //message butonu ant kütüphanesinden çekildi
+import { message } from 'antd'; // Ant Design'dan message kullanıyoruz
 
 const Login = () => {
     const [formData, setFormData] = useState({
@@ -9,19 +9,15 @@ const Login = () => {
     });
 
     const navigate = useNavigate();
-    const apiUrl = import.meta.env.VITE_API_BASE_URL /* vite ile kullanıldığında böyle */
+    const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
-    //inputtaki verileri toplu almak için
     const handleInputChanged = (e) => {
         const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value }) //tümünü yerleştir, name bilgisine göre value yi al demekmiş
+        setFormData({ ...formData, [name]: value });
     }
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        // console.log(formData)
-        // console.log("veri kayıt edildi.")
-
         try {
             const response = await fetch(`${apiUrl}/api/auth/login`, {
                 method: "POST",
@@ -32,22 +28,19 @@ const Login = () => {
             });
             if (response.ok) {
                 const data = await response.json();
-                //localStorage.setItem("admin", JSON.stringify(data)); //localStorageye kayıt ediyor.
-                message.success("Giriş başarılı.")
-                if (data.role === "admin") {
-                    // navigate("/admin") //navigatele yükleyince react-router-dom özelliğini almıyor path name gelmiyor o yüzden aşağıdaki gibi yapmak lazım.
-                    window.location.href = "/admin"
-                  
+                localStorage.setItem("token", data.token); // Token'ı localStorage'a kaydediyoruz
+                message.success("Giriş başarılı.");
+
+                if (data.user.role === "admin") {
+                    navigate("/admin");
                 } else {
-                    // navigate("/") // yönlendirme kodu 
-                    window.location.href = "/"
+                    navigate("/");
                 }
             } else {
-                message.error("Giriş başarısız.")
-                console.log(response)
+                message.error("Giriş başarısız.");
             }
         } catch (error) {
-            console.log("Giriş hatası", error);
+            message.error("Giriş sırasında bir hata oluştu.");
         }
     }
 
