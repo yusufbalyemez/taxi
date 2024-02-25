@@ -1,8 +1,13 @@
 import { useState } from "react"
+import { useLanguage } from '../Languages/LanguageContext'; // useLanguage hook'unu içe aktarın
 import { useNavigate } from "react-router-dom";
 import { message } from 'antd'; // Ant Design'dan message kullanıyoruz
 
 const Login = () => {
+    
+    const { language } = useLanguage(); // Dil bağlamından dil bilgisini al
+    const text = language.authpage; // Navbar metinlerine erişim
+
     const [formData, setFormData] = useState({
         email: "",
         password: ""
@@ -29,7 +34,7 @@ const Login = () => {
             if (response.ok) {
                 const data = await response.json();
                 localStorage.setItem("token", data.token); // Token'ı localStorage'a kaydediyoruz
-                message.success("Giriş başarılı.");
+                message.success(text.loginSuccess);
 
                 if (data.user.role === "admin") {
                     navigate("/admin");
@@ -37,35 +42,35 @@ const Login = () => {
                     navigate("/");
                 }
             } else {
-                message.error("Giriş başarısız.");
+                message.error(text.loginFailed);
             }
         } catch (error) {
-            message.error("Giriş sırasında bir hata oluştu.");
+            message.error(text.failError);
         }
     }
 
     return (
         <div className="account-column">
-            <h2>Login</h2>
+            <h2>{text.title}</h2>
             <form onSubmit={handleLogin}>
                 <div>
                     <label>
-                        <span>Username or email address <span className="required">*</span></span>
+                        <span>{text.emailTitle}<span className="required">*</span></span>
                         <input type="text" name="email" onChange={handleInputChanged} />
                     </label>
                 </div>
                 <div>
                     <label>
-                        <span>Password <span className="required">*</span></span>
+                        <span>{text.passwordTitle} <span className="required">*</span></span>
                         <input type="password" name="password" onChange={handleInputChanged} />
                     </label>
                 </div>
                 <p className="remember">
                     <label>
                         <input type="checkbox" />
-                        <span>Remember me</span>
+                        <span>{text.rememberMe}</span>
                     </label>
-                    <button className="btn btn-sm">Login</button>
+                    <button className="btn btn-sm">{text.buttonTxt}</button>
                 </p>
                 {/*<a href="#" className="form-link">Lost your password?</a>  */}
             </form>

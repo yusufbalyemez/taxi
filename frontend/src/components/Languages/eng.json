@@ -73,7 +73,12 @@
             "fix": "Booking",
             "ok": "approved",
             "cancel": "cancelled"
-        }
+        },
+        "exitBtn": "Logout",
+        "menuItem1": "Bookings",
+        "menuItem2": "Old Bookings",
+        "menuItem3": "Settings",
+        "logoutBtn": "Logout"
     },
     "mybookings": {
         "bookingList": "Booking List",
@@ -90,5 +95,16 @@
     "cookieConsent": {
         "infoTxt": "This site uses cookies. By continuing to use you accept the use of cookies.",
         "btnTxt": "Accept"
+    },
+    "authpage": {
+        "title": "Login",
+        "emailTitle": "Username Or Email Address ",
+        "passwordTitle": "Password",
+        "rememberMe": "Remember Me",
+        "buttonTxt": "Login",
+        "loginSuccess": "Login successful.",
+        "loginFailed": "Login failed.",
+        "failError": "An error occurred while logging in."
+
     }
 }

@@ -237,7 +237,13 @@ useEffect(() => {
                             </div>
                             <div className="form-fields">
                                 <input type="text" placeholder={text.form.nameInput} name="name" value={name} onChange={(e) => setName(e.target.value)} required />
-                                <input type="text" placeholder={text.form.phoneInput} name="phone" value={phone} onChange={(e) => setPhone(e.target.value)} required />
+                                <input type="text" 
+                                placeholder={text.form.phoneInput} 
+                                name="phone" 
+                                value={phone} 
+                                onChange={(e) => setPhone(e.target.value)} 
+                                pattern="\+49\d{9,11}"
+                                required />
                                 <input type="date" name="date" value={inputDate} min={getTodayDate()} onChange={(e) => setInputDate(e.target.value)} required />
 
                                 <select name="hours" value={inputHours} onChange={(e) => setInputHours(e.target.value)}>

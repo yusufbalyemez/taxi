@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate, Outlet } from 'react-router-dom';
-import { Layout, Menu, Button, message, Spin } from 'antd'; // Spin componentini import ediyoruz
+import { Layout, Menu, Button, message, Spin, Flex } from 'antd'; // Spin componentini import ediyoruz
 import { LogoutOutlined } from '@ant-design/icons';
+import { useLanguage } from '../components/Languages/LanguageContext';
 
 const { Header, Content, Footer } = Layout;
 
 const AdminPage = () => {
   const [isLoading, setIsLoading] = useState(true); // Yükleme durumu state'i
   const navigate = useNavigate();
+
+  const { language } = useLanguage(); // Dil bağlamından dil bilgisini al
+  const text = language.adminpage; // Navbar metinlerine erişim
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -26,9 +30,9 @@ const AdminPage = () => {
   };
 
   const menuItems = [
-    { label: <Link to="/admin">Bookings</Link>, key: '1' },
-    { label: <Link to="/admin/bookings">Old Bookings</Link>, key: '2' },
-    { label: <Link to="/admin/settings">Settings</Link>, key: '3' },
+    { label: <Link to="/admin">{text.menuItem1}</Link>, key: '1' },
+    { label: <Link to="/admin/bookings">{text.menuItem2}</Link>, key: '2' },
+    { label: <Link to="/admin/settings">{text.menuItem3}</Link>, key: '3' },
   ];
 
   if (isLoading) {
@@ -38,17 +42,17 @@ const AdminPage = () => {
   // isLoading false ise, yani token kontrolü tamamlanmışsa içerik gösterilir
   return (
     <Layout>
-      <Header style={{ display: 'flex', alignItems: 'center', padding: '0 50px', justifyContent: 'space-between' }}>
-        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}  style={{ flex: 1 }} items={menuItems} />
-        <Button type="primary" icon={<LogoutOutlined />} onClick={handleLogout}>Çıkış</Button>
+      <Header style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']} items={menuItems} style={{width:'100%'}} />
+        <Button type="primary" icon={<LogoutOutlined />} onClick={handleLogout}>{text.logoutBtn}</Button>
       </Header>
-      <Content style={{ padding: '0 50px' }}>
+      <Content>
         <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
           <Outlet /> {/* Çocuk route'lar burada render edilecek */}
         </div>
       </Content>
       <Footer style={{ textAlign: 'center' }}>
-        Ant Design ©{new Date().getFullYear()} Created by Ant UED
+        ©{new Date().getFullYear()} Created by Yusuf Balyemez
       </Footer>
     </Layout>
   );

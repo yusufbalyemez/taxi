@@ -92,7 +92,7 @@ const TodayBookings = () => {
     <div>
       <h2>{text.title2}</h2>
       {bookings.map((booking) => (
-        <Card key={booking._id} style={{ marginBottom: 16 }}>
+        <Card key={booking._id} style={{ marginBottom: 16}}>
           <Descriptions title={text.bookingList} bordered column={1}>
             {/* <Descriptions.Item label="Id">{booking._id}</Descriptions.Item> */}
             <Descriptions.Item label={text.name}>{booking.name}</Descriptions.Item>
@@ -117,14 +117,13 @@ const TodayBookings = () => {
             </Descriptions.Item>
             <Descriptions.Item label={text.approvalStatus}>
 
-
               {booking.status === "waiting" ? (
                 <>
                   <Button
                     type="primary"
                     icon={<CheckCircleOutlined />}
                     onClick={() => updateBookingStatus(booking._id, 'approved')}
-                    style={{ marginRight: 8 }}
+                    style={{ marginRight: 8, height: 50, marginBottom:20 }}
                   >
                     {text.submitBtn}
                   </Button>
@@ -132,6 +131,7 @@ const TodayBookings = () => {
                     type="default"
                     icon={<CloseCircleOutlined />}
                     onClick={() => updateBookingStatus(booking._id, 'denied')}
+                    style= {{height:50}}
                   >
                     {text.cancelBtn}
                   </Button>
@@ -141,6 +141,7 @@ const TodayBookings = () => {
                   type="primary"
                   icon={<CheckCircleOutlined />}
                   onClick={() => updateBookingStatus(booking._id, 'approved')}
+                  style= {{height:50}}
                 >
                   {text.submitBtn}
                 </Button>
@@ -149,15 +150,13 @@ const TodayBookings = () => {
                   type="default"
                   icon={<CloseCircleOutlined />}
                   onClick={() => updateBookingStatus(booking._id, 'denied')}
+                  style= {{height:50}}
                 >
                   {text.cancelBtn}
                 </Button>
               )}
 
-
-
             </Descriptions.Item>
-            
           </Descriptions>
         </Card>
       ))}

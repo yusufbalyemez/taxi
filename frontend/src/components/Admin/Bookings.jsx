@@ -89,7 +89,7 @@ const Bookings = () => {
   };
 
   return (
-    <div>
+    <>
       <h2>{text.title}</h2>
       {bookings.map((booking) => (
         <Card key={booking._id} style={{ marginBottom: 16 }}>
@@ -158,14 +158,11 @@ const Bookings = () => {
                 </Button>
               )}
 
-
-
             </Descriptions.Item>
-            
           </Descriptions>
         </Card>
       ))}
-    </div>
+    </>
   );
 };
 

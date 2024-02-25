@@ -72,7 +72,12 @@
       "fix": "Buchung",
       "ok": "genehmigt",
       "cancel": "storniert"
-    }
+    },
+    "exitBtn": "Ausloggen",
+    "menuItem1": "Buchungen",
+    "menuItem2": "Alte Buchungen",
+    "menuItem3": "Einstellungen",
+    "logoutBtn": "Ausloggen"
   },
   "mybookings": {
     "bookingList": "Buchungsliste",
@@ -89,5 +94,15 @@
   "cookieConsent": {
     "infoTxt": "Diese Website verwendet Cookies. Durch die weitere Nutzung akzeptieren Sie die Verwendung von Cookies.",
     "btnTxt": "Akzeptieren"
+  },
+  "authpage": {
+    "title": "Anmeldung",
+    "emailTitle": "Benutzername oder E-Mail-Adresse",
+    "passwordTitle": "Passwort",
+    "rememberMe": "Erinnere dich an mich",
+    "buttonTxt": "Anmelden",
+    "loginSuccess": "Anmeldung erfolgreich.",
+    "loginFailed": "Anmeldung fehlgeschlagen.",
+    "failError": "Beim Anmelden ist ein Fehler aufgetreten."
   }
 }
