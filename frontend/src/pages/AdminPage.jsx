@@ -39,7 +39,7 @@ const AdminPage = () => {
   return (
     <Layout>
       <Header style={{ display: 'flex', alignItems: 'center', padding: '0 50px', justifyContent: 'space-between' }}>
-        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']} items={menuItems} />
+        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}  style={{ flex: 1 }} items={menuItems} />
         <Button type="primary" icon={<LogoutOutlined />} onClick={handleLogout}>Çıkış</Button>
       </Header>
       <Content style={{ padding: '0 50px' }}>

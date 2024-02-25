@@ -1,9 +1,13 @@
+import Header from "../components/Header/Header"
 import PhotoGallery from "../components/PhotoGallery/PhotoGallery"
 
 
 const GalleryPage = () => {
   return (
-    <div><PhotoGallery/></div>
+    <>
+      <Header/>
+      <PhotoGallery/>
+    </>
   )
 }
 

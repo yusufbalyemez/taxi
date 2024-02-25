@@ -1,6 +1,10 @@
-// AdminLayout.js
+
+/* BU SAYFALAR ŞUANLIK KULLANILMIYOR ÇÜNKÜ ADMİN PANELDE YÖNLENDİRME İŞLEMLERİNDE SORUN OLDU BECEREMEDİM */
+
+ // AdminLayout.js
 import React from 'react';
 import AdminPage from '../pages/AdminPage';
+
 
 const AdminLayout = ({ children }) => {
   return (
@@ -11,3 +15,4 @@ const AdminLayout = ({ children }) => {
 };
 
 export default AdminLayout;
+ 

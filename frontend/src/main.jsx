@@ -4,8 +4,10 @@ import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import { ContainerLayout } from './layouts/ContainerLayout.jsx'
 import { LanguageProvider } from './components/Languages/LanguageContext.jsx' //dil dosyası
-import './index.css'
 import CookieConsentBanner from './components/CookieConsent/CookieConsentBanner.jsx'
+import MainLayout from './layouts/MainLayout.jsx'
+import './index.css'
+
 
 
 
@@ -14,9 +16,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
   <BrowserRouter>
     <LanguageProvider>
-      <ContainerLayout>
+      <MainLayout>
         <App />
-      </ContainerLayout>
+      </MainLayout>
       <CookieConsentBanner/>
     </LanguageProvider>
   </BrowserRouter>
