@@ -28,12 +28,19 @@
             "callnow": "call now",
             "h3": "best in city",
             "h2": "trusted cab service in country",
-            "p": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis assumenda, non tempora maxime molestias commodi dolor ipsa sint iusto quod deserunt consectetur, ut nihil sequi, molestiae id cupiditate recusandae distinctio."
+            "p1":"We are here to offer a fast, safe, and comfortable travel experience. Our expert drivers, with years of experience, ensure that you reach your desired destination on time and safely. We provide the best solution for all your travel needs, any time of the day. With our customer satisfaction-oriented service philosophy, we earn the title of 'The Best in the City' every single day.",
+            "p2":"No matter how long or short your journey is, we pay special attention to each customer and ensure a comfortable experience. In all your urban and intercity travels, we make a difference with our quality service approach, never overlooking any detail for your safety and comfort. Our taxi service is designed to exceed your valued customers' expectations and turn your journey into a pleasant memory.",
+            "p3":"As your trusted partner in every journey, we work to make your travel trouble-free and enjoyable. Are you ready to hit the road with 'The Best in the City'?"
         },
         "tarrif": {
-            "h1": "our",
-            "h1_span": "tarrif",
-            "orderBtn": "order now"
+            "h1": "Our",
+            "h1_span": "Tarrif",
+            "orderBtn": "Order now",
+            "imgLinkTxt": "See",
+            "contentTxt":"Click the button to see officially approved tariff details.",
+            "airportTitle":"Airport Tariffs",
+            "inNurnbergTitle":"Taxi Prices In Nurnberg",
+            "kilometerTitle":"Kilometer Tariffs"
         },
         "fastbookings": {
             "h1": "we do best",

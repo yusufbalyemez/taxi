@@ -281,7 +281,9 @@ useEffect(() => {
                 <div className="inner-content">
                     <h3>{text.h3}</h3>
                     <h2>{text.h2}</h2>
-                    <p>{text.p}</p>
+                    <p>{text.p1}</p>
+                    <p>{text.p2}</p>
+                    <p>{text.p3}</p>
 
 
                 </div>

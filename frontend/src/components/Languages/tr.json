@@ -28,12 +28,19 @@
             "callnow": "şimdi ara",
             "h3": "şehrin en iyisi",
             "h2": "ülkede güvenilen taksi hizmeti",
-            "p": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis assumenda, non tempora maxime molestias commodi dolor ipsa sint iusto quod deserunt consectetur, ut nihil sequi, molestiae id cupiditate recusandae distinctio."
+            "p1":"Hızlı, güvenli ve konforlu bir yolculuk deneyimi sunmak için buradayız. Uzman sürücülerimiz, yılların getirdiği tecrübeyle sizleri istediğiniz noktaya zamanında ve güvenle ulaştırır. Günün her saati, her türlü yolculuk ihtiyacınıza en iyi çözümü sunuyoruz. Müşteri memnuniyeti odaklı hizmet anlayışımızla, 'Şehrin En İyisi' olma unvanını her gün yeniden kazanıyoruz.",
+            "p2":"Yolculuğunuz ne kadar uzun veya kısa olursa olsun, her bir müşterimize özel ilgi gösteriyor ve rahat bir deneyim yaşamanızı sağlıyoruz. Şehir içi ve şehirlerarası tüm yolculuklarınızda, kaliteli hizmet anlayışımızla fark yaratıyor, güvenliğiniz ve konforunuz için hiçbir detayı atlamıyoruz. Taksi hizmetimiz, siz değerli müşterilerimizin beklentilerini aşmak ve yolculuğunuzu keyifli bir anıya dönüştürmek için tasarlandı.",
+            "p3":"Her yolculukta güvendiğiniz partneriniz olarak, seyahatinizi sorunsuz ve keyifli hale getirmek için çalışıyoruz. Şehrin En İyisi ile yola çıkmaya hazır mısınız?"
         },
         "tarrif": {
-            "h1": "bizim",
-            "h1_span": "tarifemiz",
-            "orderBtn": "şimdi sipariş ver"
+            "h1": "Bizim",
+            "h1_span": "Tarifemiz",
+            "orderBtn": "Şimdi Sipariş Ver",
+            "imgLinkTxt": "Gör",
+            "contentTxt":"Resmi olarak onaylanmış tarife detaylarını görmek için butona tıklayın.",
+            "airportTitle":"Havalimanı Tarifeleri",
+            "inNurnbergTitle":"Nürnberg'deki Taksi Fiyatları",
+            "kilometerTitle":"Kilometre Tarifesi"
         },
         "fastbookings": {
             "h1": "biz en iyisini yaparız",

@@ -10,7 +10,12 @@ import AdminPage from './pages/AdminPage';
 import Bookings from './components/Admin/Bookings';
 import TodayBookings from './components/Admin/TodayBookings';
 import Settings from './components/Admin/Settings';
+import TaxiPricePage from './pages/TaxiPricePage';
+import TaxiCityTariffs from './pages/TaxiCityTariffs';
+import TaxiPrices from './pages/TaxiPrices';
 import './App.css';
+
+
 
 function App() {
   
@@ -21,12 +26,16 @@ function App() {
       <Route path="/gallery" element={<GalleryPage />} />
       <Route path="/auth" element={<AuthPage />} />
       <Route path="/policy" element={<PolicyPage />} />
+      <Route path="/taxi-prices" element={<TaxiPricePage/>} />
+      <Route path="/city-tariffs" element={<TaxiCityTariffs/>} />
+      <Route path="/prices" element={<TaxiPrices/>} />
       <Route path="/admin/*" element={<AdminPage />}>
         <Route index element={<TodayBookings />} />
         <Route path="bookings" element={<Bookings />} />
         <Route path="settings" element={<Settings />} />
       </Route>
       <Route path="/bookings/:userId" element={<MyBookingsPage />} />
+
     </Routes>
   );
 }

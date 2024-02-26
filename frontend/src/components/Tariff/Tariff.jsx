@@ -12,12 +12,11 @@ const Tariff = () => {
                     classContainer={""}
                     classH3=""
                     classBtnYellow=""
-
+                    link="/city-tariffs"
                     imgSrc="images/image1.png"
-                    titleTxt="economy class"
-                    contentTxt="Lorem ipsum dolor sit amet consectetur adipisicing elit. Et excepturi odio minus totam, iste quas
-                optio"
-                    price="$3"
+                    titleTxt={text.airportTitle}
+                    contentTxt={text.contentTxt}
+                
                 />
 
 
@@ -25,24 +24,22 @@ const Tariff = () => {
                     classContainer={"yellow"}
                     classH3="yellow-section"
                     classBtnYellow="btn-yellow"
-
+                    link="/taxi-prices"
                     imgSrc="images/image1.png"
-                    titleTxt="economy class"
-                    contentTxt="Lorem ipsum dolor sit amet consectetur adipisicing elit. Et excepturi odio minus totam, iste quas
-                optio"
-                    price="$3"
+                    titleTxt={text.inNurnbergTitle}
+                    contentTxt={text.contentTxt}
+                    
                 />
 
 
                 <TariffItem classContainer={""}
                     classH3=""
                     classBtnYellow=""
-
+                    link="prices"
                     imgSrc="images/image1.png"
-                    titleTxt="economy class"
-                    contentTxt="Lorem ipsum dolor sit amet consectetur adipisicing elit. Et excepturi odio minus totam, iste quas
-                optio"
-                    price="$3"
+                    titleTxt={text.kilometerTitle}
+                    contentTxt={text.contentTxt}
+                   
                 />
             </div>
         </div>

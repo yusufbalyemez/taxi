@@ -1,5 +1,5 @@
 import { useLanguage } from '../../Languages/LanguageContext'; // useLanguage hook'unu içe aktarın
-const TariffItem = ({classContainer,classH3,classBtnYellow,imgSrc,titleTxt,contentTxt,price}) => {
+const TariffItem = ({classContainer,classH3,classBtnYellow,imgSrc,titleTxt,contentTxt,link}) => {
     const { language } = useLanguage(); // Dil bağlamından dil bilgisini al
     const text = language.homepage.tarrif; // Navbar metinlerine erişim
     return (
@@ -8,7 +8,7 @@ const TariffItem = ({classContainer,classH3,classBtnYellow,imgSrc,titleTxt,conte
                 <img src={imgSrc} alt="" />
                 <h2 className="heading-yellow">{titleTxt}</h2>
                 <p>{contentTxt}</p>
-                <h3 className={classH3}>{`price: ${price}`} /-</h3>
+                <a href={link}>{text.imgLinkTxt}</a><br/>
                 <a href="#" className={classBtnYellow}>{text.orderBtn}</a>
             </div>
         </div>

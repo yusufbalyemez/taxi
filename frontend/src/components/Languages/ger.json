@@ -28,12 +28,19 @@
       "callnow": "jetzt anrufen",
       "h3": "das Beste in der Stadt",
       "h2": "vertrauenswürdiger Taxiservice im Land",
-      "p": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis assumenda, non tempora maxime molestias commodi dolor ipsa sint iusto quod deserunt consectetur, ut nihil sequi, molestiae id cupiditate recusandae distinctio."
+      "p1": "Wir sind hier, um Ihnen ein schnelles, sicheres und komfortables Reiseerlebnis zu bieten. Unsere erfahrenen Fahrer bringen Sie mit jahrelanger Erfahrung pünktlich und sicher an Ihr gewünschtes Ziel. Wir bieten rund um die Uhr die beste Lösung für alle Ihre Reisebedürfnisse. Mit unserer kundenorientierten Servicephilosophie verdienen wir jeden Tag aufs Neue den Titel 'Der Beste der Stadt'.",
+      "p2": "Egal wie lang oder kurz Ihre Reise ist, wir schenken jedem Kunden besondere Aufmerksamkeit und sorgen für ein angenehmes Erlebnis. Bei all Ihren städtischen und überstädtischen Reisen machen wir mit unserem Qualitätsdienstleistungskonzept einen Unterschied und übersehen kein Detail für Ihre Sicherheit und Komfort. Unser Taxiservice ist darauf ausgelegt, die Erwartungen unserer geschätzten Kunden zu übertreffen und Ihre Reise zu einem angenehmen Erinnerung zu machen.",
+      "p3": "Als Ihr vertrauenswürdiger Partner bei jeder Reise arbeiten wir daran, Ihre Reise problemlos und angenehm zu gestalten. Sind Sie bereit, mit 'Dem Besten der Stadt' auf die Straße zu gehen?"
     },
     "tarrif": {
-      "h1": "unser",
+      "h1": "Unser",
       "h1_span": "Tarif",
-      "orderBtn": "jetzt bestellen"
+      "orderBtn": "Jetzt bestellen",
+      "imgLinkTxt": "Ansehen",
+      "contentTxt": "Klicken Sie auf die Schaltfläche, um die offiziell genehmigten Tarifdetails zu sehen.",
+      "airportTitle": "Flughafentarife",
+      "inNurnbergTitle": "Taxipreise in Nürnberg",
+      "kilometerTitle": "Kilometertarife"
     },
     "fastbookings": {
       "h1": "wir machen das Beste",
