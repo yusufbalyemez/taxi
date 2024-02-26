@@ -14,7 +14,8 @@ const app = express();
 const allowedOrigins = [
   'https://138.68.95.100',
   'http://localhost:5173',
-  'https://localhost',
+  'https://localhost:5000',
+  'http://localhost:5000',
   'https://grossraumv-klassetaxi.de',
   'https://www.grossraumv-klassetaxi.de', // Eğer www ile de erişim sağlamak istiyorsanız
 ];
@@ -42,7 +43,7 @@ mongoose.connect(process.env.DB_URI)
 app.use('/api/', cabBookingRoutes); // For bookings
 app.use('/api/auth', UserRoutes); // For users
 
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
