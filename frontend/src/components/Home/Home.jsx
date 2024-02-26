@@ -53,7 +53,7 @@ const Home = () => {
                 times.push(`${currentHour.toString().padStart(2, '0')}:30`); // Mevcut saatin yarım saatlik dilimini ekler
             }
             // Bugün için, mevcut saat ve dakikaya bağlı olarak başlat
-            for (let i = currentMinute < 30 ? currentHour : currentHour + 1; i < 24; i++) {
+            for (let i = currentHour + 1; i < 24; i++) {
                 times.push(`${i.toString().padStart(2, '0')}:00`);
                 if (i !== 23) { // 24:00'den önce son saat
                     times.push(`${i.toString().padStart(2, '0')}:30`);
