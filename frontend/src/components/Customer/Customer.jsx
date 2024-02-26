@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLanguage } from '../Languages/LanguageContext'; // useLanguage hook'unu içe aktarın
 import { Descriptions, Popconfirm, Button, Card } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 import "./Customer.css"
@@ -6,6 +7,9 @@ import "./Customer.css"
 const Customer = () => {
 
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
+
+  const { language } = useLanguage(); // Dil bağlamından dil bilgisini al
+  const text = language.customerbookingspage // Navbar metinlerine erişim
 
   const [bookings, setBookings] = useState([]);
 
@@ -52,9 +56,9 @@ const Customer = () => {
   // status değerlerini karşılık gelen metinlere çeviren bir fonksiyon
   const getStatusText = (statusNumber) => {
     const statusMap = {
-      'denied': 'Denied',
-      'waiting': 'Waiting For Approval',
-      'approved': 'Approved'
+      'denied': text.denied,
+      'waiting': text.waiting,
+      'approved': text.approved
     };
     return statusMap[statusNumber] || 'Unknown Status';
   };
@@ -71,26 +75,26 @@ const Customer = () => {
 
   return (
     <div>
-      <h2>Booking List</h2>
+      <h2>{text.bookingList}</h2>
       {bookings.length > 0 ? bookings.map((booking) => (
         <Card key={booking._id} style={{ marginBottom: 16 }}>
-          <Descriptions title="Booking Info" bordered column={1}>
+          <Descriptions title={text.bookingInfo} bordered column={1}>
             {/* <Descriptions.Item label="Id">{booking._id}</Descriptions.Item> */}
-            <Descriptions.Item label="Name">{booking.name}</Descriptions.Item>
-            <Descriptions.Item label="Phone">{booking.phone}</Descriptions.Item>
-            <Descriptions.Item label="Hours">{booking.hours}</Descriptions.Item>
-            <Descriptions.Item label="Date">{booking.date}</Descriptions.Item>
-            <Descriptions.Item label="Start">{booking.start}</Descriptions.Item>
-            <Descriptions.Item label="End">{booking.end}</Descriptions.Item>
+            <Descriptions.Item label={text.name}>{booking.name}</Descriptions.Item>
+            <Descriptions.Item label={text.phone}>{booking.phone}</Descriptions.Item>
+            <Descriptions.Item label={text.hours}>{booking.hours}</Descriptions.Item>
+            <Descriptions.Item label={text.date}>{booking.date}</Descriptions.Item>
+            <Descriptions.Item label={text.start}>{booking.start}</Descriptions.Item>
+            <Descriptions.Item label={text.end}>{booking.end}</Descriptions.Item>
             {/* <Descriptions.Item label="User Id">{booking.user_id}</Descriptions.Item> */}
-            <Descriptions.Item label="Status">
+            <Descriptions.Item label={text.status}>
               <span className={getStatusClass(booking.status)}>
                 {getStatusText(booking.status)}
               </span>
             </Descriptions.Item>
-            <Descriptions.Item label="Action">
+            <Descriptions.Item label={text.action}>
               <Popconfirm
-                title="Are you sure to delete this booking?"
+                title={text.deleteBookingQuest}
                 onConfirm={() => handleDelete(booking._id)}
               >
                 <Button type="danger" icon={<DeleteOutlined />} />

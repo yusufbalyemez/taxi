@@ -72,8 +72,9 @@ const Header = () => {
             </header>
             <div className='language-switcher'>
                 <select onChange={(e) => switchLanguage(e.target.value)}>
-                    <option value={'ger'}>De</option>
-                    <option value={'en'}>Eng</option>
+                    <option value={'ger'}>DE</option>
+                    <option value={'eng'}>ENG</option>
+                    <option value={'tr'}>TR</option>
                 </select>
             </div>
         </>

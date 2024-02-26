@@ -1,0 +1,151 @@
+{
+    "homepage": {
+        "header": {
+            "navbar": {
+                "home": "Ana Sayfa",
+                "gallery": "Galeri",
+                "contact": "İletişim",
+                "mybookings": "Rezervasyonlarım",
+                "policy": "Politikalar & Şartlar"
+            },
+            "errorMsg": "Bir kullanıcı bilgisi hatası oluştu.",
+            "exitMessage": "Çıkış yapıldı."
+        },
+        "home": {
+            "wpMsgText": "Merhaba. Rezervasyon yapmak istiyorum ya.     (İsim:  ...     Ne Zaman:  ...     Başlangıç: ...     Bitiş:   ...)",
+            "reservationOkText": "Rezervasyon yapıldı.",
+            "reservationQuestion": "Rezervasyonunuzu onaylıyor musunuz?",
+            "form": {
+                "title": "taksi rezervasyonu",
+                "nameInput": "İsim",
+                "phoneInput": "Telefon",
+                "hoursSelect": "Ne Zaman",
+                "startInput": "Başlangıç",
+                "endedInput": "Bitiş",
+                "submitBtn": "Gönder",
+                "policyTxt": "Şart ve koşulları kabul ediyorum"
+            },
+            "callnow": "şimdi ara",
+            "h3": "şehrin en iyisi",
+            "h2": "ülkede güvenilen taksi hizmeti",
+            "p": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis assumenda, non tempora maxime molestias commodi dolor ipsa sint iusto quod deserunt consectetur, ut nihil sequi, molestiae id cupiditate recusandae distinctio."
+        },
+        "tarrif": {
+            "h1": "bizim",
+            "h1_span": "tarifemiz",
+            "orderBtn": "şimdi sipariş ver"
+        },
+        "fastbookings": {
+            "h1": "biz en iyisini yaparız",
+            "h2": "dilediğinizden daha iyi",
+            "h1Text": "Hızlı Rezervasyon",
+            "h1pText": "Beklemeyi atlayın ve saniyeler içinde yolculuğunuzu çevrimiçi sistemimizle rezerve edin. Hizmetimiz, hızlı yaşam tarzınıza uyacak şekilde tasarlanmıştır. Sadece dokunun, rezerve edin ve yola çıkın!",
+            "h1Text2": "Konforla Yolculuk",
+            "h1pText2": "Araçlarımıza adım attığınız anda, lüks ve konfor sizi karşılar. Filomuzu en yüksek standartlarda tutuyoruz çünkü yolculuğun, varış noktası kadar keyifli olması gerektiğine inanıyoruz.",
+            "h1Text3": "Eşsiz Güvenilirlik",
+            "h1pText3": "Pünktüellik taahhüdümüz, asla geç kalmayacağınız anlamına gelir. Sürücülerimiz, her zaman zamanında varmanızı sağlamak için en hızlı rotaları kullanacak şekilde eğitilmiştir.",
+            "h1Text4": "Sorunsuz İletişim",
+            "h1pText4": "Adanmış hizmet saatlerimiz boyunca kolayca iletişim kurun. Her etkileşimin, bizimle basit ve stresiz olmasını sağlamak istiyoruz. Bir çağrıyı, bir e-postayı veya uygulama içi bir mesajı tercih ederseniz, ekibimiz her türlü soru veya rezervasyon ayarlaması için size yardımcı olmaya hazırdır. Bizimle mükemmel hizmet, sadece bir konuşma uzaklıktadır."
+        },
+        "testimonials": {
+            "h1Title": "mutlu müşteriler",
+            "pTxt1": "''Önemli bir iş toplantım vardı ve herhangi bir gecikmeyi göze alamazdım. [Şirket Adınız] ile bir yolculuk rezerve ettim ve son derece etkilendim. Sürücü sadece zamanında değil, aynı zamanda nazik ve profesyoneldi. Araba lekesizdi ve yolculuk pürüzsüzdü. Programımdan önce rahat ve hazır bir şekilde vardım. [Şirket Adınız], benim kadar zamanı değerli buluyor. Güvenimi ve tekrar işimi kazandılar.''",
+            "pTxt2": "''Sık sık seyahat eden biri olarak, birçok taksi hizmeti kullandım ama [Şirket Adınız] ile yaşadığım olağanüstü deneyime hiçbiri benzemiyor. Rezervasyon süreci çok kolaydı ve sürücü en iyi rotaları biliyordu, bu da oldukça verimli bir yolculuk yapmamı sağladı. Bana dikkat çeken şey detaylara verilen önemdi—sürücü tercih ettiğim sıcaklık ayarlarını hatırladı ve hatta benim için bir şişe su hazırlamıştı. Küçük şeyler büyük fark yaratır ve bu yüzden [Şirket Adınız], benim tercihim.''"
+        }
+    },
+    "adminpage": {
+        "Bookings":"Rezervasyonlar",
+        "title":"Tüm Rezervasyon Listesi",
+        "title2":"Bugünün Rezervasyon Listesi",
+        "name": "isim",
+        "phone": "telefon",
+        "hours": "saatler",
+        "date": "tarih",
+        "start": "başlangıç",
+        "end": "bitiş",
+        "status":"durum",
+        "process": "işlem",
+        "approvalStatus":"Onay Durumu",
+        "submitBtn": "Kabul Et",
+        "cancelBtn": "İptal Et",
+        "deletequestion": "Silmek İstediğinizden Emin misiniz?",
+        "bookingstatus": {
+            "fix": "Rezervasyon",
+            "ok": "onaylandı",
+            "cancel": "iptal edildi"
+        },
+        "exitBtn": "Çıkış Yap",
+        "menuItem1": "Rezervasyonlar",
+        "menuItem2": "Eski Rezervasyonlar",
+        "menuItem3": "Ayarlar",
+        "logoutBtn": "Çıkış Yap",
+
+        "settings":{
+            "emailErrorMsg":"E-posta adresleri eşleşmiyor!",
+            "emailUpdatedMsg":"E-posta başarıyla güncellendi!",
+            "passwordErrorMsg": "Şifreler eşleşmiyor!",
+            "passwordUpdatedMsg": "Şifre başarıyla güncellendi",
+            "passwordCantUpdated": "Şifre güncellenirken bir hata oluştu.",
+            "form": {
+                "emailLabel": "Yeni E-posta",
+                "emailMsg":"Lütfen yeni e-posta adresinizi girin!",
+                "confirmEmailLabel":"E-postayı Onayla",
+                "confirmEmailMsg":"Lütfen e-posta adresinizi tekrar girin!",
+                "updateMailBtn": "E-postayı Güncelle",
+
+                "passwordLabel":"Yeni Şifre",
+                "passwordMsg":"Lütfen yeni şifrenizi girin!",
+                "confirmPasswordLabel":"Şifreyi Onayla",
+                "confirmPasswordMsg":"Lütfen şifrenizi tekrar girin!",
+                "updatePasswordBtn": "Şifreyi Güncelle",
+
+                "phoneLabel":"Yeni Telefon Numarası",
+                "phoneMsg":"Lütfen yeni telefon numaranızı girin!",
+                "updatePhoneBtn": "Telefon Numarasını Güncelle"
+
+            }
+        }
+    },
+    "mybookings": {
+        "bookingList": "Rezervasyon Listesi",
+        "bookingInfo": "Rezervasyon Bilgisi",
+        "name": "İsim",
+        "phone": "telefon",
+        "hours": "saatler",
+        "date": "tarih",
+        "start": "başlangıç",
+        "end": "bitiş",
+        "status": "durum"
+       
+    },
+    "cookieConsent": {
+        "infoTxt": "Bu site çerezleri kullanmaktadır. Kullanmaya devam ederek çerez kullanımını kabul etmiş olursunuz.",
+        "btnTxt": "Kabul Et"
+    },
+    "authpage": {
+        "title": "Giriş Yap",
+        "emailTitle": "Kullanıcı Adı Veya E-posta Adresi",
+        "passwordTitle": "Şifre",
+        "rememberMe": "Beni Hatırla",
+        "buttonTxt": "Giriş Yap",
+        "loginSuccess": "Giriş başarılı.",
+        "loginFailed": "Giriş başarısız.",
+        "failError": "Giriş yapılırken bir hata oluştu."
+    },
+    "customerbookingspage": {
+        "bookingList": "Rezervasyon Listesi",
+        "bookingInfo": "Rezervasyon Bilgileri",
+        "name": "Ad",
+        "phone": "Telefon",
+        "hours": "Saatler",
+        "date": "Tarih",
+        "start": "Başlangıç",
+        "end": "Bitiş",
+        "status": "Durum",
+        "action": "Aksiyon",
+        "deleteBookingQuest": "Bu rezervasyonu silmek istediğinizden emin misiniz?",
+        "denied": "Reddedildi",
+        "waiting": "Onay Bekleniyor",
+        "approved": "Onaylandı"
+    }
+}

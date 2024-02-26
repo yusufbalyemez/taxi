@@ -132,5 +132,21 @@
         "loginFailed": "Login failed.",
         "failError": "An error occurred while logging in."
 
+    },
+    "customerbookingspage":{
+        "bookingList": "Booking List",
+        "bookingInfo": "Booking Info",
+        "name": "Name",
+        "phone": "Phone",
+        "hours": "Hours",
+        "date": "Date",
+        "start": "Start",
+        "end": "End",
+        "status": "Status",
+        "action": "Action",
+        "deleteBookingQuest": "Are you sure to delete this booking?",
+        "denied": "Denied",
+        "waiting": "Waiting For Approval",
+        "approved": "Approved"
     }
 }

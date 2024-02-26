@@ -78,34 +78,28 @@
     "menuItem2": "Alte Buchungen",
     "menuItem3": "Einstellungen",
     "logoutBtn": "Ausloggen",
-
-    "settings":{
-      "emailErrorMsg":"E-Mail-Adressen stimmen nicht überein!",
-      "emailUpdatedMsg":"E-Mail erfolgreich aktualisiert!",
+    "settings": {
+      "emailErrorMsg": "E-Mail-Adressen stimmen nicht überein!",
+      "emailUpdatedMsg": "E-Mail erfolgreich aktualisiert!",
       "passwordErrorMsg": "Passwörter stimmen nicht überein!",
       "passwordUpdatedMsg": "Passwort erfolgreich aktualisiert",
       "passwordCantUpdated": "Beim Aktualisieren des Passworts ist ein Fehler aufgetreten.",
       "form": {
-          "emailLabel": "Neue E-Mail",
-          "emailMsg":"Bitte geben Sie Ihre neue E-Mail-Adresse ein!",
-          "confirmEmailLabel":"E-Mail bestätigen",
-          "confirmEmailMsg":"Bitte geben Sie Ihre E-Mail-Adresse erneut ein!",
-          "updateMailBtn": "E-Mail aktualisieren",
-  
-          "passwordLabel":"Neues Passwort",
-          "passwordMsg":"Bitte geben Sie Ihr neues Passwort ein!",
-          "confirmPasswordLabel":"Passwort bestätigen",
-          "confirmPasswordMsg":"Bitte geben Sie Ihr Passwort erneut ein!",
-          "updatePasswordBtn": "Passwort aktualisieren",
-  
-          "phoneLabel":"Neue Telefonnummer",
-          "phoneMsg":"Bitte geben Sie Ihre neue Telefonnummer ein!",
-          "updatePhoneBtn": "Telefonnummer aktualisieren"
-  
+        "emailLabel": "Neue E-Mail",
+        "emailMsg": "Bitte geben Sie Ihre neue E-Mail-Adresse ein!",
+        "confirmEmailLabel": "E-Mail bestätigen",
+        "confirmEmailMsg": "Bitte geben Sie Ihre E-Mail-Adresse erneut ein!",
+        "updateMailBtn": "E-Mail aktualisieren",
+        "passwordLabel": "Neues Passwort",
+        "passwordMsg": "Bitte geben Sie Ihr neues Passwort ein!",
+        "confirmPasswordLabel": "Passwort bestätigen",
+        "confirmPasswordMsg": "Bitte geben Sie Ihr Passwort erneut ein!",
+        "updatePasswordBtn": "Passwort aktualisieren",
+        "phoneLabel": "Neue Telefonnummer",
+        "phoneMsg": "Bitte geben Sie Ihre neue Telefonnummer ein!",
+        "updatePhoneBtn": "Telefonnummer aktualisieren"
       }
-  }
-  
-  
+    }
   },
   "mybookings": {
     "bookingList": "Buchungsliste",
@@ -132,5 +126,21 @@
     "loginSuccess": "Anmeldung erfolgreich.",
     "loginFailed": "Anmeldung fehlgeschlagen.",
     "failError": "Beim Anmelden ist ein Fehler aufgetreten."
+  },
+  "customerbookingspage": {
+    "bookingList": "Buchungsliste",
+    "bookingInfo": "Buchungsinformationen",
+    "name": "Name",
+    "phone": "Telefon",
+    "hours": "Stunden",
+    "date": "Datum",
+    "start": "Start",
+    "end": "Ende",
+    "status": "Status",
+    "action": "Aktion",
+    "deleteBookingQuest": "Sind Sie sicher, dass Sie diese Buchung löschen möchten?",
+    "denied": "Abgelehnt",
+    "waiting": "Warten auf Genehmigung",
+    "approved": "Genehmigt"
   }
 }

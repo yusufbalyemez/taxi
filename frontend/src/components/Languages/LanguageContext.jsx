@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState } from 'react';
 import eng from './eng.json'; // İngilizce dil dosyası
 import ger from './ger.json'; // Almanca dil dosyası
+import tr from './tr.json'; // Almanca dil dosyası
 
 const LanguageContext = createContext();
 
@@ -19,8 +20,11 @@ export const LanguageProvider = ({ children }) => {
       case 'ger':
         setLanguage(ger);
         break;
+      case 'tr':
+        setLanguage(tr);
+        break;
       default:
-        setLanguage(eng); // Varsayılan olarak İngilizce
+        setLanguage(ger); // Varsayılan olarak Almanca
     }
   };
 

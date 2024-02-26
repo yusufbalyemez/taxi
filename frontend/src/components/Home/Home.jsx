@@ -34,7 +34,8 @@ const Home = () => {
     const [end, setEnd] = useState('');
     const [isSubmitSuccessful, setIsSubmitSuccessful] = useState(false);
 
-    const wpNo = "905422072498";
+    //const wpNo = "905422072498";
+    const wpNo = "4917684435028";
     const wpMsgText = text.wpMsgText;
 
     // Saatleri otomatik olarak oluşturan fonksiyon
@@ -271,7 +272,7 @@ useEffect(() => {
                         </div>
                     </form>
                     <div className='contact-container'>
-                        <a href="#" className="booknow">{text.callnow}</a>
+                    <a href="tel:+4917684435028" className="booknow">{text.callnow}</a>
                         <a href={`https://wa.me/${wpNo}?text=${wpMsgText}`} className="whatsapp" target="_blank">Whatsapp <i className="fa-brands fa-whatsapp"></i></a>
                     </div>
 
