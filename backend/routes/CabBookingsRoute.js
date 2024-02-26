@@ -6,8 +6,11 @@ const cabBookingController = require('../controllers/CabBookingController');
 // Mevcut rezervasyonları oluştur
 router.post('/bookings', cabBookingController.createBooking);
 
-// Tüm rezervasyonları getir
+// Bugün hariç Tüm eski rezervasyonları getir
 router.get('/bookings', cabBookingController.getAllBookingsExceptToday);
+
+// Tüm rezervasyonları getir
+router.get('/allbookings', cabBookingController.getAllBookings);
 
 // Bugünün kayıtlarını getir
 router.get('/admin', cabBookingController.getTodayBookings);

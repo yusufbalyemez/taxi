@@ -130,7 +130,7 @@ useEffect(() => {
     useEffect(() => {
         const fetchBookings = async () => {
             try {
-                const response = await fetch(`${apiUrl}/api/bookings`);
+                const response = await fetch(`${apiUrl}/api/allbookings`);
                 if (!response.ok) throw new Error('Network response was not ok');
                 const bookings = await response.json();
 
