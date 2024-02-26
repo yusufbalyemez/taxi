@@ -33,7 +33,7 @@ const TodayBookings = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`${apiUrl}/api/admin/${id}`, {
+      const response = await fetch(`${apiUrl}/api/bookings/${id}`, {
         method: 'DELETE',
       });
       if (!response.ok) {
@@ -49,7 +49,7 @@ const TodayBookings = () => {
 
   const updateBookingStatus = async (id, status) => {
     try {
-      const response = await fetch(`${apiUrl}/api/admin/${id}`, {
+      const response = await fetch(`${apiUrl}/api/bookings/${id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -92,7 +92,7 @@ const TodayBookings = () => {
     <div>
       <h2>{text.title2}</h2>
       {bookings.map((booking) => (
-        <Card key={booking._id} style={{ marginBottom: 16}}>
+        <Card key={booking._id} style={{ marginBottom: 16, borderBlockEndColor: 'gray'}}>
           <Descriptions title={text.bookingList} bordered column={1}>
             {/* <Descriptions.Item label="Id">{booking._id}</Descriptions.Item> */}
             <Descriptions.Item label={text.name}>{booking.name}</Descriptions.Item>
@@ -128,7 +128,8 @@ const TodayBookings = () => {
                     {text.submitBtn}
                   </Button>
                   <Button
-                    type="default"
+                    type="primary"
+                    danger
                     icon={<CloseCircleOutlined />}
                     onClick={() => updateBookingStatus(booking._id, 'denied')}
                     style= {{height:50}}
@@ -147,7 +148,8 @@ const TodayBookings = () => {
                 </Button>
               ) : (
                 <Button
-                  type="default"
+                  type="primary"
+                  danger
                   icon={<CloseCircleOutlined />}
                   onClick={() => updateBookingStatus(booking._id, 'denied')}
                   style= {{height:50}}

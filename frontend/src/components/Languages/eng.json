@@ -78,7 +78,33 @@
         "menuItem1": "Bookings",
         "menuItem2": "Old Bookings",
         "menuItem3": "Settings",
-        "logoutBtn": "Logout"
+        "logoutBtn": "Logout",
+
+        "settings":{
+            "emailErrorMsg":"Email addresses do not match!",
+            "emailUpdatedMsg":"Email updated successfully!",
+            "passwordErrorMsg": "Passwords do not match!",
+            "passwordUpdatedMsg": "Password updated successfully",
+            "passwordCantUpdated": "An error occurred while updating the password.",
+            "form": {
+                "emailLabel": "New Email",
+                "emailMsg":"Please enter your new email address!",
+                "confirmEmailLabel":"Confirm Email",
+                "confirmEmailMsg":"Please re-enter your email address!",
+                "updateMailBtn": "Update Email",
+
+                "passwordLabel":"New Password",
+                "passwordMsg":"Please enter your new password!",
+                "confirmPasswordLabel":"Confirm Password",
+                "confirmPasswordMsg":"Please enter your password again!",
+                "updatePasswordBtn": "Update Password",
+
+                "phoneLabel":"New Phone Number",
+                "phoneMsg":"Please enter your new phone number!",
+                "updatePhoneBtn": "Update Phone Number"
+
+            }
+        }
     },
     "mybookings": {
         "bookingList": "Booking List",

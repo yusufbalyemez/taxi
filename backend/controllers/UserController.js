@@ -151,4 +151,65 @@ exports.updateUser = async (req, res) => {
   }
 };
 
+// UserController.js veya ilgili controller dosyasında şifre güncelleme
+exports.updateAdminPassword = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { password } = req.body;
+    
+    // Yeni şifreyi hash'le
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+
+    // Kullanıcının şifresini güncelle
+    const updatedUser = await CabUser.findByIdAndUpdate(id, { password: hashedPassword }, { new: true });
+
+    if(updatedUser) {
+      res.status(200).json({ message: 'Şifre başarıyla güncellendi.' });
+    } else {
+      res.status(404).json({ message: 'Kullanıcı bulunamadı.' });
+    }
+  } catch (error) {
+    res.status(500).json({ message: 'Sunucu hatası.' });
+  }
+};
+
+//Telefon güncelleme
+exports.updateAdminPhone = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { phone } = req.body;
+
+    // Kullanıcının şifresini güncelle
+    const updatedUser = await CabUser.findByIdAndUpdate(id, { phone: phone }, { new: true });
+
+    if(updatedUser) {
+      res.status(200).json({ message: 'Telefon başarıyla güncellendi.' });
+    } else {
+      res.status(404).json({ message: 'Kullanıcı bulunamadı.' });
+    }
+  } catch (error) {
+    res.status(500).json({ message: 'Sunucu hatası.' });
+  }
+};
+
+//Email güncelleme
+exports.updateAdminMail = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { email } = req.body;
+
+    // Kullanıcının şifresini güncelle
+    const updatedUser = await CabUser.findByIdAndUpdate(id, { email: email }, { new: true });
+
+    if(updatedUser) {
+      res.status(200).json({ message: 'Email başarıyla güncellendi.' });
+    } else {
+      res.status(404).json({ message: 'Kullanıcı bulunamadı.' });
+    }
+  } catch (error) {
+    res.status(500).json({ message: 'Sunucu hatası.' });
+  }
+};
+
 

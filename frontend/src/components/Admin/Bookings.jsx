@@ -92,7 +92,7 @@ const Bookings = () => {
     <>
       <h2>{text.title}</h2>
       {bookings.map((booking) => (
-        <Card key={booking._id} style={{ marginBottom: 16 }}>
+        <Card key={booking._id} style={{ marginBottom: 16, borderBlockEndColor: 'gray'}}>
           <Descriptions title={text.bookingList} bordered column={1}>
             {/* <Descriptions.Item label="Id">{booking._id}</Descriptions.Item> */}
             <Descriptions.Item label={text.name}>{booking.name}</Descriptions.Item>
@@ -149,7 +149,8 @@ const Bookings = () => {
                 </Button>
               ) : (
                 <Button
-                  type="default"
+                  type="primary"
+                  danger
                   icon={<CloseCircleOutlined />}
                   onClick={() => updateBookingStatus(booking._id, 'denied')}
                   style= {{height:50}}

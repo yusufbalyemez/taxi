@@ -242,7 +242,6 @@ useEffect(() => {
                                 name="phone" 
                                 value={phone} 
                                 onChange={(e) => setPhone(e.target.value)} 
-                                pattern="\+49\d{9,11}"
                                 required />
                                 <input type="date" name="date" value={inputDate} min={getTodayDate()} onChange={(e) => setInputDate(e.target.value)} required />
 

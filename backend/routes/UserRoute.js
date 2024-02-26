@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const UserController = require('../controllers/UserController.js');
 
+
 // Yeni Kullanıcı oluştur
 router.post('/register', UserController.AddUser);
 
@@ -23,5 +24,14 @@ router.delete('/register/:id',UserController.deleteUser);
 
 // Bir kullanıcıu güncellemek için bir PATCH route'u tanımlayın - PATCH belirli alanları güncelleme imkanı sağlarken, PUT Tüm alanları güncellemeyi zorunlu tutar.
 router.patch('/register/:id', UserController.updateUser);
+
+//Admin şifresi güncelleme
+router.patch('/update/:id', UserController.updateAdminPassword);
+
+//Admin telefon güncelleme
+router.patch('/updatephone/:id', UserController.updateAdminPhone);
+
+//Admin email güncelleme
+router.patch('/updatemail/:id', UserController.updateAdminMail);
 
 module.exports = router;
