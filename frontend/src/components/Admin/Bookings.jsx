@@ -71,9 +71,9 @@ const Bookings = () => {
   // status değerlerini karşılık gelen metinlere çeviren bir fonksiyon
   const getStatusText = (statusNumber) => {
     const statusMap = {
-      'denied': 'Denied',
-      'waiting': 'Waiting For Approval',
-      'approved': 'Approved'
+      'denied': text.denied,
+      'waiting': text.waitingforapproval,
+      'approved': text.approved
     };
     return statusMap[statusNumber] || 'Unknown Status';
   };
@@ -115,7 +115,7 @@ const Bookings = () => {
                 <Button type="danger" icon={<DeleteOutlined />} />
               </Popconfirm>
             </Descriptions.Item>
-            <Descriptions.Item label={text.approvalStatus}>
+            <Descriptions.Item label="">
 
 
               {booking.status === "waiting" ? (
