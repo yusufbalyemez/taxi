@@ -6,6 +6,8 @@ import { message } from 'antd'; //message butonu ant kütüphanesinden çekildi
 
 const Bookings = () => {
 
+
+
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
   const { language } = useLanguage(); // Dil bağlamından dil bilgisini al
   const text = language.adminpage; // Navbar metinlerine erişim

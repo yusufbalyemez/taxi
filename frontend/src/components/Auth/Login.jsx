@@ -1,10 +1,15 @@
 import { useState } from "react"
 import { useLanguage } from '../Languages/LanguageContext'; // useLanguage hook'unu içe aktarın
+import { useAdminUser } from "../Admin/AdminUserContext";
 import { useNavigate } from "react-router-dom";
 import { message } from 'antd'; // Ant Design'dan message kullanıyoruz
 
+
+
 const Login = () => {
-    
+    // Login componenti içinde
+    const { setAdminUserId } = useAdminUser(); // UserContext'ten setAdminUserId fonksiyonunu al
+
     const { language } = useLanguage(); // Dil bağlamından dil bilgisini al
     const text = language.authpage; // Navbar metinlerine erişim
 
@@ -36,7 +41,11 @@ const Login = () => {
                 localStorage.setItem("token", data.token); // Token'ı localStorage'a kaydediyoruz
                 message.success(text.loginSuccess);
 
+
                 if (data.user.role === "admin") {
+                    
+                    // Giriş başarılı olduğunda
+                    setAdminUserId(data.user.id); // Kullanıcının ID'sini ayarla
                     navigate("/admin");
                 } else {
                     navigate("/");

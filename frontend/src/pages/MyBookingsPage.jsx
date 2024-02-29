@@ -1,11 +1,12 @@
 import React from 'react'
-import Customer from '../components/Customer/Customer'
 import Header from '../components/Header/Header'
+import Customer from '../components/Customer/Customer'
+
 
 const MyBookingsPage = () => {
   return (
     <>
-      <Header />
+      <Header/>
       <Customer />
     </>
 

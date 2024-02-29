@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const dotenv = require("dotenv");
 const mongoose = require('mongoose');
+const GeneralSettingsRoute = require('./routes/GeneralSettingsRoute.js');
 const cabBookingRoutes = require('./routes/CabBookingsRoute.js');
 const UserRoutes = require('./routes/UserRoute.js');
 
@@ -40,6 +41,7 @@ mongoose.connect(process.env.DB_URI)
   .then(() => console.log("MongoDB connection successfully."))
   .catch((err) => console.log("MongoDB connection failed...", err));
 
+app.use('/api/',GeneralSettingsRoute);
 app.use('/api/', cabBookingRoutes); // For bookings
 app.use('/api/auth', UserRoutes); // For users
 

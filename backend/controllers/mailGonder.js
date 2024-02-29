@@ -1,21 +1,46 @@
-const nodemailer = require("nodemailer")
+const nodemailer = require("nodemailer");
+const GeneralSettings = require('./models/GeneralSettings'); // Modelin yolu proje yapınıza göre değişebilir.
 
-let transporter = nodemailer.createTransport({
-    service:'gmail',
-    auth:{
-        user:'yusufbalyemezoyun@gmail.com',
-        pass: 'adpq pvdl jtov oaqt'
+// E-posta gönderimi için fonksiyon
+async function sendEmail() {
+  try {
+    // GeneralSettings modelinden e-posta ayarlarını çek
+    const settings = await GeneralSettings.findOne();
+    if (!settings) {
+      console.log('Ayarlar bulunamadı, e-posta gönderilemiyor.');
+      return;
     }
-})
 
-let mailOptions = {
-    from: 'yusufbalyemezoyun@gmail.com',
-    to: 'yusuf.balyemez93@gmail.com',
-    subject: 'Nodemailer Test',
-    html: '<h1> Test İçerik</h1>',
+    // Nodemailer transport ayarları
+    let transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'yusufbalyemezoyun@gmail.com',
+            pass: 'adpq pvdl jtov oaqt'
+        }
+    });
+
+    // Mail gönderme opsiyonları, `to` alanını dinamik olarak ayarla
+    let mailOptions = {
+        from: 'yusufbalyemezoyun@gmail.com',
+        to: settings.email, // GeneralSettings modelinden çekilen e-posta adresi
+        subject: 'Nodemailer Test',
+        html: '<h1>Test İçeriği</h1>',
+    };
+
+    // E-postayı gönder
+    transporter.sendMail(mailOptions, (err, data) => {
+        if (err) {
+            console.log('E-posta gönderme hatası:', err);
+        } else {
+            console.log('E-posta başarıyla gönderildi');
+        }
+    });
+
+  } catch (error) {
+    console.error('E-posta gönderimi sırasında bir hata oluştu:', error);
+  }
 }
 
-transporter.sendMail(mailOptions,(err,data)=>{
-    if(err) console.log(err)
-    else console.log('mail gönderildi')
-})
+// Fonksiyonu çağırarak e-posta gönder
+sendEmail();

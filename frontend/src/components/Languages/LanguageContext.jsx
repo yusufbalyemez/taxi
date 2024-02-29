@@ -1,32 +1,57 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import eng from './eng.json'; // İngilizce dil dosyası
 import ger from './ger.json'; // Almanca dil dosyası
-import tr from './tr.json'; // Almanca dil dosyası
+import tr from './tr.json'; // Türkçe dil dosyası
 
 const LanguageContext = createContext();
 
 export const useLanguage = () => useContext(LanguageContext);
 
 export const LanguageProvider = ({ children }) => {
-  // İlk dil olarak İngilizceyi ayarla
-  const [language, setLanguage] = useState(ger);
+  const getInitialLanguage = () => {
+    // localStorage'dan dil ayarını oku veya varsayılan olarak Almanca'yı dön
+    const savedLanguage = localStorage.getItem('lang');
+    if (savedLanguage) {
+      switch (savedLanguage) {
+        case 'eng':
+          return eng;
+        case 'ger':
+          return ger;
+        case 'tr':
+          return tr;
+        default:
+          return ger; // Varsayılan olarak Almanca
+      }
+    }
+    return ger; // localStorage'da dil ayarı yoksa varsayılan olarak Almanca
+  };
+
+  const [language, setLanguage] = useState(getInitialLanguage);
 
   const switchLanguage = (langCode) => {
-    // langCode parametresine göre dil değiştirme
+    let selectedLanguage;
     switch (langCode) {
       case 'eng':
-        setLanguage(eng);
+        selectedLanguage = eng;
         break;
       case 'ger':
-        setLanguage(ger);
+        selectedLanguage = ger;
         break;
       case 'tr':
-        setLanguage(tr);
+        selectedLanguage = tr;
         break;
       default:
-        setLanguage(ger); // Varsayılan olarak Almanca
+        selectedLanguage = ger; // Varsayılan olarak Almanca
     }
+    setLanguage(selectedLanguage);
+    localStorage.setItem('lang', langCode); // Dil değişikliğini localStorage'a kaydet
   };
+
+  useEffect(() => {
+    // Uygulama yüklendiğinde localStorage'dan dil ayarını kontrol et
+    const langCode = localStorage.getItem('lang') || 'ger';
+    switchLanguage(langCode);
+  }, []);
 
   return (
     <LanguageContext.Provider value={{ language, switchLanguage }}>

@@ -29,12 +29,13 @@ function App() {
       <Route path="/taxi-prices" element={<TaxiPricePage/>} />
       <Route path="/city-tariffs" element={<TaxiCityTariffs/>} />
       <Route path="/prices" element={<TaxiPrices/>} />
+      <Route path="/bookings/:userId" element={<MyBookingsPage />} />
       <Route path="/admin/*" element={<AdminPage />}>
         <Route index element={<TodayBookings />} />
         <Route path="bookings" element={<Bookings />} />
         <Route path="settings" element={<Settings />} />
       </Route>
-      <Route path="/bookings/:userId" element={<MyBookingsPage />} />
+      
 
     </Routes>
   );

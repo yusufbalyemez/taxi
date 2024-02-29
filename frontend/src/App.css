@@ -13,6 +13,7 @@
       height: auto;  /* Maintain the aspect ratio */
   }
   
+
   /* Responsive styles */
   @media (max-width: 768px) { /* Adjust '768px' based on your responsive breakpoint */
     .taxi-price-img-container img {

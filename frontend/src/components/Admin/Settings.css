@@ -1,3 +1,7 @@
 .no-capitalize input{
   text-transform:none !important;
 }
+
+.no-text-transform label{
+  text-transform: none !important;
+}

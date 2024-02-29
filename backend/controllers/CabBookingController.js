@@ -1,14 +1,25 @@
 // controllers/CabBookingController.js
 const CabBooking = require('../models/CabBooking');
 const sendEmail = require('./NodeMailer');
+const GeneralSettings = require('../models/GeneralSettings'); // Modelinizi import edin
+
+
 
 
 exports.createBooking = async (req, res) => {
   try {
-    const newBooking = new CabBooking(req.body);
+    const newBooking = new CabBooking(req.body); 
     const savedBooking = await newBooking.save();
-    
-    // Rezervasyon bilgilerini daha anlaşılır bir şekilde formatla
+
+    // GeneralSettings modelinden e-posta ayarlarını çek
+    const settings = await GeneralSettings.findOne();
+    if (!settings) {
+      console.log('GeneralSettings bulunamadı, e-posta gönderilemiyor.');
+      return res.status(500).json({ message: 'E-posta ayarları bulunamadı.' });
+    }
+    const adminEmail = settings.email; // GeneralSettings modelinden çekilen e-posta adresi
+
+    // Rezervasyon bilgilerini formatla
     const bookingDetailsText = `A new booking has been made with the following details:\n\n` +
                                `Name: ${savedBooking.name}\n` +
                                `Phone: ${savedBooking.phone}\n` +
@@ -17,7 +28,7 @@ exports.createBooking = async (req, res) => {
                                `Start: ${savedBooking.start}\n` +
                                `End: ${savedBooking.end}\n\n` +
                                `Please check the dashboard for more details.`;
-    
+
     const bookingDetailsHtml = `<b>A new booking has been made with the following details:</b><br><br>` +
                                `<b>Name:</b> ${savedBooking.name}<br>` +
                                `<b>Phone:</b> ${savedBooking.phone}<br>` +
@@ -29,24 +40,21 @@ exports.createBooking = async (req, res) => {
 
     // E-posta gönderme fonksiyonunu çağır
     await sendEmail(
-      "yusuf.balyemez93@gmail.com",
+      adminEmail, // GeneralSettings'ten çekilen e-posta adresini kullan
       "New Booking Received",
-      bookingDetailsText, // Düzyazı gövde olarak rezervasyon detaylarını kullan
-      bookingDetailsHtml  // HTML gövde olarak rezervasyon detaylarını kullan
+      bookingDetailsText,
+      bookingDetailsHtml
     );
 
     // Başarılı bir şekilde JSON yanıtını gönder
     return res.status(201).json(savedBooking);
   } catch (error) {
     console.error('Error:', error);
-    // Hatalı yanıtı göndermeden önce başka bir yanıt gönderilmiş mi kontrol et
     if (!res.headersSent) {
-      // Eğer başka bir yanıt gönderilmemişse, hatalı yanıtı gönder
       return res.status(400).json({ message: error.message });
     }
   }
 };
-
 //Bugünün tarihi ile aynı olan rezervasyonları getir.
 exports.getTodayBookings = async (req, res) => {
   try {

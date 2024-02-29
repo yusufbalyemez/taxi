@@ -1,6 +1,5 @@
 
 import React from 'react'
-import Header from '../components/Header/Header'
 
 /* BU SAYFA AKTİF- LAYOUT DÜZENİ İÇİN */
 
