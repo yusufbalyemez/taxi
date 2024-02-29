@@ -22,8 +22,6 @@ const PhotoGallery = () => {
   return (
     <>
       <ImageGallery items={images} />
-      <FastBooking />
-      <Testimonials />
     </>
   )
 }

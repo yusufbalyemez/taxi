@@ -13,7 +13,9 @@ import Settings from './components/Admin/Settings';
 import TaxiPricePage from './pages/TaxiPricePage';
 import TaxiCityTariffs from './pages/TaxiCityTariffs';
 import TaxiPrices from './pages/TaxiPrices';
+import AboutUs from './pages/AboutUs';
 import './App.css';
+
 
 
 
@@ -29,6 +31,7 @@ function App() {
       <Route path="/taxi-prices" element={<TaxiPricePage/>} />
       <Route path="/city-tariffs" element={<TaxiCityTariffs/>} />
       <Route path="/prices" element={<TaxiPrices/>} />
+      <Route path="/about-us" element={<AboutUs/>}/>
       <Route path="/bookings/:userId" element={<MyBookingsPage />} />
       <Route path="/admin/*" element={<AdminPage />}>
         <Route index element={<TodayBookings />} />

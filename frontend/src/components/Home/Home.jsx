@@ -55,10 +55,15 @@ const Home = () => {
             }
             // Bugün için, mevcut saat ve dakikaya bağlı olarak başlat
             for (let i = currentHour + 1; i < 24; i++) {
-                times.push(`${i.toString().padStart(2, '0')}:00`);
-                if (i !== 23) { // 24:00'den önce son saat
-                    times.push(`${i.toString().padStart(2, '0')}:30`);
+                if(i>1 && i<8){
+                    continue;
+                }else {
+                    times.push(`${i.toString().padStart(2, '0')}:00`);
+                    if (i !== 23) { // 24:00'den önce son saat
+                        times.push(`${i.toString().padStart(2, '0')}:30`);
+                    }
                 }
+               
             }
         } else {
             // Seçilen tarih bugünden farklıysa, saatleri 8:00'den başlat
