@@ -45,6 +45,7 @@
 .inner-content p{
     font-size: 1.5rem;
     padding-bottom: 1rem;
+    text-transform: none !important;
 }
 
 .inner-content .booknow{

@@ -48,6 +48,7 @@ Yani, örneğinizde, öğe, flex konteyner içindeki diğer öğelerle orantıl�
 .tarrif-container .inner-box p{
     font-size: 1.5rem;
     padding: 2rem;
+    text-transform: none !important;
 }
 
 .tarrif-container .inner-box h3{
