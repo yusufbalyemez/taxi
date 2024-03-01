@@ -108,7 +108,7 @@ const Home = () => {
         };
 
         const userId = getUserId();
-        console.log("User ID:", userId); // Geliştirme aşamasında kontrol için
+        
     }, []);
 
     //Adım 2: user_id Süresini Kontrol Etme ve Yenileme

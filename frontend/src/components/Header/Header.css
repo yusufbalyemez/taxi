@@ -22,6 +22,13 @@
   border-radius: 15px;
 }
 
+.active {
+  transition: .2s linear;
+  background: #ffc61a;
+  padding: 0.5rem 3rem;
+  border-radius: 15px;
+}
+
 #menu-bars {
   color: white;
   font-size: 2rem;
@@ -65,6 +72,7 @@
   z-index: 999;
   display: block;
   top: 70px;
+  padding:0;
 
 }
 

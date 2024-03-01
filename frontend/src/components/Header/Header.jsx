@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Link, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, NavLink, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../Languages/LanguageContext';
 import { message } from 'antd';
 import "./Header.css";
@@ -19,7 +19,7 @@ const Header = () => {
         switchLanguage(lang);
     }, [switchLanguage]);
 
-    const userId = localStorage.getItem('user_id'); // Kullanıcı ID'sini burada al
+    const userId = localStorage.getItem('user_id');
 
     const handleLogout = () => {
         localStorage.removeItem('user');
@@ -45,13 +45,12 @@ const Header = () => {
                     <img src="images/CabHUB.png" alt="" />
                 </a>
                 <nav className={`navbar ${menubarState ? "active" : ""}`}>
-                    <Link to="/" onClick={handleNavItemClick}>{navbarTexts.navbar.home}</Link>
-                    <Link to={`/bookings/${userId}`} onClick={handleNavItemClick}>{navbarTexts.navbar.mybookings}</Link>
-                    <Link to="/gallery" onClick={handleNavItemClick}>{navbarTexts.navbar.gallery}</Link>
-                    <Link to="/contact" onClick={handleNavItemClick}>{navbarTexts.navbar.contact}</Link>
-                    <Link to="/about-us" onClick={handleNavItemClick}>About Us</Link>
-                    {/* Link bileşenini kullanarak ve userId'yi URL'e ekleyerek güncelleme */}
-                    <Link to="/policy" onClick={handleNavItemClick}>{navbarTexts.navbar.policy}</Link>
+                    <NavLink to="/" onClick={handleNavItemClick} className={({ isActive }) => isActive ? "active" : ""}>{navbarTexts.navbar.home}</NavLink>
+                    <NavLink to={`/bookings/${userId}`} onClick={handleNavItemClick} className={({ isActive }) => isActive ? "active" : ""}>{navbarTexts.navbar.mybookings}</NavLink>
+                    <NavLink to="/gallery" onClick={handleNavItemClick} className={({ isActive }) => isActive ? "active" : ""}>{navbarTexts.navbar.gallery}</NavLink>
+                    <NavLink to="/contact" onClick={handleNavItemClick} className={({ isActive }) => isActive ? "active" : ""}>{navbarTexts.navbar.contact}</NavLink>
+                    <NavLink to="/about-us" onClick={handleNavItemClick} className={({ isActive }) => isActive ? "active" : ""}>{navbarTexts.navbar.aboutUs}</NavLink>
+                    <NavLink to="/policy" onClick={handleNavItemClick} className={({ isActive }) => isActive ? "active" : ""}>{navbarTexts.navbar.policy}</NavLink>
                 </nav>
                 <a href="#" id="menu-bars" className={`fas fa-bars ${menubarState ? "fa-times" : ""}`} onClick={(e) => {
                     e.preventDefault();

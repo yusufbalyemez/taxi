@@ -6,6 +6,7 @@
                 "gallery": "Galeri",
                 "contact": "İletişim",
                 "mybookings": "Rezervasyonlarım",
+                "aboutUs":"Hakkımızda",
                 "policy": "Politikalar & Şartlar"
             },
             "errorMsg": "Bir kullanıcı bilgisi hatası oluştu.",

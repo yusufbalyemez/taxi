@@ -6,6 +6,7 @@
         "gallery": "Galerie",
         "contact": "Kontakt",
         "mybookings": "Meine Buchungen",
+        "aboutUs":"Über Uns",
         "policy": "Richtlinien & Bedingungen"
       },
       "errorMsg": "Ein Fehler bei den Benutzerinformationen ist aufgetreten.",
