@@ -50,19 +50,28 @@ const Home = () => {
         // Seçilen tarih bugünse ve mevcut dakika 30'dan küçükse, mevcut saatin yarım saatlik dilimini de ekleyin.
         // Aksi takdirde, seçilen tarih bugünden farklıysa veya mevcut dakika 30 veya daha fazlaysa, saat 8:00'den başlatın.
         if (selectedDate === today) {
-            if (currentMinute < 30) {
+            if (currentMinute < 30 && currentHour <23) {
                 times.push(`${currentHour.toString().padStart(2, '0')}:30`); // Mevcut saatin yarım saatlik dilimini ekler
             }
             // Bugün için, mevcut saat ve dakikaya bağlı olarak başlat
             for (let i = currentHour + 1; i < 24; i++) {
-                times.push(`${i.toString().padStart(2, '0')}:00`);
-                if (i !== 23) { // 24:00'den önce son saat
-                    times.push(`${i.toString().padStart(2, '0')}:30`);
+                if(i>1 && i<8){
+                    continue;
+                }else {
+                    times.push(`${i.toString().padStart(2, '0')}:00`);
+                    if (i !== 23) { // 24:00'den önce son saat
+                        times.push(`${i.toString().padStart(2, '0')}:30`);
+                    }
                 }
+               
             }
         } else {
             // Seçilen tarih bugünden farklıysa, saatleri 8:00'den başlat
-            for (let i = 8; i < 24; i++) {
+            for (let i = 0; i < 24; i++) {
+
+                if(i>1 && i<8){
+                    continue;
+                }
                 times.push(`${i.toString().padStart(2, '0')}:00`);
                 if (i !== 23) { // 24:00'den önce son saat
                     times.push(`${i.toString().padStart(2, '0')}:30`);
@@ -81,25 +90,28 @@ const Home = () => {
     const hours = generateHours();
 
     // USER ID OLUŞTURMA ve ALMA
-    useEffect(() => {
-        const generateUserId = () => {
-            const array = new Uint8Array(64);
-            window.crypto.getRandomValues(array);
-            return Array.from(array, byte => byte.toString(16).padStart(2, '0')).join('');
-        };
 
-        const getUserId = () => {
-            let userId = localStorage.getItem('user_id');
-            if (!userId) {
-                userId = generateUserId();
-                localStorage.setItem('user_id', userId);
-                localStorage.setItem('user_id_created_at', new Date().toISOString());
-            }
-            return userId;
-        };
+    // getUserId fonksiyonunu useEffect dışında tanımlayın
+    const generateUserId = () => {
+        const array = new Uint8Array(64);
+        window.crypto.getRandomValues(array);
+        return Array.from(array, byte => byte.toString(16).padStart(2, '0')).join('');
+    };
+
+    const getUserId = () => {
+        let userId = localStorage.getItem('user_id');
+        if (!userId) {
+            userId = generateUserId();
+            localStorage.setItem('user_id', userId);
+            localStorage.setItem('user_id_created_at', new Date().toISOString());
+        }
+        return userId;
+    };
+
+    useEffect(() => {
 
         const userId = getUserId();
-        console.log("User ID:", userId); // Geliştirme aşamasında kontrol için
+        
     }, []);
 
     //Adım 2: user_id Süresini Kontrol Etme ve Yenileme
@@ -243,12 +255,6 @@ const Home = () => {
 
                 <div className="inner-content">
 
-                    <div className='contact-container'>
-                        {/* <a href="tel:+4917684435028" className="booknow">{text.callnow}</a> */}
-                        <a href={`tel:${wpNo}`} className="booknow">{text.callnow}</a>
-                        <a href={`https://wa.me/${wpNo}?text=${wpMsgText}`} className="whatsapp" target="_blank">Whatsapp <i className="fa-brands fa-whatsapp"></i></a>
-                    </div>
-
                     <form onSubmit={handleConfirmSubmit}> {/* Form gönderme işleyicisini ekle */}
                         <div className="contact-form">
 
@@ -291,6 +297,11 @@ const Home = () => {
                         </div>
                     </form>
 
+                    <div className='contact-container'>
+                        {/* <a href="tel:+4917684435028" className="booknow">{text.callnow}</a> */}
+                        <a href={`tel:${wpNo}`} className="booknow">{text.callnow}</a>
+                        <a href={`https://wa.me/${wpNo}?text=${wpMsgText}`} className="whatsapp" target="_blank">Whatsapp <i className="fa-brands fa-whatsapp"></i></a>
+                    </div>
 
                 </div>
 
