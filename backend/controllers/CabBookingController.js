@@ -56,10 +56,33 @@ exports.createBooking = async (req, res) => {
   }
 };
 //Bugünün tarihi ile aynı olan rezervasyonları getir.
-exports.getTodayBookings = async (req, res) => {
+/* exports.getTodayBookings = async (req, res) => {
   try {
     const todayDate = new Date().toISOString().slice(0, 10); // Bugünün tarihini YYYY-MM-DD formatında al
     const bookings = await CabBooking.find({ date: todayDate }).sort({ createdAt: -1 });
+    res.status(200).json(bookings);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+ */
+
+exports.getTodayBookings = async (req, res) => {
+  try {
+    const todayStart = new Date();
+    todayStart.setHours(0, 0, 0, 0); // Günün başlangıcına ayarla
+
+    const todayEnd = new Date();
+    todayEnd.setHours(23, 59, 59, 999); // Günün sonuna ayarla
+
+    const bookings = await CabBooking.find({
+      date: {
+        $gte: todayStart.toISOString(), // Bugünün başlangıcından
+        $lte: todayEnd.toISOString() // Bugünün sonuna kadar olan kayıtlar
+      }
+    }).sort({ createdAt: -1 });
+
     res.status(200).json(bookings);
   } catch (error) {
     res.status(500).json({ message: error.message });
