@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import { useLanguage } from '../Languages/LanguageContext'; // useLanguage hook'unu içe aktarın
 import { message } from 'antd';
 import "./Home.css";
 
 const Home = () => {
     const apiUrl = import.meta.env.VITE_API_BASE_URL;
+    const navigate = useNavigate();
     const [availableHours, setAvailableHours] = useState([]);
     const [termsAccepted, setTermsAccepted] = useState(false); // Checkbox durumunu tutacak yeni state
     const [wpNo, setWpNo] = useState("");
@@ -230,6 +233,9 @@ const Home = () => {
             const responseData = await response.json();
             setIsSubmitSuccessful(true); // Gönderim başarılı olduğunda bu değeri true yap
 
+            // Rezervasyon başarılı ise, /bookings sayfasına userId ile birlikte yönlendir
+            navigate(`/bookings/${userId}`);
+
             // console.log('Booking successful:', responseData);
             // Burada başarılı olduğunu bildiren bir mesaj gösterebilirsiniz.
 
@@ -241,6 +247,7 @@ const Home = () => {
             setStart('');
             setEnd('');
             setTermsAccepted(false);
+            
 
 
         } catch (error) {
