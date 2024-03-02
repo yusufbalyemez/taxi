@@ -5,6 +5,7 @@ import Tariff from '../components/Tariff/Tariff'
 import FastBooking from '../components/FastBooking/FastBooking'
 import Testimonials from '../components/Testimonials/Testimonials'
 import PhotoGallery from '../components/PhotoGallery/PhotoGallery'
+import Footer from '../components/Footer/Footer'
 
 
 
@@ -19,6 +20,7 @@ const HomePage = () => {
       <FastBooking />
       <PhotoGallery/>
       <Testimonials />
+      <Footer/>
 
     </>
   )
