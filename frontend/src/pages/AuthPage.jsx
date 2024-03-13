@@ -11,7 +11,6 @@ const AuthPage = () => {
             <Header/>
             <Auth />
             <FastBooking/>
-            <Testimonials />
         </React.Fragment>
     )
 }

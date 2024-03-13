@@ -10,7 +10,6 @@ const GalleryPage = () => {
       <Header/>
       <PhotoGallery/>
       <FastBooking/>
-      <Testimonials/>
     </>
   )
 }

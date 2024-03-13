@@ -19,7 +19,6 @@ const HomePage = () => {
       <Tariff />
       <FastBooking />
       <PhotoGallery/>
-      <Testimonials />
       <Footer/>
 
     </>

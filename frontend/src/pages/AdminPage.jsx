@@ -33,6 +33,7 @@ const AdminPage = () => {
     { label: <Link to="/admin">{text.menuItem1}</Link>, key: '1' },
     { label: <Link to="/admin/bookings">{text.menuItem2}</Link>, key: '2' },
     { label: <Link to="/admin/settings">{text.menuItem3}</Link>, key: '3' },
+    { label: <Link to="/admin/gallery-settings">Gallery Settings</Link>, key: '4' },
   ];
 
   if (isLoading) {

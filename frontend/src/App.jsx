@@ -15,6 +15,7 @@ import TaxiCityTariffs from './pages/TaxiCityTariffs';
 import TaxiPrices from './pages/TaxiPrices';
 import AboutUs from './pages/AboutUs';
 import './App.css';
+import CarGallery from './components/Admin/CarGallery';
 
 
 
@@ -37,6 +38,7 @@ function App() {
         <Route index element={<TodayBookings />} />
         <Route path="bookings" element={<Bookings />} />
         <Route path="settings" element={<Settings />} />
+        <Route path="gallery-settings" element={<CarGallery/>} />
       </Route>
       
 

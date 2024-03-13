@@ -24,6 +24,10 @@ Kaydettikten sonra, bir "Site Key" ve "Secret Key" alacaksınız. Bu anahtarlar�
 
 npm install react-google-recaptcha
 
+# Photo Gallery For Sort
+
+npm install react-beautiful-dnd
+
 
 # Run
 npm run dev
