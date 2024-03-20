@@ -27,6 +27,15 @@
     color: blue;
 }
 
+.policy-container ul li {
+    text-transform: none;
+}
+
+.policy-container ul li a {
+    text-transform: none !important;
+    color: blue;
+}
+
 .policy-container h1,h2{
     margin: 1rem 1rem;
 }

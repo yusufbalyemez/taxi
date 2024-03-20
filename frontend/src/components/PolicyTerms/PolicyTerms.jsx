@@ -196,12 +196,13 @@ const PolicyTerms = () => {
       <h2>10. Kontaktdaten</h2>
       <p>Für Fragen und/oder Kommentare über unsere Cookie-Richtlinien und diese Aussage kontaktiere uns bitte mittels der folgenden Kontaktdaten:</p>
       <ul>
-      <li>Grossraum V-Klasse Taxi</li>
-      <li>Schafhofstr. 10</li>
-      <li>90411 Nürnberg</li>
+      <li>Yüksel Lacin Taxiunternehmen</li>
+      <li>Nordring 110</li>
+      <li>90409 Nürnberg </li>
       <li>Deutschland</li>
       <li>Website: <a href='https://grosraumv-klassetaxi.de'>https://grosraumv-klassetaxi.de</a></li>
-      <li>Telefonnummer: 0911/666112</li>
+      <li>E-Mail: info@grossraumv-klassetaxi.de</li>
+      <li>Telefonnummer: 176/84435028</li>
       </ul>
       <p>Diese Cookie-Richtlinie wurde mit <a href='https://cookiedatabase.org/'>cookiedatabase.org </a>am 20. Marsch 2024 synchronisiert.</p>
     </div>
