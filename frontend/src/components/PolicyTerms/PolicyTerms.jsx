@@ -202,7 +202,7 @@ const PolicyTerms = () => {
           <li>Nordring 110</li>
           <li>90409 Nürnberg </li>
           <li>Deutschland</li>
-          <li>Website: <a href='https://grosraumv-klassetaxi.de'>https://grosraumv-klassetaxi.de</a></li>
+          <li>Website: <a href='https://grossraumv-klassetaxi.de'>https://grossraumv-klassetaxi.de</a></li>
           <li>E-Mail: info@grossraumv-klassetaxi.de</li>
           <li>Telefonnummer: 176/84435028</li>
         </ul>

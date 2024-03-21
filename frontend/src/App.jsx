@@ -40,8 +40,6 @@ function App() {
         <Route path="settings" element={<Settings />} />
         <Route path="gallery-settings" element={<CarGallery/>} />
       </Route>
-      
-
     </Routes>
   );
 }
