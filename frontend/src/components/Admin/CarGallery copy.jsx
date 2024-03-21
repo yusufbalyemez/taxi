@@ -1,46 +1,77 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import axios from 'axios';
 
-// Resim listesi bileşeni
-const ImageList = () => {
+const apiUrl = import.meta.env.VITE_API_BASE_URL;
+
+const onDragEnd = (result, images, setImages) => {
+  if (!result.destination) {
+    return;
+  }
+
+  const items = Array.from(images);
+  const [reorderedItem] = items.splice(result.source.index, 1);
+  items.splice(result.destination.index, 0, reorderedItem);
+
+  setImages(items);
+};
+
+const CarGallery = () => {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
+    const fetchImages = async () => {
+      try {
+        const response = await axios.get(`${apiUrl}/api/auth/get-photos`);
+        console.log("Gelen veriler: ", response.data); // Verileri konsola yazdırın
+        const db_images = response.data;
+        setImages(db_images);
+      } catch (error) {
+        console.error('Error fetching images:', error);
+      }
+    };
+  
     fetchImages();
   }, []);
 
-  const fetchImages = async () => {
-    const db_images = [
-      { id: "1", imgSrc: "/images/car/1.png" },
-      { id: "2", imgSrc: "/images/car/2.png" },
-      { id: "3", imgSrc: "/images/car/3.png" },
-      { id: "4", imgSrc: "/images/car/4.png" },
-      { id: "5", imgSrc: "/images/car/5.png" },
-      { id: "6", imgSrc: "/images/car/6.png" },
-      { id: "7", imgSrc: "/images/car/7.png" },
-      { id: "8", imgSrc: "/images/car/8.png" },
-      { id: "9", imgSrc: "/images/car/9.png" },
-      { id: "10", imgSrc: "/images/car/10.png" },
-      { id: "11", imgSrc: "/images/car/1.png" },
-      { id: "12", imgSrc: "/images/car/2.png" }
-    ];
-    setImages(db_images);
+  const deleteImage = async (dbId) => {
+    console.log(`Silinmekte olan resmin id'si: ${dbId}`); // Test için eklenmiştir
+    try {
+      await axios.delete(`${apiUrl}/api/auth/deletephoto/${dbId}`);
+      setImages(images.filter(image => image._id !== dbId)); // Burayı düzelttim
+    } catch (error) {
+      console.error(`Resim silinirken bir hata oluştu: ${dbId}`, error);
+    }
   };
-
-  // Resim silme işlevi
-  const deleteImage = async (id) => {
-    // Demo için axios kullanımı yorum satırına alınmıştır
-    // await axios.delete(`/images/${id}`);
-    setImages(images.filter(image => image.id !== id));
-  };
+  
 
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-      {images.map(image => (
-        <div key={image.id} style={{ position: 'relative', margin: '10px' }}>
-          <img src={image.imgSrc} alt={`Image ${image.id}`} style={{ width: "200px", height: "200px" }}/>
+    <DragDropContext onDragEnd={(result) => onDragEnd(result, images, setImages)}>
+      <Droppable droppableId="droppableImages" direction="horizontal">
+        {(provided) => (
+          <div
+            {...provided.droppableProps}
+            ref={provided.innerRef}
+            style={{ display: 'flex', overflowX: 'auto' }}
+          >
+            {images.map((image, index) => (
+  <Draggable key={image._id ? image._id.toString() : index.toString()} draggableId={image._id ? image._id.toString() : index.toString()} index={index}>
+    {(provided) => (
+      <div
+        ref={provided.innerRef}
+        {...provided.draggableProps}
+        {...provided.dragHandleProps}
+        style={{
+          ...provided.draggableProps.style,
+          marginRight: '10px',
+        }}
+      >
+        <div style={{ position: 'relative', display: 'inline-block' }}>
+          <img src={image.imgSrc} alt={`Image ${image._id ? image._id : index}`} style={{ width: "200px", height: "200px" }} />
+          
+          <label>{image.index}</label>
           <button
-            onClick={() => deleteImage(image.id)}
+            onClick={() => deleteImage(image._id,index)} // Burada image._id doğru mu kontrol edin
             style={{
               position: 'absolute',
               top: 0,
@@ -60,9 +91,17 @@ const ImageList = () => {
             X
           </button>
         </div>
-      ))}
-    </div>
+      </div>
+    )}
+  </Draggable>
+))}
+
+            {provided.placeholder}
+          </div>
+        )}
+      </Droppable>
+    </DragDropContext>
   );
 };
 
-export default ImageList;
+export default CarGallery;

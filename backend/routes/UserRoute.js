@@ -1,7 +1,27 @@
-// routes/Users.js
+// routes/UserRoute.js
 const express = require('express');
 const router = express.Router();
 const UserController = require('../controllers/UserController.js');
+const CarGalleryController = require('../controllers/CarGalleryController.js');
+const multer = require('multer');
+const fs = require('fs');
+const path = require('path');
+
+const uploadDirectory = path.join(__dirname, 'uploads');
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    fs.mkdirSync(uploadDirectory, { recursive: true }); // Klasör yoksa oluştur
+    cb(null, uploadDirectory);
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+  }
+});
+
+const upload = multer({ storage: storage });
+
+
 
 
 // Yeni Kullanıcı oluştur
@@ -9,6 +29,16 @@ router.post('/register', UserController.AddUser);
 
 // Login
 router.post('/login', UserController.Login);
+
+// Galeriye fotoğraf ekleme endpoint'i
+router.post('/add-photo', upload.single('image'), CarGalleryController.createGalleryImg);
+
+//Galeriye fotoğraf ekleme
+//router.post('/add-photo',CarGalleryController.createGalleryImg);
+
+//Galeriden fotoğraf getirme
+router.get('/get-photos',CarGalleryController.getAllPhotos);
+
 
 // Tüm kullanıcıları getir
 router.get('/users', UserController.getAllUsers);
@@ -33,5 +63,10 @@ router.patch('/updatephone/:id', UserController.updateAdminPhone);
 
 //Admin email güncelleme
 router.patch('/updatemail/:id', UserController.updateAdminMail);
+
+//Galeriden Id'ye Göre Fotoğraf Getirme
+router.get('/get-photo/:id',CarGalleryController.getPhotoWithId);
+
+router.delete('/deletephoto/:id',CarGalleryController.deletePhotoWithId)
 
 module.exports = router;
