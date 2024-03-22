@@ -6,7 +6,7 @@
         "gallery": "Galerie",
         "contact": "Kontakt",
         "mybookings": "Meine Buchungen",
-        "aboutUs":"Unsere Leistungen",
+        "aboutUs": "Unsere Leistungen",
         "policy": "Cookie-Richtlinie (EU)"
       },
       "errorMsg": "Ein Fehler bei den Benutzerinformationen ist aufgetreten.",
@@ -20,6 +20,8 @@
         "title": "Ein Taxi buchen",
         "nameInput": "Name",
         "phoneInput": "Telefon",
+        "passengers": "Fahrgäste",
+        "passenger": "Fahrgast",
         "hoursSelect": "Wann",
         "startInput": "Ziel",
         "endedInput": "Nach",
@@ -79,6 +81,8 @@
     "submitBtn": "Akzeptieren",
     "cancelBtn": "Abbrechen",
     "deletequestion": "Sind Sie sicher, dass Sie löschen möchten?",
+    "passengers": "Fahrgäste",
+    "passenger": "Fahrgast",
     "bookingstatus": {
       "fix": "Buchung",
       "ok": "genehmigt",
@@ -122,7 +126,9 @@
     "start": "Start",
     "end": "Ende",
     "status": "Status",
-    "action": "Aktion"
+    "action": "Aktion",
+    "passengers": "Fahrgäste",
+    "passenger": "Fahrgast"
   },
   "cookieConsent": {
     "infoTxt": "Diese Website verwendet Cookies. Durch die weitere Nutzung akzeptieren Sie die Verwendung von Cookies.",
@@ -152,6 +158,8 @@
     "deleteBookingQuest": "Sind Sie sicher, dass Sie diese Buchung löschen möchten?",
     "denied": "Abgelehnt",
     "waiting": "Warten auf Genehmigung",
-    "approved": "Genehmigt"
+    "approved": "Genehmigt",
+    "passengers": "Fahrgäste",
+    "passenger": "Fahrgast"
   }
 }

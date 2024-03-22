@@ -6,7 +6,7 @@
                 "gallery": "Gallery",
                 "contact": "Contact",
                 "mybookings": "My Bookings",
-                "aboutUs":"Our Services",
+                "aboutUs": "Our Services",
                 "policy": "Cookie Policy (EU)"
             },
             "errorMsg": "A user information error occurred.",
@@ -20,6 +20,8 @@
                 "title": "book a cab",
                 "nameInput": "Name",
                 "phoneInput": "Phone",
+                "passengers": "Passengers",
+                "passenger": "Passenger",
                 "hoursSelect": "When",
                 "startInput": "Start",
                 "endedInput": "Ended",
@@ -29,19 +31,19 @@
             "callnow": "call now",
             "h3": "best in city",
             "h2": "trusted cab service in country",
-            "p1":"We are here to offer a fast, safe, and comfortable travel experience. Our expert drivers, with years of experience, ensure that you reach your desired destination on time and safely. We provide the best solution for all your travel needs, any time of the day. With our customer satisfaction-oriented service philosophy, we earn the title of 'The Best in the City' every single day.",
-            "p2":"No matter how long or short your journey is, we pay special attention to each customer and ensure a comfortable experience. In all your urban and intercity travels, we make a difference with our quality service approach, never overlooking any detail for your safety and comfort. Our taxi service is designed to exceed your valued customers' expectations and turn your journey into a pleasant memory.",
-            "p3":"As your trusted partner in every journey, we work to make your travel trouble-free and enjoyable. Are you ready to hit the road with 'The Best in the City'?"
+            "p1": "We are here to offer a fast, safe, and comfortable travel experience. Our expert drivers, with years of experience, ensure that you reach your desired destination on time and safely. We provide the best solution for all your travel needs, any time of the day. With our customer satisfaction-oriented service philosophy, we earn the title of 'The Best in the City' every single day.",
+            "p2": "No matter how long or short your journey is, we pay special attention to each customer and ensure a comfortable experience. In all your urban and intercity travels, we make a difference with our quality service approach, never overlooking any detail for your safety and comfort. Our taxi service is designed to exceed your valued customers' expectations and turn your journey into a pleasant memory.",
+            "p3": "As your trusted partner in every journey, we work to make your travel trouble-free and enjoyable. Are you ready to hit the road with 'The Best in the City'?"
         },
         "tarrif": {
             "h1": "Our",
             "h1_span": "Tarrif",
             "orderBtn": "Order now",
             "imgLinkTxt": "See",
-            "contentTxt":"Click the button to see officially approved tariff details.",
-            "airportTitle":"Airport Tariffs",
-            "inNurnbergTitle":"Taxi Prices In Nurnberg",
-            "kilometerTitle":"Kilometer Tariffs"
+            "contentTxt": "Click the button to see officially approved tariff details.",
+            "airportTitle": "Airport Tariffs",
+            "inNurnbergTitle": "Taxi Prices In Nurnberg",
+            "kilometerTitle": "Kilometer Tariffs"
         },
         "fastbookings": {
             "h1": "we do best",
@@ -62,24 +64,26 @@
         }
     },
     "adminpage": {
-        "Bookings":"Bookings",
-        "title":"All Booking List",
-        "title2":"Today's Bookings List",
+        "Bookings": "Bookings",
+        "title": "All Booking List",
+        "title2": "Today's Bookings List",
         "name": "name",
         "phone": "phone",
         "hours": "hours",
         "date": "date",
         "start": "start",
         "end": "end",
-        "status":"status",
+        "status": "status",
         "process": "process",
-        "approvalStatus":"Approval Status",
+        "approvalStatus": "Approval Status",
         "denied": "Denied",
-        "waitingforapproval":"Waiting For Approval",
-        "approved":"Approved",
+        "waitingforapproval": "Waiting For Approval",
+        "approved": "Approved",
         "submitBtn": "Accept",
         "cancelBtn": "Cancel",
         "deletequestion": "Are You Sure You Want to Delete?",
+        "passengers": "Passengers",
+        "passenger": "Passenger",
         "bookingstatus": {
             "fix": "Booking",
             "ok": "approved",
@@ -90,30 +94,26 @@
         "menuItem2": "Old Bookings",
         "menuItem3": "Settings",
         "logoutBtn": "Logout",
-
-        "settings":{
-            "emailErrorMsg":"Email addresses do not match!",
-            "emailUpdatedMsg":"Email updated successfully!",
+        "settings": {
+            "emailErrorMsg": "Email addresses do not match!",
+            "emailUpdatedMsg": "Email updated successfully!",
             "passwordErrorMsg": "Passwords do not match!",
             "passwordUpdatedMsg": "Password updated successfully",
             "passwordCantUpdated": "An error occurred while updating the password.",
             "form": {
                 "emailLabel": "New Email",
-                "emailMsg":"Please enter your new email address!",
-                "confirmEmailLabel":"Confirm Email",
-                "confirmEmailMsg":"Please re-enter your email address!",
+                "emailMsg": "Please enter your new email address!",
+                "confirmEmailLabel": "Confirm Email",
+                "confirmEmailMsg": "Please re-enter your email address!",
                 "updateMailBtn": "Update Email",
-
-                "passwordLabel":"New Password",
-                "passwordMsg":"Please enter your new password!",
-                "confirmPasswordLabel":"Confirm Password",
-                "confirmPasswordMsg":"Please enter your password again!",
+                "passwordLabel": "New Password",
+                "passwordMsg": "Please enter your new password!",
+                "confirmPasswordLabel": "Confirm Password",
+                "confirmPasswordMsg": "Please enter your password again!",
                 "updatePasswordBtn": "Update Password",
-
-                "phoneLabel":"New Phone Number",
-                "phoneMsg":"Please enter your new phone number!",
+                "phoneLabel": "New Phone Number",
+                "phoneMsg": "Please enter your new phone number!",
                 "updatePhoneBtn": "Update Phone Number"
-
             }
         }
     },
@@ -126,8 +126,9 @@
         "date": "date",
         "start": "start",
         "end": "end",
-        "status": "status"
-       
+        "status": "status",
+        "passengers": "Passengers",
+        "passenger": "Passenger"
     },
     "cookieConsent": {
         "infoTxt": "This site uses cookies. By continuing to use you accept the use of cookies.",
@@ -142,9 +143,8 @@
         "loginSuccess": "Login successful.",
         "loginFailed": "Login failed.",
         "failError": "An error occurred while logging in."
-
     },
-    "customerbookingspage":{
+    "customerbookingspage": {
         "bookingList": "Booking List",
         "bookingInfo": "Booking Info",
         "name": "Name",
@@ -158,6 +158,8 @@
         "deleteBookingQuest": "Are you sure to delete this booking?",
         "denied": "Denied",
         "waiting": "Waiting For Approval",
-        "approved": "Approved"
+        "approved": "Approved",
+        "passengers": "Passengers",
+        "passenger": "Passenger"
     }
 }

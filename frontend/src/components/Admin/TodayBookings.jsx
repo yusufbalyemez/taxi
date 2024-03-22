@@ -103,6 +103,7 @@ const TodayBookings = () => {
             <Descriptions.Item label={text.phone}>{booking.phone}</Descriptions.Item>
             <Descriptions.Item label={text.hours}>{booking.hours}</Descriptions.Item>
             <Descriptions.Item label={text.date}>{booking.date}</Descriptions.Item>
+            <Descriptions.Item label={text.passengers}>{booking.passengers}</Descriptions.Item>
             <Descriptions.Item label={text.start}>{booking.start}</Descriptions.Item>
             <Descriptions.Item label={text.end}>{booking.end}</Descriptions.Item>
             {/* <Descriptions.Item label="User Id">{booking.user_id}</Descriptions.Item> */}

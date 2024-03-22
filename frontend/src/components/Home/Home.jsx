@@ -250,7 +250,7 @@ const Home = () => {
             setStart('');
             setEnd('');
             setTermsAccepted(false);
-            
+
 
 
         } catch (error) {
@@ -289,13 +289,13 @@ const Home = () => {
                                 </select>
 
                                 <select name="passengers" value={passengers} onChange={(e) => setPassengers(e.target.value)}>
-                                    <option value={'1'}>1 Fahrgast</option>
-                                    <option value={'2'}>2 Fahrgäste</option>
-                                    <option value={'3'}>3 Fahrgäste</option>
-                                    <option value={'4'}>4 Fahrgäste</option>
-                                    <option value={'5'}>5 Fahrgäste</option>
-                                    <option value={'6'}>6 Fahrgäste</option>
-                                    <option value={'7'}>7 Fahrgäste</option>
+                                    <option value={'1'}>1 {text.form.passenger}</option>
+                                    <option value={'2'}>2 {text.form.passengers}</option>
+                                    <option value={'3'}>3 {text.form.passengers}</option>
+                                    <option value={'4'}>4 {text.form.passengers}</option>
+                                    <option value={'5'}>5 {text.form.passengers}</option>
+                                    <option value={'6'}>6 {text.form.passengers}</option>
+                                    <option value={'7'}>7 {text.form.passengers}</option>
                                 </select>
 
                                 <input type="text" placeholder={text.form.startInput} name="start" value={start} onChange={(e) => setStart(e.target.value)} required />

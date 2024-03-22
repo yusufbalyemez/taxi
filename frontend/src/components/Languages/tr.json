@@ -6,7 +6,7 @@
                 "gallery": "Galeri",
                 "contact": "İletişim",
                 "mybookings": "Rezervasyonlarım",
-                "aboutUs":"Hizmetlerimiz",
+                "aboutUs": "Hizmetlerimiz",
                 "policy": "Çerez Politikası (AB)"
             },
             "errorMsg": "Bir kullanıcı bilgisi hatası oluştu.",
@@ -20,6 +20,8 @@
                 "title": "taksi rezervasyonu",
                 "nameInput": "İsim",
                 "phoneInput": "Telefon",
+                "passengers": "Yolcu",
+                "passenger": "Yolcu",
                 "hoursSelect": "Ne Zaman",
                 "startInput": "Başlangıç",
                 "endedInput": "Varış",
@@ -80,6 +82,8 @@
         "submitBtn": "Kabul Et",
         "cancelBtn": "İptal Et",
         "deletequestion": "Silmek İstediğinizden Emin misiniz?",
+        "passengers": "Yolcu",
+        "passenger": "Yolcu",
         "bookingstatus": {
             "fix": "Rezervasyon",
             "ok": "onaylandı",
@@ -122,7 +126,9 @@
         "date": "tarih",
         "start": "başlangıç",
         "end": "bitiş",
-        "status": "durum"
+        "status": "durum",
+        "passengers": "Yolcu",
+        "passenger": "Yolcu"
     },
     "cookieConsent": {
         "infoTxt": "Bu site çerezleri kullanmaktadır. Kullanmaya devam ederek çerez kullanımını kabul etmiş olursunuz.",
@@ -152,6 +158,8 @@
         "deleteBookingQuest": "Bu rezervasyonu silmek istediğinizden emin misiniz?",
         "denied": "Reddedildi",
         "waiting": "Onay Bekleniyor",
-        "approved": "Onaylandı"
+        "approved": "Onaylandı",
+        "passengers": "Yolcu",
+        "passenger": "Yolcu"
     }
 }

@@ -9,10 +9,9 @@ const ContactPage = () => {
   return (
     <>
       <Header/>
-      <Home2 />
       <ContactInfo/>
-      <Tariff />
       <GoogleMap />
+      <Home2/>
     </>
   )
 }
