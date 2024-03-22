@@ -74,7 +74,7 @@ const Customer = () => {
   };
 
   return (
-    <div>
+    <div className='customer-booking'>
       <h2>{text.bookingList}</h2>
       {bookings.length > 0 ? bookings.map((booking) => (
         <Card key={booking._id} style={{ marginBottom: 16 }}>

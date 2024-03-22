@@ -205,6 +205,10 @@
 
 
 @media (max-width:768px) {
+    .home-container {
+        margin-top:6rem;
+    }
+    
     .contact-container {
         width: 100%;
         margin: 0;
@@ -214,6 +218,7 @@
         left: 0;
         display: flex;
         background-color: black;
+    
 
     }
 

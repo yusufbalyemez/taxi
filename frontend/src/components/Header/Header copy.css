@@ -6,10 +6,6 @@
   align-items: center;
   background-color: black;
   z-index: 999;
-  /* Aşağıdaki satırlar eklendi */
-  position: -webkit-sticky; /* Safari için */
-  position: sticky;
-  top: 0;
 }
 
 .header .navbar a {
@@ -59,10 +55,7 @@
 
   .header {
     padding: 2rem;
-    position: fixed; /* Header'ı sabitler */
-    top: 0; /* Üst kenardan başlar */
-    left: 0; /* Sol kenardan başlar */
-    right: 0; /* Sağ kenardan başlar */
+
   }
 
   .navbar {
@@ -74,6 +67,7 @@
     background-color: rgb(34, 34, 34);
     display: none;
   }
+  
 .navbar.active {
   z-index: 999;
   display: block;
@@ -93,13 +87,6 @@
     padding: 1rem;
 
 
-  }
-
-  .language-switcher{
-    position: absolute;
-    right: 0;
-    top: 7.4rem;
-    z-index: 750;
   }
 
 

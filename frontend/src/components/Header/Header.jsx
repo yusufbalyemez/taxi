@@ -16,6 +16,7 @@ const Header = () => {
     const handleNavItemClickForSlide = (e, targetId) => {
         // NavLink'in varsayılan yönlendirme davranışını engelle
         e.preventDefault();
+        setMenubarState(false);
 
         // Kaydırılacak hedef elementi seç
         const targetElement = document.getElementById(targetId);

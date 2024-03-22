@@ -1,4 +1,7 @@
 /* styles.css */
+.customer-booking{
+  margin: 20px 10px;
+}
 .status-waiting {
     color: blue; /* Onay Bekliyor için mavi */
   }
