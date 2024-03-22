@@ -30,6 +30,7 @@ const Home = () => {
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const [inputHours, setInputHours] = useState('');
+    const [passengers, setPassengers] = useState('2');
     const [inputDate, setInputDate] = useState(getTodayDate());
     const [start, setStart] = useState('');
     const [end, setEnd] = useState('');
