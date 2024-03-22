@@ -1,0 +1,52 @@
+.contactInfo-container {
+    display: flex;
+    justify-content:center;
+    flex-wrap: wrap;
+    gap: 15;
+    background: rgb(37, 37, 37);
+    color: white;
+    width: 100%;
+    margin: 0;
+}
+.part {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 3rem;
+    min-height: 200px;
+    min-width: 300px;
+}
+
+.part:nth-child(4) {
+    background-color: #161616; /* Örnek bir arkaplan rengi */
+}
+
+.part i{
+    font-size: 2rem;
+}
+
+.part p{
+    margin-top: 1rem;
+    font-size: 1.3rem;
+    text-transform: none;
+    line-height: 1rem;
+    color: rgb(134, 134, 135);
+}
+
+.part p a{
+    color: rgb(134, 134, 135);
+}
+
+
+@media (max-width:768px){
+    .part {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 5rem;
+        min-height: 200px;
+        width: 100%;
+    }
+}

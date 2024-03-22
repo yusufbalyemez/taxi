@@ -203,8 +203,8 @@ const PolicyTerms = () => {
           <li>90409 Nürnberg </li>
           <li>Deutschland</li>
           <li>Website: <a href='https://grossraumv-klassetaxi.de'>https://grossraumv-klassetaxi.de</a></li>
-          <li>E-Mail: info@grossraumv-klassetaxi.de</li>
-          <li>Telefonnummer: 176/84435028</li>
+          <li>E-Mail: yuksellacin1@outlook.de</li>
+          <li>Telefonnummer: +49 176/84435028</li>
         </ul>
         <p></p>
 

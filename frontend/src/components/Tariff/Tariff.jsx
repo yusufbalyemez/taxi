@@ -42,6 +42,9 @@ const Tariff = () => {
                    
                 />
             </div>
+            <div className="footnote">
+                    <p>K-1 Kinderfahrt 9 bis 36 Kilo Kinder zum mit Fahren. Auch 1 bis 7 Personen mit Fahren.</p>
+            </div>
         </div>
     )
 }

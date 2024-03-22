@@ -33,6 +33,7 @@ const Home = () => {
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const [inputHours, setInputHours] = useState('');
+    const [passengers, setPassengers] = useState('2');
     const [inputDate, setInputDate] = useState(getTodayDate());
     const [start, setStart] = useState('');
     const [end, setEnd] = useState('');
@@ -208,6 +209,7 @@ const Home = () => {
             name,
             phone,
             hours: inputHours,
+            passengers,
             date: inputDate,
             start,
             end,
@@ -243,6 +245,7 @@ const Home = () => {
             setName('');
             setPhone('');
             setInputHours(''); // Varsayılan değeri '0' olarak ayarla
+            setPassengers('2')
             setInputDate(getTodayDate()); // Tarih için istediğiniz varsayılan değeri ayarlayın
             setStart('');
             setEnd('');
@@ -283,6 +286,16 @@ const Home = () => {
                                     {availableHours.map(({ time, disabled }, index) => (
                                         <option key={index} value={time} disabled={disabled}>{time}</option>
                                     ))}
+                                </select>
+
+                                <select name="passengers" value={passengers} onChange={(e) => setPassengers(e.target.value)}>
+                                    <option value={'1'}>1 Fahrgast</option>
+                                    <option value={'2'}>2 Fahrgäste</option>
+                                    <option value={'3'}>3 Fahrgäste</option>
+                                    <option value={'4'}>4 Fahrgäste</option>
+                                    <option value={'5'}>5 Fahrgäste</option>
+                                    <option value={'6'}>6 Fahrgäste</option>
+                                    <option value={'7'}>7 Fahrgäste</option>
                                 </select>
 
                                 <input type="text" placeholder={text.form.startInput} name="start" value={start} onChange={(e) => setStart(e.target.value)} required />

@@ -21,8 +21,8 @@
         "nameInput": "Name",
         "phoneInput": "Telefon",
         "hoursSelect": "Wann",
-        "startInput": "Start",
-        "endedInput": "Ziel",
+        "startInput": "Ziel",
+        "endedInput": "Nach",
         "submitBtn": "Absenden",
         "policyTxt": "Ich stimme den AGB zu"
       },

@@ -82,6 +82,14 @@ Yani, örneğinizde, öğe, flex konteyner içindeki diğer öğelerle orantıl�
     margin-top: 1rem;
 }
 
+.footnote {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
 
 
 @media (max-width:768px) {
