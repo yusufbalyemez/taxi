@@ -18,9 +18,9 @@ const images = createImageObjects();
 
 const PhotoGallery = () => {
   return (
-    <>
+    <div id='photoGallery'>
       <ImageGallery items={images} />
-    </>
+    </div>
   )
 }
 

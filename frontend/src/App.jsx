@@ -26,13 +26,13 @@ function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/contact" element={<ContactPage />} />
-      <Route path="/gallery" element={<GalleryPage />} />
+      {/* <Route path="/gallery" element={<GalleryPage />} /> */}
       <Route path="/auth" element={<AuthPage />} />
       <Route path="/policy" element={<PolicyPage />} />
       <Route path="/taxi-prices" element={<TaxiPricePage/>} />
       <Route path="/city-tariffs" element={<TaxiCityTariffs/>} />
       <Route path="/prices" element={<TaxiPrices/>} />
-      <Route path="/about-us" element={<AboutUs/>}/>
+      {/* <Route path="/about-us" element={<AboutUs/>}/> */}
       <Route path="/bookings/:userId" element={<MyBookingsPage />} />
       <Route path="/admin/*" element={<AdminPage />}>
         <Route index element={<TodayBookings />} />

@@ -4,7 +4,7 @@ import "./ContactInfo.css"
 const ContactInfo = () => {
     return (
         <>
-            <div className="contactInfo-container">
+            <div id='contact' className="contactInfo-container">
                 <div className="part">
                     <i className="fa-solid fa-map-location"></i>
                     <p>Yüksel Lacin Taxiunternehmen</p>

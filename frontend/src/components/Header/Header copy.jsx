@@ -12,21 +12,6 @@ const Header = () => {
     const apiUrl = import.meta.env.VITE_API_BASE_URL;
     const navigate = useNavigate();
 
-    // Belirtilen Div ID'sine doğru kaydıran fonksiyon.
-    const handleNavItemClickForSlide = (e, targetId) => {
-        // NavLink'in varsayılan yönlendirme davranışını engelle
-        e.preventDefault();
-
-        // Kaydırılacak hedef elementi seç
-        const targetElement = document.getElementById(targetId);
-
-        // Hedef element varsa, sayfayı o elemente kaydır
-        if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
-
-
     useEffect(() => {
         const user = localStorage.getItem('user');
         setIsLoggedIn(!!user);
@@ -62,17 +47,9 @@ const Header = () => {
                 <nav className={`navbar ${menubarState ? "active" : ""}`}>
                     <NavLink to="/" onClick={handleNavItemClick} className={({ isActive }) => isActive ? "active" : ""}>{navbarTexts.navbar.home}</NavLink>
                     <NavLink to={`/bookings/${userId}`} onClick={handleNavItemClick} className={({ isActive }) => isActive ? "active" : ""}>{navbarTexts.navbar.mybookings}</NavLink>
-                    
-                    {/* "/" dizinindeyken aşağıdaki linkler gösterilir */}
-                    {location.pathname === '/' && (
-                        <>
-                            <NavLink to="/gallery" onClick={(e) => handleNavItemClickForSlide(e, 'photoGallery')} className={({ isActive }) => isActive ? "active" : ""}>{navbarTexts.navbar.gallery}</NavLink>
-                            <NavLink to="/contact" onClick={(e) => handleNavItemClickForSlide(e, 'contact')} className={({ isActive }) => isActive ? "active" : ""}>
-                                {navbarTexts.navbar.contact}
-                            </NavLink>
-                            <NavLink to="/about-us" onClick={(e)=>handleNavItemClickForSlide(e,'tariff')} className={({ isActive }) => isActive ? "active" : ""}>{navbarTexts.navbar.aboutUs}</NavLink>
-                        </>
-                    )}
+                    <NavLink to="/gallery" onClick={handleNavItemClick} className={({ isActive }) => isActive ? "active" : ""}>{navbarTexts.navbar.gallery}</NavLink>
+                    <NavLink to="/contact" onClick={handleNavItemClick} className={({ isActive }) => isActive ? "active" : ""}>{navbarTexts.navbar.contact}</NavLink>
+                    <NavLink to="/about-us" onClick={handleNavItemClick} className={({ isActive }) => isActive ? "active" : ""}>{navbarTexts.navbar.aboutUs}</NavLink>
                     <NavLink to="/policy" onClick={handleNavItemClick} className={({ isActive }) => isActive ? "active" : ""}>{navbarTexts.navbar.policy}</NavLink>
                 </nav>
                 <a href="#" id="menu-bars" className={`fas fa-bars ${menubarState ? "fa-times" : ""}`} onClick={(e) => {

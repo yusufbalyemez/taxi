@@ -5,7 +5,7 @@ const Tariff = () => {
     const { language } = useLanguage(); // Dil bağlamından dil bilgisini al
     const text = language.homepage.tarrif; // Navbar metinlerine erişim
     return (
-        <div className="main-tariff">
+        <div id="tariff" className="main-tariff">
             <h1>{text.h1} <span>{text.h1_span}</span></h1>
             <div className="inner-tarrif">
                 <TariffItem
