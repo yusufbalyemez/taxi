@@ -13,9 +13,11 @@ import Settings from './components/Admin/Settings';
 import TaxiPricePage from './pages/TaxiPricePage';
 import TaxiCityTariffs from './pages/TaxiCityTariffs';
 import TaxiPrices from './pages/TaxiPrices';
-import AboutUs from './pages/AboutUs';
-import './App.css';
 import CarGallery from './components/Admin/CarGallery';
+import Impressum from './components/PolicyTerms/Impressum';
+import DataProtect from './components/PolicyTerms/DataProtect.jsx';
+import './App.css';
+
 
 
 
@@ -29,6 +31,8 @@ function App() {
       {/* <Route path="/gallery" element={<GalleryPage />} /> */}
       <Route path="/auth" element={<AuthPage />} />
       <Route path="/policy" element={<PolicyPage />} />
+      <Route path="/impressum" element={<Impressum/>} />
+      <Route path="/datenschutzerklaerung" element={<DataProtect/>} />
       <Route path="/taxi-prices" element={<TaxiPricePage/>} />
       <Route path="/city-tariffs" element={<TaxiCityTariffs/>} />
       <Route path="/prices" element={<TaxiPrices/>} />

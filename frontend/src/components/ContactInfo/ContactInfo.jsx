@@ -25,7 +25,7 @@ const ContactInfo = () => {
                 </div>
                 <div className="part">
                     <i className="fa-solid fa-handshake"></i>
-                    <p><Link to="/policy">Impressum & Datenschutz</Link></p>
+                    <p><Link to="/impressum">Impressum</Link> & <Link to="/datenschutzerklaerung">Datenschutz</Link></p>
                     <p>{''}</p>
                     <p>{''}</p>
                 </div>
