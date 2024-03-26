@@ -14,15 +14,12 @@ const Impressum = () => {
       <div className='policy-container'>
         <h1>Impressum</h1>
         <p><strong>Angaben gemäß § 5 TMG</strong></p>
-        <p>Vatan Taxi GmbH<br/>
-          Schafhofstr. 10<br/>
-            90411 Nürnberg</p>
-
-          <p>Handelsregister: 37377<br/>
-            Registergericht: Amtsgericht Nürnberg</p>
+        <p>Yüksel Lacin Taxiunternehmen<br/>
+        Nordring 110<br/>
+        90409 Nürnberg</p>
 
           <p>Vertreten durch:<br/>
-            Sinan Ünlühan</p>
+            Yüksel Lacin</p>
 
           <h2>Genehmigungsbehörde:</h2>
           <p>Stadt Nürnberg<br/>
@@ -32,13 +29,13 @@ const Impressum = () => {
                   90403 Nürnberg</p>
 
                 <h2>Kontakt</h2>
-                <p>Telefon: 0911/666112<br/>
-                  Telefax: 0911/666112<br/>
-                    E-Mail: <a href="mailto:info@vatantaxi.de">info@vatantaxi.de</a></p>
+                <p>Telefon: +49 176/84435028<br/>
+                  
+                    E-Mail: <a href="mailto:yuksellacin1@outlook.de">yuksellacin1@outlook.de</a></p>
 
                   <h2>Umsatzsteuer-ID</h2>
                   <p>Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br/>
-                    DE328665495</p>
+                  238 243 00518 </p>
 
                   <h2>EU-Streitschlichtung</h2>
                   <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank">https://ec.europa.eu/consumers/odr</a>.<br/>

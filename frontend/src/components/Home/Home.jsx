@@ -300,6 +300,7 @@ const Home = () => {
 
                                 <input type="text" placeholder={text.form.startInput} name="start" value={start} onChange={(e) => setStart(e.target.value)} required />
                                 <input type="text" placeholder={text.form.endedInput} name="end" value={end} onChange={(e) => setEnd(e.target.value)} required />
+                                
                                 <div className='checkbox-terms'>
                                     <input
                                         type="checkbox"
@@ -310,6 +311,7 @@ const Home = () => {
                                     />
                                     <a href="/policy">{text.form.policyTxt}</a>
                                 </div>
+                                <span className='childSeat'>K-1 Kinderfahrt 9 Bis 36 Kilo Kinder Zum Mit Fahren. Auch 1 Bis 7 Personen Mit Fahren.</span>
                             </div>
                             <div className="submit">
                                 <input type="submit" value={text.form.submitBtn} />

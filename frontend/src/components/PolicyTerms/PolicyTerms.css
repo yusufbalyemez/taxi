@@ -5,7 +5,7 @@
     margin: 0 auto;
     font-size: 1.2rem;
     text-transform: none !important;
-    margin-top: 100px;
+    margin-top: 25px;
 
 }
 
@@ -51,4 +51,11 @@
 .ant-table-thead > tr > th,
 .ant-table-tbody > tr > td {
   border-bottom: 1px solid #e8e8e8; /* Sütun başlıkları ve hücreler arası kenarlık */
+}
+
+
+@media (max-width:768px){
+    .policy-container{
+        margin-top: 100px;
+    }
 }

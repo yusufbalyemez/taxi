@@ -20,7 +20,7 @@ const DataProtect = () => {
 
 
 
-                <p>Stand: 22. November 2020</p>
+                <p>Stand: 22. Marsch 2024</p>
 
 
 
@@ -36,19 +36,19 @@ const DataProtect = () => {
 
 
 
-                <p>Taxi Eleven GmbH<br />Schweinauer Hauptstr. 3<br />90441 Nürnberg</p>
+                <p>Yüksel Lacin Taxiunternehmen<br /> Nordring 110<br />90409 Nürnberg</p>
 
 
 
-                <p><strong>Vertretungsberechtigte Personen:</strong> Sinan Ünlühan</p>
+                <p><strong>Vertretungsberechtigte Personen:</strong> Yüksel Lacin</p>
 
 
 
-                <p><strong>E-Mail-Adresse:</strong> <a href="mailto:info@taxieleven.de">info@taxieleven.de</a></p>
+                <p><strong>E-Mail-Adresse:</strong> <a href="mailto:yuksellacin1@outlook.de">yuksellacin1@outlook.de</a></p>
 
 
 
-                <p><strong>Telefon:</strong> 0911/666112</p>
+                <p><strong>Telefon:</strong> +49 176/84435028</p>
 
 
 
