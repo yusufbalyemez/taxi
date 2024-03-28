@@ -13,13 +13,13 @@ const ContactInfo = () => {
                 </div>
                 <div className="part">
                     <i className="fa-solid fa-envelope"></i>
-                    <p>yuksellacin1@outlook.de</p>
+                    <p><a href="mailto:yuksellacin1@outlook.de">yuksellacin1@outlook.de</a></p>
                     <p>{''}</p>
                     <p>{''}</p>
                 </div>
                 <div className="part">
                     <i className="fa-solid fa-square-phone-flip"></i>
-                    <p>+49 176/84435028</p>
+                    <p><a href="tel:+4917684435028">0176/84435028</a></p>
                     <p>{''}</p>
                     <p>{''}</p>
                 </div>

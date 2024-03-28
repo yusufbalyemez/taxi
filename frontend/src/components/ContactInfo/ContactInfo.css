@@ -29,13 +29,14 @@
 .part p{
     margin-top: 1rem;
     font-size: 1.3rem;
-    text-transform: none;
+    text-transform: none !important;
     line-height: 1rem;
     color: rgb(134, 134, 135);
 }
 
 .part p a{
     color: rgb(134, 134, 135);
+    text-transform: none !important;
 }
 
 
