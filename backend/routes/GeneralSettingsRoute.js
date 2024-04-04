@@ -48,4 +48,14 @@ router.patch('/settings/:id', async (req, res) => {
     }
 });
 
+//Tabloyu boşalt
+router.delete('/settings/deleteAll', async (req,res)=>{
+    try {
+        await GeneralSettings.deleteMany({});
+        res.status(200).json({ message: 'Ayarlar tablosundaki bilgiler silindi.' });
+      } catch (error) {
+        res.status(500).json({ message: error.message });
+      }
+});
+
 module.exports = router;
