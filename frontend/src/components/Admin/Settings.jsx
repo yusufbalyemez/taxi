@@ -10,7 +10,7 @@ const Settings = () => {
   const { language } = useLanguage(); // Dil bağlamından dil bilgisini al
   const text = language.adminpage.settings; // Metinlere erişim
 
-  const settingsId = "65ddc2d4a40774d978774d55"
+  /* const settingsId = "65ddc2d4a40774d978774d55" */
 
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
 
@@ -19,12 +19,15 @@ const Settings = () => {
   const [phoneForm] = Form.useForm();
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState(''); // Telefon durumu için yeni bir useState
+  const [settingsId,setSettingsId] = useState('');
 
   // Kopyalama veya yapıştırma işlemini engelleyen fonksiyon
   const preventCopyPaste = (event) => {
     event.preventDefault();
     message.error('Kopyalama ve yapıştırma işlemi bu alanda engellenmiştir.');
   };
+
+
 
   useEffect(() => {
     const fetchSettings = async () => {
@@ -34,6 +37,7 @@ const Settings = () => {
           throw new Error('Settings could not be fetched!');
         }
         const data = await response.json();
+        setSettingsId(data._id);
         setEmail(data.email); // E-posta durumunu güncelle
         setPhone(data.phone); // Telefon durumunu güncelle
         emailForm.setFieldsValue({ email: data.email }); // E-posta form alanını güncelle
