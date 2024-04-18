@@ -20,28 +20,30 @@ exports.createBooking = async (req, res) => {
     const adminEmail = settings.email; // GeneralSettings modelinden çekilen e-posta adresi
 
     // Rezervasyon bilgilerini formatla
-    const bookingDetailsText = `A new booking has been made with the following details:\n\n` +
-                               `Name: ${savedBooking.name}\n` +
-                               `Phone: ${savedBooking.phone}\n` +
-                               `Date: ${savedBooking.date}\n` +
-                               `Hours: ${savedBooking.hours}\n` +
-                               `Start: ${savedBooking.start}\n` +
-                               `End: ${savedBooking.end}\n\n` +
-                               `Please check the dashboard for more details.`;
+    const bookingDetailsText = `Yeni bir rezervasyon yapıldı:\n\n` +
+                               `Adı: ${savedBooking.name}\n` +
+                               `Telefon: ${savedBooking.phone}\n` +
+                               `Tarih: ${savedBooking.date}\n` +
+                               `Saat: ${savedBooking.hours}\n` +
+                               `Yolcu Sayısı: ${savedBooking.passengers}\n` +
+                               `Başlangıç Yeri: ${savedBooking.start}\n` +
+                               `Varış yeri: ${savedBooking.end}\n\n` +
+                               `Daha fazla ayrıntı için lütfen kontrol panelini kontrol edin.`;
 
-    const bookingDetailsHtml = `<b>A new booking has been made with the following details:</b><br><br>` +
-                               `<b>Name:</b> ${savedBooking.name}<br>` +
-                               `<b>Phone:</b> ${savedBooking.phone}<br>` +
-                               `<b>Date:</b> ${savedBooking.date}<br>` +
-                               `<b>Hours:</b> ${savedBooking.hours}<br>` +
-                               `<b>Start:</b> ${savedBooking.start}<br>` +
-                               `<b>End:</b> ${savedBooking.end}<br><br>` +
-                               `Please check the dashboard for more details.`;
+    const bookingDetailsHtml = `<b>Yeni bir rezervasyon yapıldı:</b><br><br><br>` +
+                               `<b>Adı:</b> ${savedBooking.name}<br>` +
+                               `<b>Telefon:</b> ${savedBooking.phone}<br>` +
+                               `<b>Tarih:</b> ${savedBooking.date}<br>` +
+                               `<b>Saat:</b> ${savedBooking.hours}<br>` +
+                               `<b>Yolcu Sayısı:</b> ${savedBooking.passengers}<br>` +
+                               `<b>Başlangıç Yeri:</b> ${savedBooking.start}<br>` +
+                               `<b>Varış Yeri:</b> ${savedBooking.end}<br><br><br>` +
+                               `Daha fazla ayrıntı için lütfen kontrol panelini kontrol edin.`;
 
     // E-posta gönderme fonksiyonunu çağır
     await sendEmail(
       adminEmail, // GeneralSettings'ten çekilen e-posta adresini kullan
-      "New Booking Received",
+      "Yeni rezervasyon alındı.",
       bookingDetailsText,
       bookingDetailsHtml
     );
