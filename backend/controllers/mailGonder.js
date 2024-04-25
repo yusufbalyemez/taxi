@@ -15,14 +15,14 @@ async function sendEmail() {
     let transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: 'yusufbalyemezoyun@gmail.com',
-            pass: 'adpq pvdl jtov oaqt'
+            user: 'grossraumvklassetaxi@gmail.com',
+            pass: 'ubqi eylz edyl pdwd'
         }
     });
 
     // Mail gönderme opsiyonları, `to` alanını dinamik olarak ayarla
     let mailOptions = {
-        from: 'yusufbalyemezoyun@gmail.com',
+        from: 'grossraumvklassetaxi@gmail.com',
         to: settings.email, // GeneralSettings modelinden çekilen e-posta adresi
         subject: 'Nodemailer Test',
         html: '<h1>Test İçeriği</h1>',
