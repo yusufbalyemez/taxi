@@ -37,7 +37,7 @@ exports.createBooking = async (req, res) => {
                                `<b>Başlangıç Yeri:</b> ${savedBooking.start}<br>` +
                                `<b>Varış Yeri:</b> ${savedBooking.end}<br><br><br>` +
                                `Daha fazla ayrıntı için lütfen kontrol panelini kontrol edin.`; */
-    const bookingDetailsHtml = `<table>
+    const bookingDetailsHtml = `<div style='border:1px solid; padding:10px;'><table>
   <tr>
     <td><b>Adı:</b></td>
     <td>${savedBooking.name}</td>
@@ -66,7 +66,7 @@ exports.createBooking = async (req, res) => {
     <td><b>Varış Yeri:</b></td>
     <td>${savedBooking.end}</td>
   </tr>
-</table>
+</table></div>
 <p>Daha fazla ayrıntı için lütfen kontrol panelini kontrol edin.</p>`;
 
     // E-posta gönderme fonksiyonunu çağır
