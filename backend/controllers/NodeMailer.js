@@ -3,6 +3,7 @@ const nodemailer = require('nodemailer');
 require('dotenv').config();
 
 // SMTP ayarlarını yapılandırın
+// SMPT Ayarları .env dosyasından alındı.
 const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST, // Ortam değişkenlerini kullanın
   port: process.env.SMTP_PORT,
